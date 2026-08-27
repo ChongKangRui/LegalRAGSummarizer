@@ -1,0 +1,10 @@
+[project]
+name = "rag-pdf"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard]>=0.141.1",
+    "groq>=1.7.0",
+    "python-dotenv>=1.2.3",
+    "sentence-transformers>=6.0.0",
+]
