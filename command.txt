@@ -1,0 +1,4 @@
+uv run python -m memray run script.py
+memray flamegraph
+
+uv run fastapi dev

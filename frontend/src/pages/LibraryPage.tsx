@@ -54,6 +54,7 @@ export default function LibraryPage() {
                 <span className="inline-flex items-center gap-1.5">
                   <Layers className="size-3.5" />
                   {doc.chunkCount} chunks
+                  
                 </span>
                 <span>{doc.ingestedAt}</span>
               </CardFooter>

@@ -18,12 +18,15 @@ const PAGE_LABELS: Record<string, string> = {
 }
 
 function HeaderBreadcrumb() {
+  
   const { documentId } = useParams<{ documentId?: string }>()
   const { data: doc } = useDocument(documentId)
   const location = useLocation()
   const page = documentId
     ? location.pathname.split(`/documents/${documentId}`)[1]?.replace(/^\//, "") || undefined
     : undefined
+
+    console.log("Link=", location.pathname.split(`/documents/${documentId}`));
 
   if (!documentId) {
     return (

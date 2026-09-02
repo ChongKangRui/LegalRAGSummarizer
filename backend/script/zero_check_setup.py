@@ -1,6 +1,6 @@
 import os
 
-
+import numpy as np
 from dotenv import load_dotenv
 from groq import Groq
 
@@ -14,3 +14,7 @@ response = client.chat.completions.create(
      messages=[{"role": "user", "content": "Say hello in one short sentence."}],
 )
 print(response.choices[0].message.content)
+
+def cosine_similarity(a,b):
+    return np.dot(a,b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
