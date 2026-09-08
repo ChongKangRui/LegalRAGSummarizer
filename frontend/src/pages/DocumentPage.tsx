@@ -11,6 +11,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { DocStatusBadge, DocTypeBadge } from "@/components/document/DocBadges"
 import { CitationText } from "@/components/citation/CitationText"
 import { useDocument, useSummarize } from "@/hooks/queries"
+import {queryApi} from "@/lib/api"
 import { downloadTextFile } from "@/lib/download"
 import { cn } from "@/lib/utils"
 import type { Citation, SummarizationStrategy } from "@/lib/types"
@@ -30,9 +31,21 @@ export default function DocumentPage() {
   const [strategy, setStrategy] = useState<SummarizationStrategy>("naive")
   const [activeClauseId, setActiveClauseId] = useState<string | null>(null)
 
+  const [answer, setAnswer] = useState("")
+
+
+
+  // May not be used atm
   function handleAsk() {
     if (!documentId || !query.trim()) return
     summarize.mutate({ documentId, query: query.trim(), strategy })
+  }
+
+  async function handleAskStreaming() {
+    if (!documentId || !query.trim()) return;
+
+    queryApi.summarizeWithStream( documentId, query.trim(), strategy,setAnswer )
+  
   }
 
   function handleCiteClick(citation: Citation) {
@@ -67,6 +80,7 @@ export default function DocumentPage() {
       </div>
     )
   }
+
 
   return (
     <div className="mx-auto grid w-full max-w-6xl flex-1 grid-cols-1 gap-6 lg:grid-cols-[1fr_400px]">
@@ -172,7 +186,7 @@ export default function DocumentPage() {
           </div>
         )}
 
-        {summarize.data && !summarize.isPending && (
+        {summarize.data && summarize.isSuccess && (
           <Card className="flex-1">
             <CardHeader className="flex-row items-center justify-between space-y-0">
               <CardTitle className="text-base">Answer</CardTitle>
@@ -210,7 +224,7 @@ export default function DocumentPage() {
                 </ul>
               </div>
               <p className="text-xs text-muted-foreground">
-                {summarize.data.strategy} · {summarize.data.latencyMs}ms
+                {summarize.data.strategy} · {summarize.data.latencyMs.toFixed(2)}ms
               </p>
             </CardContent>
           </Card>

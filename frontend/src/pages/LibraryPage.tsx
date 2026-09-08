@@ -7,7 +7,7 @@ import { useDocuments } from "@/hooks/queries"
 
 export default function LibraryPage() {
   const { data: documents, isLoading, isError } = useDocuments()
-
+  console.log(documents);
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
       <div>

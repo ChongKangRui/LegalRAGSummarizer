@@ -10,3 +10,6 @@ load_dotenv()
 def get_groq_client() -> Groq:
     client = Groq(api_key=os.environ["GROQ_API_KEY"])
     return client
+
+
+

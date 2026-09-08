@@ -1,12 +1,14 @@
 import time
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 
-from api.routes import router as query_router
+from app.api.summarization import router as query_router
+from app.api.documents import router as document_router
 
 app = FastAPI()
 
-
+app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_methods=["*"], allow_headers=["*"])
 
 # ---- Middleware: runs on EVERY request, like Express `app.use((req, res, next) => ...)` ----
 @app.middleware("http")
@@ -26,7 +28,7 @@ async def log_requests(request: Request, call_next):
 
 # ---- Routing: mount a router, like Express `app.use('/query', queryRouter)` ----
 app.include_router(query_router)
-
+app.include_router(document_router)
 
 @app.get("/")
 async def root():

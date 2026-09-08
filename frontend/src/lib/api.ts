@@ -30,16 +30,16 @@ function mockDelay<T>(value: T, ms = 300 + Math.random() * 400): Promise<T> {
 
 export const documentsApi = {
   list(): Promise<DocumentSummary[]> {
-    if (USE_MOCKS) return mockDelay(mockDocumentSummaries)
+    //if (USE_MOCKS) return mockDelay(mockDocumentSummaries)
     return apiClient.get("/documents").then((res) => res.data)
   },
 
   get(documentId: string): Promise<DocumentDetail> {
-    if (USE_MOCKS) {
-      const doc = getDocumentById(documentId)
-      if (!doc) return Promise.reject(new Error(`Unknown document: ${documentId}`))
-      return mockDelay(doc)
-    }
+    // if (USE_MOCKS) {
+    //   const doc = getDocumentById(documentId)
+    //   if (!doc) return Promise.reject(new Error(`Unknown document: ${documentId}`))
+    //   return mockDelay(doc)
+    // }
     return apiClient.get(`/documents/${documentId}`).then((res) => res.data)
   },
 }
@@ -50,12 +50,43 @@ export const queryApi = {
     query: string,
     strategy: SummarizationStrategy = "naive",
   ): Promise<SummaryResponse> {
-    if (USE_MOCKS) {
-      return mockDelay(mockGen.summarize(documentId, query, strategy), 600 + Math.random() * 900)
-    }
+    // if (USE_MOCKS) {
+    //   return mockDelay(mockGen.summarize(documentId, query, strategy), 600 + Math.random() * 900)
+    // }
     return apiClient
       .post("/summarize", { documentId, query, strategy })
       .then((res) => res.data)
+  },
+
+  async summarizeWithStream(
+    documentId: string,
+    query: string,
+    strategy: SummarizationStrategy = "naive",
+    setAnswer: (text: string)=>void
+  ){
+
+    const baseURL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000"
+
+    // axios dont support streaming event
+    const res = await fetch(`${baseURL}/sumarize/stream`, {method:"POST", headers: {"Content-Type" : "application/json"}, body: JSON.stringify({ documentId, query, strategy }),})
+    
+    const reader = res.body!.getReader();
+    const decoder = new TextDecoder();
+    
+    let answer = "";
+    
+    while(true){
+      const {value, done} = await reader.read();
+
+      if(done){
+        break;
+      }
+      answer += decoder.decode(value, {stream: true});
+
+      setAnswer(answer);
+    }
+
+
   },
 
   retrieve(documentId: string, query: string): Promise<RetrievalResult> {

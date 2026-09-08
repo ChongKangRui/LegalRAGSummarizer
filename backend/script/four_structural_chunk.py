@@ -1,8 +1,8 @@
 import re
 
-from one_naive_baseline import DOCUMENT
-from three_generate_answer import answer
-from two_embed_similarity import retrieve
+from script.one_naive_baseline import DOCUMENT
+from script.three_generate_answer import answer
+from script.two_embed_similarity import retrieve
 
 CLAUSE_RE =re.compile(r"^(\d+\.\d+(?:\([a-z]\))?)\s", re.MULTILINE)
 
@@ -13,8 +13,6 @@ clauses = []
 for i,m in enumerate(matches):
     start = m.start()
     end = matches[i+1].start() if i + 1 < len(matches) else len(DOCUMENT)
-
-
 
     clauses.append({"section_id": m.group(1), "text": DOCUMENT[start:end].strip()})
 
