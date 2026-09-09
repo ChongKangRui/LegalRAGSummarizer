@@ -1,14 +1,12 @@
-import os
 
-from dotenv import load_dotenv
 from groq import Groq
 from functools import cache
+from app.config import API_KEY
 
-load_dotenv()
 
 @cache
 def get_groq_client() -> Groq:
-    client = Groq(api_key=os.environ["GROQ_API_KEY"])
+    client = Groq(api_key=API_KEY)
     return client
 
 

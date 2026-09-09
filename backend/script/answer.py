@@ -46,7 +46,7 @@ Known answer: termination conditions
    # print("Query result = ",id, "\n",distance ," \n", metadata, "\n", document, "\n")
    print("============================")
 
-   answer_outcome = answer(question, query_result["documents"])
+   answer_outcome = answer(question, [h["text"] for h in query_result])
    print("Ai answer_outcome= ", answer_outcome)
 
 

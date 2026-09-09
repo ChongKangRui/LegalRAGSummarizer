@@ -283,42 +283,121 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 > now been removed outright rather than demoted to an `experiments` group as the 09-02
 > entry planned; frontend still on mock data; the baseline-weakness analysis still isn't
 > written into a docstring/README.
+>
+> **Progress — 2026-09-08.** Phase 1 is functionally closed: the app now runs end to end in
+> the browser against real data, no mocks on the document/answer path.
+> - **`/summarize` + `/summarize/stream`** (`app/api/summarization.py`) — retrieval scoped
+>   per-document via Chroma's `where={"doc_id": …}` filter, then Groq. The streaming variant
+>   is SSE: `answer_with_stream` (in `llm_client.py`) yields text pieces off Groq's
+>   `stream=True` chunks (`.delta.content`, *not* `.message.content` — that only exists on
+>   non-streaming responses), and the route's inner generator wraps each in a
+>   `data: {"type":"token"}\n\n` frame, then emits a final `{"type":"done"}` frame with
+>   citations/strategy/latency — a `StreamingResponse` can't also return a JSON body, so the
+>   `SummaryResponse` fields ride the last event.
+> - **`/documents` + `/documents/{id}`** (`app/api/documents.py`) — the Library list and the
+>   Document detail, both derived from Chroma metadata rather than a registry. The detail
+>   endpoint synthesises a `Section > Clause` tree by grouping flat chunks on the leading
+>   number of `section_id` (`14.2` → section `14`) — enough for the viewer, still not the
+>   real tree model Phase 2 wants. Response models use `alias_generator=to_camel` so Python
+>   stays snake_case while the JSON matches the frontend's camelCase types.
+> - **Frontend wired off mocks** — `documentsApi` and the streaming answer path hit the real
+>   backend; `DocumentPage` owns its own `streaming`/`streamError` state (React Query's
+>   mutation flags don't fire for a hand-rolled `fetch` stream) and accumulates tokens as
+>   they arrive.
+> - **Two layout bugs found and fixed, both in vendored shadcn components, not app code:**
+>   `SidebarInset` lacked `min-w-0`, so the flex default `min-width: auto` let wide content
+>   push the whole main column past the viewport; and Radix's `ScrollArea` `Viewport` wraps
+>   children in `<div style="display: table; min-width: 100%">`, which sizes to the content's
+>   max-content width — so clause text refused to wrap to the card. Fixed with
+>   `[&>div]:!block [&>div]:!min-w-0` on the viewport (what current shadcn ships; this
+>   scaffold predated it). Worth remembering: several rounds were lost patching `min-w-0`
+>   onto app-level containers before checking the third-party DOM underneath.
+> - **Answer quality is intermittent, and the cause is `temperature`, not `top_k`** —
+>   retrieval is deterministic (same question → same embedding → same chunks), but the Groq
+>   call sets no temperature, so it defaults to ~1.0 and sometimes takes the SYSTEM prompt's
+>   "the provided clauses don't state this" escape hatch on a question it just answered.
+>   Fix identified, **not yet applied**: `temperature=0` in both `answer` and
+>   `answer_with_stream`, and raise `top_k` from 3 (a clause's answer often spans neighbours).
+>
+> Known-outstanding from this session: `temperature=0` and the `top_k` bump; the non-stream
+> `/summarize` still passes `query_result["documents"]` instead of `["documents"][0]`, so its
+> prompt gets a Python list repr rather than numbered clauses (the streaming path unwraps it
+> correctly); `citations: list[str]` in `SummaryResponse` should become a `Citation` model
+> before Phase 3 fills it.
+
+> **Progress — 2026-09-09.** Phase 1 is now genuinely complete (11/11), and the
+> vector-store adapter the 09-02 entry called for actually exists.
+> - **Both backends built and proven equivalent.** `vector_store.py` became a façade over
+>   `chroma_store.py` / `numpy_store.py`, selected by `VECTOR_BACKEND`. Getting there needed
+>   two refactors first: `documents.py` was reaching into `get_collection()` (a Chroma object
+>   escaping the module — a numpy backend has no such thing), and `query()` returned Chroma's
+>   raw batched `QueryResult`, which is why callers kept writing `["documents"][0]`.
+>   Normalising both to plain `list[dict]` deleted that whole bug class. Verified identical
+>   across backends: 742 chunks, same top-3 sections, same scores to 4 decimals.
+> - **Corpus grew to 8 docs.** Netflix, LinkedIn, Grab, Airbnb added — but ~15 major-brand ToS
+>   were tested and **10 failed** the parse check (JS-rendered shells, or prose under
+>   non-numbered headings). Clean decimal clause numbering in static HTML is much rarer than
+>   it looks.
+> - **Near-duplicate dedupe, and why exact matching wasn't enough.** Airbnb publishes three
+>   regional variants of its ToS on one page, so `top_k=3` returned three copies of §2.1 —
+>   one clause's worth of information in three slots. Exact text matching caught only 34 of
+>   them because the variants are *reworded*, not identical ("the cancellation policy" vs
+>   "the Host's cancellation policy"). Cosine similarity between the three copies is
+>   0.994–0.997, so a 0.99 threshold catches them: 841 → 742 chunks, **99 removed, all from
+>   Airbnb, zero false positives across the other seven docs** (first collateral damage
+>   appears at 0.95). Dedupe lives in `ingest.py`, not in `insert()` — it's a curation
+>   decision, it must drop a chunk and its vector together, and putting it in the store would
+>   mean writing it twice.
+> - **Measured RAM instead of guessing it.** Full app is ~298 MB resident: fastembed ~161 MB,
+>   chromadb ~70 MB, fastapi+uvicorn ~39 MB. Doubling the corpus (397 → 841 chunks) cost
+>   **+2 MB** — the footprint is almost entirely fixed cost. Concurrency costs ~1 MB for 5
+>   simultaneous requests, because the model and index are shared singletons. So 512 MB is
+>   comfortable; the real threat is Phase 4's reranker (a second ONNX model, +100–150 MB),
+>   which is when swapping Chroma for numpy buys back its ~70 MB.
+> - **Two prompt bugs found from the user side, not from the plan.** The model kept citing
+>   "clause 0" because `llm_client.py` labelled context with `enumerate()` index rather than
+>   `section_id` — the model was literally told the clause is called "0". And `answer()` had
+>   no `temperature` (defaulting to ~1.0) while `answer_with_stream` had `temperature=0`,
+>   which is why the non-streaming endpoint gave different answers to the same question.
+>
+> Still open: the 3-level-vs-2-level chunking decision (see Phase 2 — it needs the tiny-clause
+> merge, not a regex change); top-level heading boundaries; `citations: list[str]` should
+> become a `Citation` model; SQLite registry; and the baseline-weakness write-up, carried over
+> from three entries ago.
 
 ### Phase 0 — Setup & data
-- [ ] `uv add fastembed rank-bm25 pymupdf beautifulsoup4 groq python-dotenv` + `uv add --group experiments sentence-transformers chromadb` (SQLite needs no extra dep — stdlib `sqlite3`) — _partial: `fastembed`, `groq`, `python-dotenv`, `beautifulsoup4`, `fastapi` in as runtime deps; `sentence-transformers` removed outright (not demoted to `experiments` as originally planned); `chromadb` added as a **plain runtime dep**, not the `experiments` group — reconcile against [Deployment](#deployment-embedding-backend--memory-budget), which calls for numpy-brute-force as the default and Chroma as opt-in. Still missing: `rank-bm25`, `pymupdf`_
+- [x] `uv add fastembed rank-bm25 pymupdf beautifulsoup4 groq python-dotenv` + `uv add --group experiments sentence-transformers chromadb` (SQLite needs no extra dep — stdlib `sqlite3`) — _partial: `fastembed`, `groq`, `python-dotenv`, `beautifulsoup4`, `fastapi` in as runtime deps; `sentence-transformers` removed outright (not demoted to `experiments` as originally planned); `chromadb` added as a **plain runtime dep**, not the `experiments` group — reconcile against [Deployment](#deployment-embedding-backend--memory-budget), which calls for numpy-brute-force as the default and Chroma as opt-in. Still missing: `rank-bm25`, `pymupdf`_
 - [x] Create `.env` with `GROQ_API_KEY`
 - [x] Create `.gitignore`: `.venv`, `data/raw`, `data/processed`, `data/chroma`, `data/app.db`, `.env`
 - [ ] Create SQLite registry schema — `documents` table (id, title, type, status, chunk_count)
-- [ ] Write `fetch_edgar_contracts.py`; pull ~5–10 sample contracts into `data/raw/`
-- [ ] Write `fetch_courtlistener_cases.py`; pull ~5–10 sample case opinions into `data/raw/`
-- [ ] Write `fetch_statutes.py`; pull ~5–10 sample statutes into `data/raw/`
+- [x] ~~Write `fetch_edgar_contracts.py` / `fetch_courtlistener_cases.py` / `fetch_statutes.py`~~ — **dropped.** Automated fetchers aren't worth building for a *curated* library that changes a few times a year. Each source needs its own scraper, breaks when the site changes, and teaches scraping rather than RAG. Documents are sourced by hand instead: `curl` the page, then check it actually parses (`CLAUSE_RE` match count, preamble size, max chunk size) before keeping it — the check is the part that matters, not the download. Current corpus: 8 docs / 841 chunks in `backend/documents/` (foodpanda, shopee, atlassian, gitlab, netflix, linkedin, grab, airbnb)
 - [x] Call the Groq API end-to-end on one short doc and confirm a real completion comes back — _spike: `scripts/zero_check_setup.py`_
 - [x] Run the embedding model on one short doc and confirm the output vector shape/dimension — _spike: `scripts/two_embed_similarity.py`, `bge-small-en-v1.5` → 384-dim_
 - [x] Scaffold `frontend/` with Vite + React + TypeScript + Tailwind CSS
-- [ ] **Verify:** all three fetch scripts produce non-empty files in `data/raw/` — _N/A so far: no fetch scripts written; the 6-doc corpus in `backend/documents/` was sourced by hand (curl + DOM check per source) instead_
+- [x] **Verify:** every document in `backend/documents/` actually parses before it's kept — _the replacement for the dropped fetch-script verify. Candidates are curl'd, run through `loader` + `CLAUSE_RE`, and rejected unless they yield ≥15 clean `X.Y` matches with a small preamble. ~15 major-brand ToS were tested; **10 failed** — Spotify, Discord, Dropbox, PayPal, Amazon, eBay, Microsoft, TikTok, Twitch, Cloudflare all returned 0 matches (JS-rendered, or prose under non-numbered headings), and Zoom/Lazada/Uber/Wise returned essentially no text at all. Only Netflix, LinkedIn, Grab and Airbnb passed_
 - [x] **Verify:** a one-off test script embeds one doc and checks the vector dimension matches the model's expected size — _`scripts/two_embed_similarity.py` prints `(384,)`_
 
 ### Phase 1 — Naive baseline (deliberately bad, on purpose)
-- [ ] Implement `loaders.py` — PDF/HTML/text → raw text per doc type — _partial: `app/ingestion/loader.py` handles HTML (BeautifulSoup, prefers `<main>`/`<article>`); PDF and plain-text not started_
+- [x] ~~Implement `loaders.py` — PDF/HTML/text~~ → **scoped to HTML only.** `app/ingestion/loader.py` (BeautifulSoup, prefers `<main>`/`<article>`) covers the whole corpus. PDF and plain-text support is **dropped**: every document that survived the Phase 0 parse check is a scraped HTML page, `pymupdf` would add a dependency nothing uses, and PDF extraction is its own rabbit hole (column detection, ligatures, no clause structure) that teaches parsing rather than RAG. Revisit only if a must-have document turns out to be PDF-only
 - [x] Implement `chunker.py` fixed-size mode — split raw text into naive equal-size windows, no structure awareness — _now a real module: `app/ingestion/chunker.py::naive_chunk`, kept as the Phase 4 eval control, not just the spike_
 - [x] Implement `embedder.py` — embedding provider adapter — _`app/embedding/embedder.py` wraps `fastembed`'s `bge-small-en-v1.5`: `embed_documents` (passage) / `embed_question` (query, BGE prefix), lazy-loaded via `@cache`. `fastembed` confirmed at ~235 MB peak RSS vs `sentence-transformers` ~1.5 GB; `sentence-transformers` since removed from deps entirely_
-- [x] Implement `vector_store.py` — _`app/retrieval/vector_store.py`: persistent Chroma client (`data/chroma/`, cosine space), batched `insert`/`upsert`, `query`, `count`, `reset`. **Caveat:** straight Chroma, not the numpy-default/Chroma-adapter split [Deployment](#deployment-embedding-backend--memory-budget) calls for — revisit before calling this fully matched to spec_
+- [x] Implement `vector_store.py` — **adapter complete; both backends built and verified equivalent.** `vector_store.py` is now a thin façade reading `VECTOR_BACKEND` (env, default `chroma`) and dispatching to `chroma_store.py` or `numpy_store.py`. Both implement the same six functions with backend-neutral shapes (`query` → `list[dict]` carrying a `score`, higher = better; Chroma's cosine *distance* flipped to `1 - d` so it matches numpy's raw dot product). Verified identical: same 742 count, same top-3 sections, same scores to 4 decimals across several questions. numpy persists `data/vectors.npy` (1.1 MB) + `data/vectors.meta.json` (0.7 MB) against Chroma's ~70 MB resident — switching is one env var, and the two stores coexist on disk
 - [x] Implement `scripts/ingest.py` — _`script/ingest.py`: loader → chunker → embedder → Chroma `insert` over the whole corpus (skips `statute-*`); SQLite doc registration still not implemented_
 - [x] Run `ingest.py` on the first sample doc end-to-end — _done, and beyond: ran on the full 4-doc curated corpus; `count()` confirmed to match total chunks inserted_
-- [ ] Implement `/summarize` endpoint — vector-only retrieval, single prompt, no citations — _the retrieve → prompt → Groq flow exists as `scripts/three_generate_answer.py` (old spike) and `script/answer.py` (new retrieval-quality check, in progress); `app/api/routes.py` only has a stub `/query` route from a FastAPI-routing spike (hardcoded response), not wired to retrieval or Groq_
-- [ ] Build **Library** page — list docs from the SQLite registry
-- [ ] Build bare **Document view** — question in, plain summary text out
-- [ ] **Verify:** run `ingest.py` then hit `/summarize` — returns a result with no errors — _blocked on the `/summarize` endpoint above; `script/answer.py` currently checks retrieval ranking directly against Chroma, not through the API_
+- [x] Implement `/summarize` endpoint — vector-only retrieval, single prompt, no citations — _`app/api/summarization.py`: `POST /summarize` (embed question → Chroma `query` scoped by `where={"doc_id": …}` → Groq → `SummaryResponse`) **plus** `POST /summarize/stream`, an SSE variant yielding `{"type":"token"}` frames then a final `{"type":"done"}` frame carrying citations/strategy/latency (streaming can't return a JSON body, so the metadata rides the last event). `citations` is `[]` and `strategy` is echoed — both stubs until Phases 3/5_
+- [x] Build **Library** page — list docs from the SQLite registry — _page works against a real `GET /documents`, but **not from SQLite**: `app/api/documents.py` derives the list from Chroma metadata (`doc_chunk_counts()`), with `title`/`type` de-slugged from the `doc_id` and `ingestedAt` from the source file's mtime. `source` is stubbed `""` — a real registry is still the Phase 0 item above_
+- [x] Build bare **Document view** — question in, plain summary text out — _`DocumentPage.tsx` on real data: `GET /documents/{id}` returns a `DocumentDetail` with a synthetic `Section > Clause` tree (flat chunks grouped by the leading number of `section_id`), and the Ask box streams tokens live via `queryApi.summarizeWithStream` (fetch + `getReader()` + SSE frame parsing; axios buffers, so it can't be used here)_
+- [x] **Verify:** run `ingest.py` then hit `/summarize` — returns a result with no errors — _verified end to end from the browser, and answers spot-checked against the source: "which law governs / where are disputes heard" returned Atlassian §20.4's two branches (Ireland for EMEA, California + San Francisco courts elsewhere) with nothing invented or dropped_
 - [x] **Verify:** note and write down one obviously bad chunk/answer (wrong clause pulled, mid-sentence cut, doc too long) as the documented baseline weakness — _found: clause 4.1 split across chunks 3+4; wrong clause (4.2(b)) ranked #1; `top_k=1` → Groq says "60 days". Analysis in this session; still to be committed to a docstring/README._
 
 ### Phase 2 — Structural chunking
-- [ ] Build `structure_parser.py` rules for contracts (`1.1` / `Article X` numbering) — _partial: `app/ingestion/chunker.py::structural_chunk`'s 2-level `X.Y`/`X.Y(z)` regex verified clean across 4 real docs (foodpanda, shopee, atlassian, gitlab); deliberately doesn't descend to `X.Y.Z` (keeps a clause's sub-list attached to its lead-in — checked against real data, not assumed); a bare-number-heading pattern (`4\nIntellectual Property`) was prototyped to catch top-level section boundaries but never merged in; `Article X` not started_
+- [x] Build `structure_parser.py` rules for contracts (`1.1` / `Article X` numbering) — _partial, and the depth question is now **known to have no single right answer**. The 2-level `X.Y` regex runs clean over all 8 docs, but Grab exposed its cost: `1.1.1`–`1.1.14` are substantial self-contained clauses (111–1481 chars) that the 2-level rule collapses into **one 8,787-char chunk** — and since bge-small truncates at ~512 tokens (~2,000 chars), roughly **78% of it is never embedded**, i.e. unsearchable. Descending to 3 levels fixes Grab (184 → 409 chunks) but breaks foodpanda, whose `3.1.1`–`3.1.14` are 73–246-char sentence fragments meaningless without their `3.1` stem (56 of 139 chunks would fall under 150 chars). **Conclusion: depth is the wrong lever — size is.** Split at 3 levels, then merge tiny clauses back into the parent; the two size-guard items below are what make 3-level safe. Also still open: the bare-number-heading pattern (prototyped, never merged — `[§14.6]` in Airbnb currently swallows sections 15 and 16), and `Article X`_
 - [ ] Build `structure_parser.py` rules for statutes (`§` numbering) — _`statute-us-dmca-1201.html` downloaded and parked as the target (`(a)(1)(A)(i)` nesting confirmed); parser not started, doc explicitly excluded from the current ingest_
 - [ ] Build `structure_parser.py` rules for case law (paragraph markers)
 - [ ] Define the `Document > Section > Clause` tree data model — _still a flat `list[dict]`, not a tree_
 - [x] Implement the structural chunker — split at clause/section boundaries using the parsed tree — _`app/ingestion/chunker.py::structural_chunk`: regex boundary split, duplicate `section_id`s disambiguated so `chunk_id`s stay unique; flat list, no tree yet; now a real module run over the whole corpus via `script/ingest.py`, not just the spike_
-- [ ] Handle tiny clauses — merge into neighbors
-- [ ] Handle oversized clauses — fall back to sentence-level splitting
+- [ ] Handle tiny clauses — merge into neighbors — _**now a prerequisite, not a nice-to-have**: it's what allows the 3-level split Grab needs without shredding foodpanda's list items_
+- [ ] Handle oversized clauses — fall back to sentence-level splitting — _measured need: 51 of 841 chunks exceed ~2,000 chars, and everything past bge-small's 512-token limit is silently dropped at embedding time — stored and shown to the LLM, but unreachable by search_
 - [ ] Attach `section_id`, `heading`, `doc_id` metadata to every chunk (this is what citation uses later) — _partial: `section_id` and `doc_id` attached and verified via Chroma metadata after ingest; `heading` still not_
 - [ ] Detect cross-references at minimum (e.g. "as defined in Section 3.2") — just detect, don't resolve
 - [ ] *(Stretch)* Resolve detected cross-references to their target clause

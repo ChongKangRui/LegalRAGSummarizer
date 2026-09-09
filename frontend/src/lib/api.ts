@@ -2,6 +2,7 @@ import { apiClient } from "@/lib/api-client"
 import * as mockGen from "@/mocks/generators"
 import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
 import type {
+  Citation,
   CompareResult,
   DocumentDetail,
   DocumentSummary,
@@ -11,6 +12,7 @@ import type {
   SummarizationStrategy,
   SummaryResponse,
 } from "@/lib/types"
+import type{Dispatch, SetStateAction} from "react"
 
 /**
  * The API seam.
@@ -59,31 +61,56 @@ export const queryApi = {
   },
 
   async summarizeWithStream(
-    documentId: string,
-    query: string,
-    strategy: SummarizationStrategy = "naive",
-    setAnswer: (text: string)=>void
+  documentId: string,
+  query: string,
+  strategy: SummarizationStrategy = "naive",
+  setAnswer: Dispatch<SetStateAction<string>>,
+  setCitations: Dispatch<SetStateAction<Citation[] | undefined>>,
+  setLatency: Dispatch<SetStateAction<number>>,
+  setStrategy: Dispatch<SetStateAction<SummarizationStrategy>>,
   ){
 
     const baseURL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000"
 
     // axios dont support streaming event
-    const res = await fetch(`${baseURL}/sumarize/stream`, {method:"POST", headers: {"Content-Type" : "application/json"}, body: JSON.stringify({ documentId, query, strategy }),})
+    const res = await fetch(`${baseURL}/summarize/stream`, {method:"POST", headers: {"Content-Type" : "application/json"}, body: JSON.stringify({ documentId, query, strategy }),})
     
     const reader = res.body!.getReader();
     const decoder = new TextDecoder();
     
-    let answer = "";
+    let buffer = "";
     
     while(true){
       const {value, done} = await reader.read();
-
-      if(done){
+      if(done)
         break;
-      }
-      answer += decoder.decode(value, {stream: true});
+      
 
-      setAnswer(answer);
+      buffer += decoder.decode(value, {stream: true});
+      const frames = buffer.split("\n\n")
+      console.log("buffer: ", buffer)
+      buffer = frames.pop() ?? "";
+     
+      for(const frame of frames){
+        
+        if(!frame.startsWith("data: ")){
+          continue;
+        }
+
+        const obj = JSON.parse(frame.slice(6));
+       
+
+        if(obj.type === "token"){
+          setAnswer(prev=>prev+obj.text)
+        }
+        else if (obj.type === "done") {
+          setCitations(obj.citations)
+          setLatency(obj.latencyMs)
+          setStrategy(obj.strategy)
+        }
+      }
+      
+    
     }
 
 

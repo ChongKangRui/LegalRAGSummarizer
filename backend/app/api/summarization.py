@@ -8,12 +8,15 @@ from app.generation.llm_client import answer, answer_with_stream
 
 from fastapi.responses import StreamingResponse
 
+import json
+
 import time
 
 
 # Like `const router = express.Router()` + every path in here is prefixed with /query
 router = APIRouter(prefix="/summarize", tags=["summarize"])
 
+def sse(obj): return f"data: {json.dumps(obj)}\n\n"
 
 # ---- Request / response bodies. FastAPI validates + documents these for you ----
 class QueryRequest(BaseModel):
@@ -42,9 +45,9 @@ async def run_query(body: QueryRequest):
     start = time.perf_counter()
     
     question_vec = embed_question(body.query)
-    query_result = query(question_vec, 3, where={"doc_id" : body.document_id})
+    hits = query(question_vec, 3, where={"doc_id" : body.document_id})
 
-    answer_outcome = answer(body.query, query_result["documents"])
+    answer_outcome = answer(body.query, hits)
   
     print("Latency:", (time.perf_counter() - start) * 1000)
     return SummaryResponse(
@@ -56,16 +59,22 @@ async def run_query(body: QueryRequest):
         latency_ms=(time.perf_counter() - start) * 1000,  # measured
     )
 
-@router.post("/stream", response_model=StreamingResponse)
-async def run_query_stream(body: QueryRequest)->StreamingResponse:
+@router.post("/stream")
+async def run_query_stream(body: QueryRequest):
     # `body` is already parsed + validated against QueryRequest.
     
     start = time.perf_counter()
     
     question_vec = embed_question(body.query)
-    query_result = query(question_vec, 3, where={"doc_id" : body.document_id})
+    hits = query(question_vec, 3, where={"doc_id" : body.document_id})
 
-   #answer_outcome = answer(body.query, query_result["documents"])
+    def event_stream():
+        for piece in answer_with_stream(body.query, hits):
+            yield sse({"type":"token", "text" : piece})
+
+        yield sse({"type": "done", "documentId": body.document_id,
+            "strategy": body.strategy or "naive",
+            "citations": [],
+            "latencyMs": (time.perf_counter() - start) * 1000,})
   
-    print("Latency:", (time.perf_counter() - start) * 1000)
-    return StreamingResponse(answer_with_stream(body.query, query_result["documents"]), media_type="text/plain")
+    return StreamingResponse(event_stream(), media_type="text/event-stream")

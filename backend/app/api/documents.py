@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, ConfigDict
 from pydantic.alias_generators import to_camel
 
-from app.retrieval.vector_store import doc_chunk_counts, get_collection
+from app.retrieval.vector_store import doc_chunk_counts, get_chunks
 from datetime import datetime
 from app.config import DOCUMENTS_DIR
 
@@ -40,7 +40,7 @@ class Section(BaseModel):
 class DocumentSection(DocumentSummary):
     sections: list[Section]
 
-@router.get("/", response_model=list[DocumentSummary])
+@router.get("", response_model=list[DocumentSummary])
 async def get_document_list():
 
 
@@ -62,15 +62,13 @@ async def get_document_list():
     return summarys
 
 @router.get("/{doc_id}", response_model=DocumentSection)
-async def get_document(doc_id: str):
+async def get_document_id(doc_id: str):
 
     counts = doc_chunk_counts()
     if doc_id not in counts:
         raise HTTPException(status_code=404, detail=f"no document {doc_id!r}")
 
-    res = get_collection().get(where={"doc_id" : doc_id})
-    texts, metas = res["documents"], res["metadatas"]
-    # print(res)
+    chunks = get_chunks(doc_id)
 
 
     groups : dict[str, list[Clause]] = {}
@@ -79,10 +77,10 @@ async def get_document(doc_id: str):
     # gather the section id, 
     # getting the first num as the section after split
     # use it as a map to store the related clause
-    for text, meta in zip(texts, metas):
-        sid = meta["section_id"]
+    for ch in chunks:
+        sid = ch["metadata"]["section_id"]
         num = sid.split(".")[0]
-        groups.setdefault(num, []).append(Clause(id=sid, heading="", text=text))
+        groups.setdefault(num, []).append(Clause(id=sid, heading="", text=ch["text"]))
 
 
     # clause multiple replace just in case contain like 4.2(a) like this

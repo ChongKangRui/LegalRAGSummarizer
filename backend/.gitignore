@@ -9,4 +9,6 @@ __pycache__/
 data/raw/
 data/processed/
 data/chroma/
+data/vectors.npy
+data/vectors.meta.json
 data/app.db
