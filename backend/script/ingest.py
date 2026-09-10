@@ -4,7 +4,7 @@ from app.ingestion.chunker import structural_chunk
 from app.embedding.embedder import embed_documents
 from app.retrieval.vector_store import reset, insert, count
 import numpy as np
-
+from app.config import VECTOR_BACKEND
 import time
 
 def dedupe(all_chunks : list, vecs : list[list[float]], threshold : float = 0.99):
@@ -25,6 +25,7 @@ def ingestProcess():
     reset()
     docs = loadDocument()
     print("-------------ingesting--------------")
+    print("ingesting choice: ", VECTOR_BACKEND)
     all_chunks, all_vecs = [], []
 
     for d in docs:

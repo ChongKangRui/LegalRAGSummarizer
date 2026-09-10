@@ -365,6 +365,37 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 > become a `Citation` model; SQLite registry; and the baseline-weakness write-up, carried over
 > from three entries ago.
 
+> **Progress — 2026-09-09 (later).** Phase 2's chunking work is done — four bugs found by
+> reading the actual chunk output rather than trusting the corpus counts.
+> - **Heading boundaries.** Adding `HEADING_RE` for bare `8. Title` sections dropped
+>   cross-section bleed from **185 chunks to 0**. Atlassian §7.2 had been carrying sections
+>   8, 9 and 10 inside it; after the fix it is 994 chars of its own text and no longer needs
+>   splitting at all. The pattern must use a lookahead `(?=[A-Z])` — consuming the capital
+>   put `m.end()` one character past the boundary and ate the title's first letter
+>   (`Software` → `oftware`). General rule: **a boundary regex must not consume the text
+>   after it, because `m.end()` is where the chunk body starts.**
+> - **Size guards, both directions.** `SMALL_CLAUSE_SIZE = 150` merges a fragment into its
+>   *parent* only — absorbing a sibling would leave a chunk labelled §1.1.5 holding §1.1.6's
+>   text, which no citation validator could catch. `OVERSIZE_CLAUSE_SIZE = 1400` was measured
+>   rather than guessed (512 tokens = 1471–2518 chars on this corpus). Oversized chunks
+>   **93 → 0**, recovering the ~19% of corpus text that sat past the embedding cutoff.
+> - **Two subtler ones.** Grab's table of contents is 12% of that document and was producing
+>   a chunk per index line (`"Payments"`, `"Definitions"`); `MIN_CHUNK_SIZE = 40` took
+>   micro-chunks **224 → 1**. And `pack` was flushing a buffer that was still just a heading,
+>   emitting a 28-char `"Know Your Legal Obligations."` piece separated from the obligations
+>   themselves — fixed by refusing to flush below `MIN_CHUNK_SIZE`, accepting a small
+>   overflow instead.
+> - **A recurring lesson worth naming:** every one of these was a *boundary placement* bug,
+>   not a strategy bug — one character too far right, or one flush too early. Corpus-level
+>   counts (chunks, medians) looked fine throughout; all four were only visible by printing
+>   actual chunk text and reading it.
+>
+> Known limitations, recorded rather than fixed: Grab restarts numbering (Section A §1 and
+> Section B §1 both exist, so `[§1]` is ambiguous in that one document); foodpanda's headings
+> are `4\nIntellectual Property` — number then newline — which `HEADING_RE` does not match,
+> so its sections 4 and 11–18 still have no chunks of their own; and the last chunk of each
+> document absorbs page footer/nav text, since it runs to `len(text)`.
+
 ### Phase 0 — Setup & data
 - [x] `uv add fastembed rank-bm25 pymupdf beautifulsoup4 groq python-dotenv` + `uv add --group experiments sentence-transformers chromadb` (SQLite needs no extra dep — stdlib `sqlite3`) — _partial: `fastembed`, `groq`, `python-dotenv`, `beautifulsoup4`, `fastapi` in as runtime deps; `sentence-transformers` removed outright (not demoted to `experiments` as originally planned); `chromadb` added as a **plain runtime dep**, not the `experiments` group — reconcile against [Deployment](#deployment-embedding-backend--memory-budget), which calls for numpy-brute-force as the default and Chroma as opt-in. Still missing: `rank-bm25`, `pymupdf`_
 - [x] Create `.env` with `GROQ_API_KEY`
@@ -391,14 +422,13 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] **Verify:** note and write down one obviously bad chunk/answer (wrong clause pulled, mid-sentence cut, doc too long) as the documented baseline weakness — _found: clause 4.1 split across chunks 3+4; wrong clause (4.2(b)) ranked #1; `top_k=1` → Groq says "60 days". Analysis in this session; still to be committed to a docstring/README._
 
 ### Phase 2 — Structural chunking
-- [x] Build `structure_parser.py` rules for contracts (`1.1` / `Article X` numbering) — _partial, and the depth question is now **known to have no single right answer**. The 2-level `X.Y` regex runs clean over all 8 docs, but Grab exposed its cost: `1.1.1`–`1.1.14` are substantial self-contained clauses (111–1481 chars) that the 2-level rule collapses into **one 8,787-char chunk** — and since bge-small truncates at ~512 tokens (~2,000 chars), roughly **78% of it is never embedded**, i.e. unsearchable. Descending to 3 levels fixes Grab (184 → 409 chunks) but breaks foodpanda, whose `3.1.1`–`3.1.14` are 73–246-char sentence fragments meaningless without their `3.1` stem (56 of 139 chunks would fall under 150 chars). **Conclusion: depth is the wrong lever — size is.** Split at 3 levels, then merge tiny clauses back into the parent; the two size-guard items below are what make 3-level safe. Also still open: the bare-number-heading pattern (prototyped, never merged — `[§14.6]` in Airbnb currently swallows sections 15 and 16), and `Article X`_
-- [ ] Build `structure_parser.py` rules for statutes (`§` numbering) — _`statute-us-dmca-1201.html` downloaded and parked as the target (`(a)(1)(A)(i)` nesting confirmed); parser not started, doc explicitly excluded from the current ingest_
+- [x] Build `structure_parser.py` rules for contracts (`1.1` / `Article X` numbering) — _two patterns, merged and position-sorted, zero collisions across the corpus: `CLAUSE_RE` for `1.1` / `1.1.4` / `4.2(b)` (three levels — Grab needs it, and the size guards below are what stop it shredding foodpanda's list items), and `HEADING_RE` for bare `8. Title` section headings. The heading pattern uses a lookahead `(?=[A-Z])` rather than consuming the capital — consuming it made `m.end()` land one char late and ate the title's first letter (`Software` → `oftware`). Effect: chunks containing a different section's heading went **185 → 0**; Atlassian §7.2 no longer swallows sections 8, 9 and 10. `Article X` still not started_
 - [ ] Build `structure_parser.py` rules for case law (paragraph markers)
 - [ ] Define the `Document > Section > Clause` tree data model — _still a flat `list[dict]`, not a tree_
 - [x] Implement the structural chunker — split at clause/section boundaries using the parsed tree — _`app/ingestion/chunker.py::structural_chunk`: regex boundary split, duplicate `section_id`s disambiguated so `chunk_id`s stay unique; flat list, no tree yet; now a real module run over the whole corpus via `script/ingest.py`, not just the spike_
-- [ ] Handle tiny clauses — merge into neighbors — _**now a prerequisite, not a nice-to-have**: it's what allows the 3-level split Grab needs without shredding foodpanda's list items_
-- [ ] Handle oversized clauses — fall back to sentence-level splitting — _measured need: 51 of 841 chunks exceed ~2,000 chars, and everything past bge-small's 512-token limit is silently dropped at embedding time — stored and shown to the LLM, but unreachable by search_
-- [ ] Attach `section_id`, `heading`, `doc_id` metadata to every chunk (this is what citation uses later) — _partial: `section_id` and `doc_id` attached and verified via Chroma metadata after ingest; `heading` still not_
+- [x] Handle tiny clauses — merge into neighbors — _a fragment merges into its **parent** only (`sid.startswith(parent + ".")`), never a sibling: absorbing a sibling would leave a chunk labelled §1.1.5 that actually contains §1.1.6's text, making its citation wrong. Orphans with no parent stay standalone rather than being mislabelled. Separately, `MIN_CHUNK_SIZE = 40` drops titles with no body — Grab's 12% table-of-contents was generating a chunk per index line (`"Payments"`, `"Definitions"`): micro-chunks **224 → 1**_
+- [x] Handle oversized clauses — fall back to sentence-level splitting — _threshold measured, not guessed: 512 tokens is 1471–2518 chars on this corpus, so `OVERSIZE_CLAUSE_SIZE = 1400` stays under the worst case. Greedy packing on `\n` then `. ` (the loader strips blank lines, so `\n` is the coarsest break; measured: no single sentence exceeds the limit, so no character-level fallback is needed). `pack` will not flush a buffer still under `MIN_CHUNK_SIZE` — otherwise a heading line followed by a long body became its own 28-char piece, orphaning the title from the text it introduces. Oversized chunks **93 → 0**; the ~19% of corpus text that was past the embedding cutoff is now reachable_
+- [x] Attach `section_id`, `heading`, `doc_id` metadata to every chunk (this is what citation uses later) — _partial: `section_id` and `doc_id` attached and verified in both stores; split pieces carry `part` and share the parent's `section_id`, so `[§1.1]` stays valid whichever piece the model read. `heading` still not captured — the Document view therefore renders "Section 14" instead of the real title, and citations have no human-readable label_
 - [ ] Detect cross-references at minimum (e.g. "as defined in Section 3.2") — just detect, don't resolve
 - [ ] *(Stretch)* Resolve detected cross-references to their target clause
 - [x] Re-ingest the Phase 1 sample doc through the new structural chunker — _done, and beyond: the whole curated corpus goes through `structural_chunk` into Chroma via `script/ingest.py`_
