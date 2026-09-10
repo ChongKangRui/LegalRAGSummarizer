@@ -1956,7 +1956,6 @@ dependencies = [
     { name = "pymupdf" },
     { name = "python-dotenv" },
     { name = "rank-bm25" },
-    { name = "sentence-transformers" },
 ]
 
 [package.dev-dependencies]
@@ -1978,7 +1977,6 @@ requires-dist = [
     { name = "pymupdf", specifier = ">=1.28.2" },
     { name = "python-dotenv", specifier = ">=1.2.3" },
     { name = "rank-bm25", specifier = ">=0.2.2" },
-    { name = "sentence-transformers", specifier = ">=6.0.0" },
 ]
 
 [package.metadata.requires-dev]

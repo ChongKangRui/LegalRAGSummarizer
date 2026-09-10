@@ -86,6 +86,8 @@ export default function DocumentPage() {
   function handleCiteClick(citation: Citation) {
     // chunkId looks like "tos-atlassian::chunk-14.2::0" — the middle segment is the clause
     const clauseId = citation.chunkId.split("::")[1]?.replace(/^chunk-/, "") ?? ""
+    
+    
     setActiveClauseId(clauseId)
     const el = document.getElementById(`clause-${clauseId}`)
     el?.scrollIntoView({ behavior: "smooth", block: "center" })

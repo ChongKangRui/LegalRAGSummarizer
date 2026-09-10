@@ -7,7 +7,7 @@
  * data to real `fetch`/axios calls without touching any page component.
  */
 
-export type DocumentType = "statute" | "case_law" | "tos" | "contract"
+export type DocumentType = "statute" | "case_law" | "tos" | "contract"| "agreement"
 
 export type DocumentStatus = "ready" | "processing" | "error"
 

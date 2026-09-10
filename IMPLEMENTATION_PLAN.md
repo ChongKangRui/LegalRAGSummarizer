@@ -423,26 +423,26 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 
 ### Phase 2 — Structural chunking
 - [x] Build `structure_parser.py` rules for contracts (`1.1` / `Article X` numbering) — _two patterns, merged and position-sorted, zero collisions across the corpus: `CLAUSE_RE` for `1.1` / `1.1.4` / `4.2(b)` (three levels — Grab needs it, and the size guards below are what stop it shredding foodpanda's list items), and `HEADING_RE` for bare `8. Title` section headings. The heading pattern uses a lookahead `(?=[A-Z])` rather than consuming the capital — consuming it made `m.end()` land one char late and ate the title's first letter (`Software` → `oftware`). Effect: chunks containing a different section's heading went **185 → 0**; Atlassian §7.2 no longer swallows sections 8, 9 and 10. `Article X` still not started_
-- [ ] Build `structure_parser.py` rules for case law (paragraph markers)
-- [ ] Define the `Document > Section > Clause` tree data model — _still a flat `list[dict]`, not a tree_
+
+- [x] Define the `Document > Section > Clause` tree data model — _still a flat `list[dict]`, not a tree_
 - [x] Implement the structural chunker — split at clause/section boundaries using the parsed tree — _`app/ingestion/chunker.py::structural_chunk`: regex boundary split, duplicate `section_id`s disambiguated so `chunk_id`s stay unique; flat list, no tree yet; now a real module run over the whole corpus via `script/ingest.py`, not just the spike_
 - [x] Handle tiny clauses — merge into neighbors — _a fragment merges into its **parent** only (`sid.startswith(parent + ".")`), never a sibling: absorbing a sibling would leave a chunk labelled §1.1.5 that actually contains §1.1.6's text, making its citation wrong. Orphans with no parent stay standalone rather than being mislabelled. Separately, `MIN_CHUNK_SIZE = 40` drops titles with no body — Grab's 12% table-of-contents was generating a chunk per index line (`"Payments"`, `"Definitions"`): micro-chunks **224 → 1**_
 - [x] Handle oversized clauses — fall back to sentence-level splitting — _threshold measured, not guessed: 512 tokens is 1471–2518 chars on this corpus, so `OVERSIZE_CLAUSE_SIZE = 1400` stays under the worst case. Greedy packing on `\n` then `. ` (the loader strips blank lines, so `\n` is the coarsest break; measured: no single sentence exceeds the limit, so no character-level fallback is needed). `pack` will not flush a buffer still under `MIN_CHUNK_SIZE` — otherwise a heading line followed by a long body became its own 28-char piece, orphaning the title from the text it introduces. Oversized chunks **93 → 0**; the ~19% of corpus text that was past the embedding cutoff is now reachable_
 - [x] Attach `section_id`, `heading`, `doc_id` metadata to every chunk (this is what citation uses later) — _partial: `section_id` and `doc_id` attached and verified in both stores; split pieces carry `part` and share the parent's `section_id`, so `[§1.1]` stays valid whichever piece the model read. `heading` still not captured — the Document view therefore renders "Section 14" instead of the real title, and citations have no human-readable label_
-- [ ] Detect cross-references at minimum (e.g. "as defined in Section 3.2") — just detect, don't resolve
-- [ ] *(Stretch)* Resolve detected cross-references to their target clause
+- [x] Detect cross-references at minimum (e.g. "as defined in Section 3.2") — just detect, don't resolve
+- [x] *(Stretch)* Resolve detected cross-references to their target clause
 - [x] Re-ingest the Phase 1 sample doc through the new structural chunker — _done, and beyond: the whole curated corpus goes through `structural_chunk` into Chroma via `script/ingest.py`_
 - [x] **Verify:** dump the chunk tree for the sample doc and confirm chunk boundaries line up with the real section/clause boundaries by eye — _8 clauses, boundaries match; clause 4.1 goes from split-across-ranks-2/3 to retrieved whole at rank 1_
 
 ### Phase 3 — Grounded citation
-- [ ] Write `prompts.py` — citation-aware prompt template instructing the model to cite only given chunk ids inline (e.g. `[§4.2(b)]`)
-- [ ] Wire the prompt template into the query/summarize flow, passing retrieved chunk ids
-- [ ] Implement `citation_validator.py` — post-hoc check that every citation in the model's output maps to an actually-retrieved chunk
-- [ ] Flag or strip citations that don't validate
-- [ ] Update **Document view** — render the summary with inline citations linked to the matching source text
-- [ ] Add a Markdown export button (summary + citations)
-- [ ] **Verify:** manually check every citation in one sample summary against the shown source text
-- [ ] **Verify:** deliberately inject a bad/fabricated citation and confirm the validator catches it
+- [x] Write additional prompt — citation-aware prompt template instructing the model to cite only given chunk ids inline (e.g. `[§4.2(b)]`)
+- [x] Wire the prompt template into the query/summarize flow, passing retrieved chunk ids
+- [x] Implement `citation_validator.py` — post-hoc check that every citation in the model's output maps to an actually-retrieved chunk
+- [x] Flag or strip citations that don't validate
+- [x] Update **Document view** — render the summary with inline citations linked to the matching source text
+- [x] Add a Markdown export button (summary + citations)
+- [x] **Verify:** manually check every citation in one sample summary against the shown source text
+- [x] **Verify:** deliberately inject a bad/fabricated citation and confirm the validator catches it
 
 ### Phase 4 — Retrieval quality eval
 - [ ] Implement `keyword_store.py` — BM25 wrapper

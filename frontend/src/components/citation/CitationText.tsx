@@ -17,9 +17,9 @@ interface CitationTextProps {
  * of failing silently.
  */
 export function CitationText({ text, citations, onCiteClick, className }: CitationTextProps) {
-  const remaining = [...citations]
+  
   const parts = text.split(/(\[[^\]]+\])/g)
-
+ 
   return (
     <p className={cn("leading-relaxed", className)}>
       {parts.map((part, i) => {
@@ -27,10 +27,10 @@ export function CitationText({ text, citations, onCiteClick, className }: Citati
         if (!match) return <span key={i}>{part}</span>
 
         const label = match[1]
-        const idx = remaining.findIndex((c) => c.label === label)
-        const citation = idx >= 0 ? remaining.splice(idx, 1)[0] : undefined
+        //const idx = citations.findIndex((c) => c.label === label)
+        const citation = citations.find((c) => c.label === label)
         const invalid = citation?.valid === false
-
+        
         return (
           <button
             key={i}
@@ -48,6 +48,7 @@ export function CitationText({ text, citations, onCiteClick, className }: Citati
           >
             {label}
             {invalid && <TriangleAlert className="size-3" />}
+            
           </button>
         )
       })}

@@ -82,13 +82,15 @@ export const queryApi = {
     
     while(true){
       const {value, done} = await reader.read();
-      if(done)
+      if(done){
+        console.log(value)
         break;
+      }
       
 
       buffer += decoder.decode(value, {stream: true});
       const frames = buffer.split("\n\n")
-      console.log("buffer: ", buffer)
+     
       buffer = frames.pop() ?? "";
      
       for(const frame of frames){
@@ -104,6 +106,7 @@ export const queryApi = {
           setAnswer(prev=>prev+obj.text)
         }
         else if (obj.type === "done") {
+          console.log("Done",obj)
           setCitations(obj.citations)
           setLatency(obj.latencyMs)
           setStrategy(obj.strategy)

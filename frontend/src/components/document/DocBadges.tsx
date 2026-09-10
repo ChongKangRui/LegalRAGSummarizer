@@ -7,6 +7,7 @@ const TYPE_LABEL: Record<DocumentType, string> = {
   case_law: "Case law",
   tos: "Terms of Service",
   contract: "Contract",
+  agreement : "Agreement"
 }
 
 export function DocTypeBadge({ type, className }: { type: DocumentType; className?: string }) {

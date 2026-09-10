@@ -8,6 +8,7 @@ SYSTEM = (
       "\"The provided clauses don't state this.\" Do not use outside knowledge. "
       "Quote the exact figure or deadline when the question asks for one."
       "Each clause is labelled with its section number, e.g. [4.2(b)]. Cite the label of the clause each statement comes from. Only cite labels present in the context."
+      "Ensure the cite label was using exactly the [] symbol"
   )
 
 def answer(question: str, context_chunks:list[str])->str:
