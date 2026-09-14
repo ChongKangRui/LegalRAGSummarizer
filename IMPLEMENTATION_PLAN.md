@@ -445,13 +445,13 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] **Verify:** deliberately inject a bad/fabricated citation and confirm the validator catches it
 
 ### Phase 4 — Retrieval quality eval
-- [ ] Implement `keyword_store.py` — BM25 wrapper
-- [ ] Implement `hybrid.py` — Reciprocal Rank Fusion of vector + BM25 results
+- [x] Implement `keyword_store.py` — BM25 wrapper
+- [x] Implement `hybrid.py` — Reciprocal Rank Fusion of vector + BM25 results
 - [ ] Implement `reranker.py` — cross-encoder rerank of the fused results via `fastembed` `TextCrossEncoder` (`ms-marco-MiniLM-L-6-v2`, ONNX), not a `sentence-transformers` `CrossEncoder` (drags `torch` back in — see [Deployment](#deployment-embedding-backend--memory-budget))
-- [ ] Hand-build `golden_set.json` — ~30–50 question → expected-clause-id pairs across a few docs
+- [x] Hand-build `golden_set.json` — ~30–50 question → expected-clause-id pairs across a few docs
 - [ ] Implement `retrieval_eval.py` — precision@k, recall@k, MRR
 - [ ] Add a citation-accuracy metric to the eval
-- [ ] Implement `run_eval.py` — CLI to run a pipeline config against the golden set and print metrics
+- [x] Implement `run_eval.py` — CLI to run a pipeline config against the golden set and print metrics
 - [ ] Record baseline metrics: naive vector-only retrieval
 - [ ] Record metrics: + hybrid (vector + BM25)
 - [ ] Record metrics: + reranker
