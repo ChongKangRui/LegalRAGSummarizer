@@ -11,7 +11,7 @@ Every backend implements the same contract:
   doc_chunk_counts()                         -> dict[str, int]
   reset()                                    -> None
 
-where a chunk is {"chunk_id": str, "text": str, "metadata": {"doc_id":…, "section_id":…}}.
+where a chunk is {"chunk_id": str, "text": str,"score": float "metadata": {"doc_id":…, "section_id":…}}.
 """
 
 from app.config import VECTOR_BACKEND

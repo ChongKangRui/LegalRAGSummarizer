@@ -1,0 +1,224 @@
+[
+  {
+    "id": "q001",
+    "document_id": "tos-linkedin",
+    "question": "Can LinkedIn change the terms of this contract after I've agreed to it?",
+    "expected_section_ids": ["1.3"]
+  },
+  {
+    "id": "q002",
+    "document_id": "tos-linkedin",
+    "question": "Who owns the original content I post on LinkedIn?",
+    "expected_section_ids": ["3.1"]
+  },
+  {
+    "id": "q003",
+    "document_id": "tos-linkedin",
+    "question": "Does LinkedIn need to give notice before changing subscription prices?",
+    "expected_section_ids": ["2.3"]
+  },
+  {
+    "id": "q004",
+    "document_id": "tos-linkedin",
+    "question": "What happens if a court finds part of this contract invalid?",
+    "expected_section_ids": ["7"]
+  },
+  {
+    "id": "q005",
+    "document_id": "tos-linkedin",
+    "question": "Is creating a fake profile or impersonating someone else allowed on LinkedIn?",
+    "expected_section_ids": ["8.2"]
+  },
+  {
+    "id": "q006",
+    "document_id": "tos-atlassian",
+    "question": "What is the minimum age requirement to use Atlassian's products?",
+    "expected_section_ids": ["3.4"]
+  },
+  {
+    "id": "q007",
+    "document_id": "tos-atlassian",
+    "question": "How many days does a customer have to terminate a new order and get a refund?",
+    "expected_section_ids": ["10.3"]
+  },
+  {
+    "id": "q008",
+    "document_id": "tos-atlassian",
+    "question": "Can a customer cancel their subscription for any reason, without needing cause?",
+    "expected_section_ids": ["12.2"]
+  },
+  {
+    "id": "q009",
+    "document_id": "tos-atlassian",
+    "question": "Does Atlassian defend customers against third-party intellectual property infringement claims?",
+    "expected_section_ids": ["15.1"]
+  },
+  {
+    "id": "q010",
+    "document_id": "tos-atlassian",
+    "question": "Which law governs the agreement if the customer is based in Europe?",
+    "expected_section_ids": ["20.4"]
+  },
+  {
+    "id": "q011",
+    "document_id": "agreement-tesla-kirkhorn",
+    "question": "What is the separation date under this agreement?",
+    "expected_section_ids": ["1"]
+  },
+  {
+    "id": "q012",
+    "document_id": "agreement-tesla-kirkhorn",
+    "question": "How many calendar days does the employee have to submit final expense reimbursement documents?",
+    "expected_section_ids": ["3"]
+  },
+  {
+    "id": "q013",
+    "document_id": "agreement-tesla-kirkhorn",
+    "question": "Does this agreement release claims under Title VII of the Civil Rights Act?",
+    "expected_section_ids": ["6"]
+  },
+  {
+    "id": "q014",
+    "document_id": "agreement-tesla-kirkhorn",
+    "question": "Can the employee still report legal violations to a government agency despite signing this agreement?",
+    "expected_section_ids": ["9"]
+  },
+  {
+    "id": "q015",
+    "document_id": "agreement-tesla-kirkhorn",
+    "question": "How are disputes about this agreement resolved?",
+    "expected_section_ids": ["20"]
+  },
+  {
+    "id": "q016",
+    "document_id": "tos-foodpanda",
+    "question": "What is required to purchase alcohol on foodpanda?",
+    "expected_section_ids": ["5.2"]
+  },
+  {
+    "id": "q017",
+    "document_id": "tos-foodpanda",
+    "question": "What is required to purchase tobacco products on foodpanda?",
+    "expected_section_ids": ["5.3.2"]
+  },
+  {
+    "id": "q018",
+    "document_id": "tos-foodpanda",
+    "question": "How many minutes does a customer have to receive their order before it's treated as a no-show?",
+    "expected_section_ids": ["8.4.2"]
+  },
+  {
+    "id": "q019",
+    "document_id": "tos-foodpanda",
+    "question": "Does foodpanda guarantee the accuracy of its AI-generated chat translations?",
+    "expected_section_ids": ["19.2"]
+  },
+  {
+    "id": "q020",
+    "document_id": "tos-foodpanda",
+    "question": "If I cancel my order before it's delivered, do I get my rider tip refunded?",
+    "expected_section_ids": ["21.2"]
+  },
+  {
+    "id": "q021",
+    "document_id": "tos-foodpanda",
+    "question": "Can foodpanda change these Terms of Service at any time?",
+    "expected_section_ids": ["10.3"]
+  },
+  {
+    "id": "q022",
+    "document_id": "tos-grab",
+    "question": "How can a consumer cancel a ride booking, and what happens if they don't show up?",
+    "expected_section_ids": ["7.2.1", "7.2.2"]
+  },
+  {
+    "id": "q023",
+    "document_id": "tos-grab",
+    "question": "What governs disputes arising from these Terms of Service?",
+    "expected_section_ids": ["24"]
+  },
+  {
+    "id": "q024",
+    "document_id": "tos-shopee",
+    "question": "How can a buyer request a refund under the Shopee Guarantee?",
+    "expected_section_ids": ["25.3", "19.2"]
+  },
+  {
+    "id": "q025",
+    "document_id": "tos-shopee",
+    "question": "How many free withdrawal requests does a seller get per week?",
+    "expected_section_ids": ["10.3"]
+  },
+  {
+    "id": "q026",
+    "document_id": "tos-shopee",
+    "question": "Can Shopee change these Terms of Service at any time?",
+    "expected_section_ids": ["37.2"]
+  },
+  {
+    "id": "q027",
+    "document_id": "tos-shopee",
+    "question": "Do transactions completed outside of the Shopee Guarantee qualify for Shopee Coins rewards?",
+    "expected_section_ids": ["13.2"]
+  },
+  {
+    "id": "q028",
+    "document_id": "tos-shopee",
+    "question": "Can Sellers in Singapore retrieve tax invoices for their Paid Advertising top-ups?",
+    "expected_section_ids": ["21.11"]
+  },
+  {
+    "id": "q029",
+    "document_id": "contract-gitlab-subscription",
+    "question": "What finance charge applies to unpaid fees each month?",
+    "expected_section_ids": ["6.8"]
+  },
+  {
+    "id": "q030",
+    "document_id": "contract-gitlab-subscription",
+    "question": "Does GitLab warrant that it has the authority to enter into this agreement?",
+    "expected_section_ids": ["9.1"]
+  },
+  {
+    "id": "q031",
+    "document_id": "contract-gitlab-subscription",
+    "question": "Is the prevailing party in a legal dispute entitled to recover its costs and attorney's fees?",
+    "expected_section_ids": ["15.5"]
+  },
+  {
+    "id": "q032",
+    "document_id": "contract-gitlab-subscription",
+    "question": "Can GitLab use the customer's company name and logo in its marketing materials?",
+    "expected_section_ids": ["8.6"]
+  },
+  {
+    "id": "q033",
+    "document_id": "tos-netflix",
+    "question": "What is the minimum age to use the Netflix service?",
+    "expected_section_ids": ["1.2"]
+  },
+  {
+    "id": "q034",
+    "document_id": "tos-netflix",
+    "question": "Can I cancel my Netflix subscription at any time?",
+    "expected_section_ids": ["2.6"]
+  },
+  {
+    "id": "q035",
+    "document_id": "tos-netflix",
+    "question": "Is Netflix responsible for unsolicited ideas or materials submitted by users for new content?",
+    "expected_section_ids": ["7.2"]
+  },
+  {
+    "id": "q036",
+    "document_id": "tos-netflix",
+    "question": "What does 'Account Sharing' mean under Netflix's terms?",
+    "expected_section_ids": ["1.4"]
+  },
+  {
+    "id": "q037",
+    "document_id": "tos-netflix",
+    "question": "What happens if part of these Terms of Use is found to be invalid or unenforceable?",
+    "expected_section_ids": ["7.5"]
+  }
+]

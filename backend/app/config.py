@@ -11,6 +11,12 @@ VECTOR_BACKEND = os.getenv("VECTOR_BACKEND", "chroma")   # "chroma" | "numpy"
 VECTORS_PATH   = DATA_DIR / "vectors.npy"
 VECTORS_META   = DATA_DIR / "vectors.meta.json"
 
+EVAL_DIR = BASE_DIR / "app" / "eval"
+GOLDEN_SET_PATH = EVAL_DIR / "golden_set.json"
+EVAL_RESULT_PATH = EVAL_DIR / "eval_result.json"
+
+# max embedding dimention
 EMBED_DIM = 384
+
 
 API_KEY=os.environ["GROQ_API_KEY"]

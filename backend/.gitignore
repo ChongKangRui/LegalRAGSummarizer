@@ -12,3 +12,5 @@ data/chroma/
 data/vectors.npy
 data/vectors.meta.json
 data/app.db
+
+*:Zone.Identifier

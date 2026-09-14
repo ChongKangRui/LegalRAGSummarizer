@@ -1,11 +1,10 @@
 from one_naive_baseline import DOCUMENT, naive_chunk
-
-# from sentence_transformers import SentenceTransformer
-# model = SentenceTransformer("BAAI/bge-small-en-v1.5")
-
-from fastembed import TextEmbedding
 import numpy as np
-model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5") 
+from sentence_transformers import SentenceTransformer
+model = SentenceTransformer("BAAI/bge-small-en-v1.5")
+
+# from fastembed import TextEmbedding
+# model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5") 
 
 def retrieve(question: str, chunks: list[str], top_k: int = 3)->list[str]:
     """Naive vector retrieval: return the top_k most similar fixed-size chunks."""

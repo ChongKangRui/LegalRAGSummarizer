@@ -81,6 +81,7 @@ def query(
     scores = vectors @ q
 
     if where:
+        # np.fromiter build a numpy array without create an intermediate python list
         mask = np.fromiter((all(m["metadata"].get(k) == v for k,v in 
         where.items()) for m in meta), 
         dtype=bool,
