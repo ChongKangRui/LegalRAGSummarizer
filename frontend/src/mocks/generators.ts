@@ -146,7 +146,7 @@ export function summarize(
 
   const retrievedIds = new Set(result.chunks.map((c) => c.id))
   const sentences = top.map((chunk) => {
-    const label = formatCitationLabel(doc.type, chunk.clauseId)
+    const label = formatCitationLabel(doc.type, chunk.sectionId)
     const firstSentence = chunk.text.split(". ")[0]
     return `${firstSentence.replace(/\.$/, "")} [${label}].`
   })
@@ -157,7 +157,7 @@ export function summarize(
   const otherDocChunks = getChunksForDocument(documentId).filter((c) => !retrievedIds.has(c.id))
   if (injectBadCitation && otherDocChunks.length > 0) {
     const fabricated = otherDocChunks[Math.floor(rng() * otherDocChunks.length)]
-    const label = formatCitationLabel(doc.type, fabricated.clauseId)
+    const label = formatCitationLabel(doc.type, fabricated.sectionId)
     sentences.push(`This also affects related obligations elsewhere in the agreement [${label}].`)
   }
 
@@ -165,9 +165,9 @@ export function summarize(
     const matches = [...sentence.matchAll(/\[([^\]]+)\]/g)]
     return matches.map((m) => {
       const label = m[1]
-      const chunk = top.find((c) => formatCitationLabel(doc.type, c.clauseId) === label)
+      const chunk = top.find((c) => formatCitationLabel(doc.type, c.sectionId) === label)
       const fabricatedMatch = otherDocChunks.find(
-        (c) => formatCitationLabel(doc.type, c.clauseId) === label,
+        (c) => formatCitationLabel(doc.type, c.sectionId) === label,
       )
       const chunkId = chunk?.id ?? fabricatedMatch?.id ?? ""
       return { chunkId, label, valid: retrievedIds.has(chunkId) }

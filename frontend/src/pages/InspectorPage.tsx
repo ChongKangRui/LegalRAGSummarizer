@@ -36,6 +36,8 @@ export default function InspectorPage() {
     chunk: data.chunks.find((c) => c.id === score.chunkId),
   }))
 
+  console.log("data=", data ?? "no data yet")
+
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
       <div>
@@ -105,11 +107,11 @@ export default function InspectorPage() {
               <TableBody>
                 {rows.map(({ score, chunk }) => (
                   <TableRow key={score.chunkId}>
-                    <TableCell className="font-mono text-xs text-muted-foreground">
+                    { <TableCell className="font-mono text-xs text-muted-foreground">
                       {score.fusedRank}
-                    </TableCell>
+                    </TableCell>}
                     <TableCell className="font-mono text-xs font-medium">
-                      {chunk?.clauseId}
+                      {chunk?.sectionId}
                     </TableCell>
                     <TableCell className="max-w-xs text-sm text-muted-foreground">
                       <Tooltip>

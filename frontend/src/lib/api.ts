@@ -120,7 +120,7 @@ export const queryApi = {
   },
 
   retrieve(documentId: string, query: string): Promise<RetrievalResult> {
-    if (USE_MOCKS) return mockDelay(mockGen.retrieve(documentId, query))
+    // if (USE_MOCKS) return mockDelay(mockGen.retrieve(documentId, query))
     return apiClient.post("/inspector", { documentId, query }).then((res) => res.data)
   },
 }

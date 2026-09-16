@@ -43,8 +43,6 @@ export interface Chunk {
   id: string
   documentId: string
   sectionId: string
-  clauseId: string
-  heading: string
   text: string
 }
 
@@ -67,9 +65,9 @@ export interface SummaryResponse {
 
 export interface RetrievalScore {
   chunkId: string
-  vectorScore: number // 0-1
-  bm25Score: number // 0-1
-  rerankScore: number | null // 0-1, null before Phase 4's reranker exists
+  vectorScore: number | null
+  bm25Score: number | null 
+  rerankScore: number | null 
   fusedRank: number
 }
 
