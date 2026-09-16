@@ -3,18 +3,18 @@ import { cn } from "@/lib/utils"
 import type { EvalStage } from "@/lib/types"
 
 const STAGE_LABEL: Record<EvalStage, string> = {
-  naive: "Naive",
+  vector: "Naive",
   hybrid: "+ Hybrid",
   hybrid_rerank: "+ Rerank",
 }
 
 const STAGE_COLOR: Record<EvalStage, string> = {
-  naive: "bg-stage-naive",
+  vector: "bg-stage-naive",
   hybrid: "bg-stage-hybrid",
   hybrid_rerank: "bg-stage-rerank",
 }
 
-const STAGE_ORDER: EvalStage[] = ["naive", "hybrid", "hybrid_rerank"]
+const STAGE_ORDER: EvalStage[] = ["vector", "hybrid", "hybrid_rerank"]
 
 interface StageBarChartProps {
   title: string

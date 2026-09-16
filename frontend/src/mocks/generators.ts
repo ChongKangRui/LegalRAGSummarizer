@@ -193,12 +193,12 @@ export function summarize(
 
 export function generateEvalRun(): EvalRun {
   return {
-    id: "eval-run-2026-08-24",
+    //id: "eval-run-2026-08-24",
     runAt: "2026-08-24T09:15:00Z",
     k: 5,
     goldenSetSize: 42,
     metrics: [
-      { stage: "naive", precisionAtK: 0.41, recallAtK: 0.38, mrr: 0.34, citationAccuracy: 0.52 },
+      { stage: "vector", precisionAtK: 0.41, recallAtK: 0.38, mrr: 0.34, citationAccuracy: 0.52 },
       { stage: "hybrid", precisionAtK: 0.63, recallAtK: 0.6, mrr: 0.58, citationAccuracy: 0.74 },
       {
         stage: "hybrid_rerank",

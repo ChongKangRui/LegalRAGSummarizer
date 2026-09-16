@@ -80,7 +80,7 @@ export interface RetrievalResult {
   scores: RetrievalScore[]
 }
 
-export type EvalStage = "naive" | "hybrid" | "hybrid_rerank"
+export type EvalStage = "vector" | "hybrid" | "hybrid_rerank"
 
 export interface EvalMetric {
   stage: EvalStage
@@ -91,7 +91,7 @@ export interface EvalMetric {
 }
 
 export interface EvalRun {
-  id: string
+  // id: string
   runAt: string
   k: number
   goldenSetSize: number

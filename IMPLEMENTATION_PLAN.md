@@ -447,16 +447,16 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 ### Phase 4 — Retrieval quality eval
 - [x] Implement `keyword_store.py` — BM25 wrapper
 - [x] Implement `hybrid.py` — Reciprocal Rank Fusion of vector + BM25 results
-- [ ] Implement `reranker.py` — cross-encoder rerank of the fused results via `fastembed` `TextCrossEncoder` (`ms-marco-MiniLM-L-6-v2`, ONNX), not a `sentence-transformers` `CrossEncoder` (drags `torch` back in — see [Deployment](#deployment-embedding-backend--memory-budget))
+- [x] Implement `reranker.py` — cross-encoder rerank of the fused results via `fastembed` `TextCrossEncoder` (`ms-marco-MiniLM-L-6-v2`, ONNX), not a `sentence-transformers` `CrossEncoder` (drags `torch` back in — see [Deployment](#deployment-embedding-backend--memory-budget))
 - [x] Hand-build `golden_set.json` — ~30–50 question → expected-clause-id pairs across a few docs
-- [ ] Implement `retrieval_eval.py` — precision@k, recall@k, MRR
+- [x] Implement `retrieval_eval.py` — precision@k, recall@k, MRR
 - [ ] Add a citation-accuracy metric to the eval
 - [x] Implement `run_eval.py` — CLI to run a pipeline config against the golden set and print metrics
-- [ ] Record baseline metrics: naive vector-only retrieval
-- [ ] Record metrics: + hybrid (vector + BM25)
-- [ ] Record metrics: + reranker
+- [x] Record baseline metrics: naive vector-only retrieval
+- [x] Record metrics: + hybrid (vector + BM25)
+- [x] Record metrics: + reranker
 - [ ] Build **Inspector** page — per-chunk vector/BM25/rerank scores, highlighted in the document
-- [ ] Build **Eval dashboard** page — render `run_eval.py` output as a table/chart
+- [x] Build **Eval dashboard** page — render `run_eval.py` output as a table/chart
 - [ ] **Verify:** eval numbers actually improve naive → hybrid → hybrid+rerank; if not, investigate before moving on
 
 ### Phase 5 — Long-context handling
@@ -479,7 +479,7 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [ ] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
 - [ ] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
 - [ ] Deploy with a **single uvicorn worker** (`--workers 1`); warm up the embedding model on startup, not the first request
-- [ ] Deploy backend + frontend to free hosts (Render/Fly.io/Vercel)
+- [ ] Deploy backend + frontend to free hosts (Railway/Vercel)
 - [ ] **Verify:** measure peak RSS on the target host under a real query; target ~300–350 MB. If it exceeds the host's RAM, switch `embedder.py` to the `hf-api` provider
 - [ ] **Verify:** confirm the chosen free host gives a persistent volume (not ephemeral storage) for `data/` (the `.npy` vectors + `app.db`, and `data/chroma` if used), or they reset on every redeploy
 

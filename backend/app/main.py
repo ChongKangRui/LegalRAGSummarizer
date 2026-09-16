@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.summarization import router as query_router
 from app.api.documents import router as document_router
-
+from app.api.eval_dashboard import router as eval_router
 app = FastAPI()
 
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_methods=["*"], allow_headers=["*"])
@@ -29,6 +29,7 @@ async def log_requests(request: Request, call_next):
 # ---- Routing: mount a router, like Express `app.use('/query', queryRouter)` ----
 app.include_router(query_router)
 app.include_router(document_router)
+app.include_router(eval_router)
 
 @app.get("/")
 async def root():

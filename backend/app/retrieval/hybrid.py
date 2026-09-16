@@ -31,7 +31,7 @@ if __name__ == "__main__":
     kq = keyword_query("How can i get refund from foodpanda", 5, where={"doc_id" : "tos-foodpanda"})
     question_vec = embed_question("How can i get refund from foodpanda")
     vq = vector_query(question_vec, 5, where={"doc_id" : "tos-foodpanda"})
-    rankFusion = reciprocal_rank_fusion(vq, kq, 5)
+    rankFusion = reciprocal_rank_fusion(vq, kq)
 
     print([{"chunk_id": r["chunk_id"], "score" : r["score"]} for r in rankFusion])
 # def query():

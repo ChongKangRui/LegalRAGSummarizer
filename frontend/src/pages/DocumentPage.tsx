@@ -10,7 +10,8 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Textarea } from "@/components/ui/textarea"
 import { DocStatusBadge, DocTypeBadge } from "@/components/document/DocBadges"
 import { CitationText } from "@/components/citation/CitationText"
-import { useDocument, useSummarize } from "@/hooks/queries"
+import { useDocument } from "@/hooks/queries"
+// import { useDocument, useSummarize } from "@/hooks/queries"
 import {queryApi} from "@/lib/api"
 import { downloadTextFile } from "@/lib/download"
 import { cn } from "@/lib/utils"
@@ -25,7 +26,7 @@ const STRATEGY_OPTIONS: { value: SummarizationStrategy; label: string }[] = [
 export default function DocumentPage() {
   const { documentId } = useParams<{ documentId: string }>()
   const { data: doc, isLoading } = useDocument(documentId)
-  const summarize = useSummarize()
+  //const summarize = useSummarize()
 
   const [query, setQuery] = useState("")
   const [strategy, setStrategy] = useState<SummarizationStrategy>("naive")
@@ -41,19 +42,19 @@ export default function DocumentPage() {
   const [askedQuery, setAskedQuery] = useState("")
 
   // Non-streaming path — kept for reference, not wired to the button.
-  function handleAsk() {
-    if (!documentId || !query.trim()) return
-    summarize.mutate(
-      { documentId, query: query.trim(), strategy },
-      {
-        onSuccess: (data) => {
-          setCitations(data.citations)
-          setLatency(data.latencyMs)
-          setActualStrategy(data.strategy)
-        },
-      },
-    )
-  }
+  // function handleAsk() {
+  //   if (!documentId || !query.trim()) return
+  //   summarize.mutate(
+  //     { documentId, query: query.trim(), strategy },
+  //     {
+  //       onSuccess: (data) => {
+  //         setCitations(data.citations)
+  //         setLatency(data.latencyMs)
+  //         setActualStrategy(data.strategy)
+  //       },
+  //     },
+  //   )
+  // }
 
   async function handleAskStreaming() {
     if (!documentId || !query.trim() || streaming) return

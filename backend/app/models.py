@@ -1,6 +1,7 @@
-from pydantic import BaseModel
 
-class test(BaseModel):
-    test_id: str
-    section_id: int
-    price: float
+from pydantic import BaseModel, ConfigDict
+
+from pydantic.alias_generators import to_camel
+
+class CamelModel(BaseModel):
+    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)

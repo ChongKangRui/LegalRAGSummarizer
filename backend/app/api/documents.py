@@ -8,14 +8,13 @@ from app.config import DOCUMENTS_DIR
 
 from fastapi import HTTPException
 import re
-
+from app.models import CamelModel
 
 
 # Like `const router = express.Router()` + every path in here is prefixed with /query
 router = APIRouter(prefix="/documents", tags=["documents"])
 
-class CamelModel(BaseModel):
-    model_config = ConfigDict(alias_generator=to_camel, populate_by_name=True)
+
 
 class DocumentSummary(CamelModel):
     id: str

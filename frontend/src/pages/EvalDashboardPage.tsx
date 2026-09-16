@@ -13,14 +13,18 @@ import { StageBarChart } from "@/components/eval/StageBarChart"
 import { useEvalRun } from "@/hooks/queries"
 import type { EvalStage } from "@/lib/types"
 
+
 const STAGE_LABEL: Record<EvalStage, string> = {
-  naive: "Naive (vector only)",
+  vector: "Naive (vector only)",
   hybrid: "+ Hybrid (vector + BM25)",
   hybrid_rerank: "+ Rerank (cross-encoder)",
 }
 
 export default function EvalDashboardPage() {
   const { data: run, isLoading, isError } = useEvalRun()
+
+
+  console.log("Eval data: ", isLoading ? "" : run)
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">

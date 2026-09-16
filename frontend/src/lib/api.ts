@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api-client"
 import * as mockGen from "@/mocks/generators"
-import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
+// import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
 import type {
   Citation,
   CompareResult,
@@ -121,14 +121,14 @@ export const queryApi = {
 
   retrieve(documentId: string, query: string): Promise<RetrievalResult> {
     if (USE_MOCKS) return mockDelay(mockGen.retrieve(documentId, query))
-    return apiClient.post("/query", { documentId, query }).then((res) => res.data)
+    return apiClient.post("/inspector", { documentId, query }).then((res) => res.data)
   },
 }
 
 export const evalApi = {
   getLatestRun(): Promise<EvalRun> {
-    if (USE_MOCKS) return mockDelay(mockGen.generateEvalRun())
-    return apiClient.get("/eval/latest").then((res) => res.data)
+    // if (USE_MOCKS) return mockDelay(mockGen.generateEvalRun())
+    return apiClient.get("/eval_dashboard").then((res) => res.data)
   },
 }
 
