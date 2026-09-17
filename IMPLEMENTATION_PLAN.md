@@ -450,12 +450,12 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] Implement `reranker.py` — cross-encoder rerank of the fused results via `fastembed` `TextCrossEncoder` (`ms-marco-MiniLM-L-6-v2`, ONNX), not a `sentence-transformers` `CrossEncoder` (drags `torch` back in — see [Deployment](#deployment-embedding-backend--memory-budget))
 - [x] Hand-build `golden_set.json` — ~30–50 question → expected-clause-id pairs across a few docs
 - [x] Implement `retrieval_eval.py` — precision@k, recall@k, MRR
-- [ ] Add a citation-accuracy metric to the eval
+- [x] Add a citation-accuracy metric to the eval
 - [x] Implement `run_eval.py` — CLI to run a pipeline config against the golden set and print metrics
 - [x] Record baseline metrics: naive vector-only retrieval
 - [x] Record metrics: + hybrid (vector + BM25)
 - [x] Record metrics: + reranker
-- [ ] Build **Inspector** page — per-chunk vector/BM25/rerank scores, highlighted in the document
+- [x] Build **Inspector** page — per-chunk vector/BM25/rerank scores, highlighted in the document
 - [x] Build **Eval dashboard** page — render `run_eval.py` output as a table/chart
 - [ ] **Verify:** eval numbers actually improve naive → hybrid → hybrid+rerank; if not, investigate before moving on
 

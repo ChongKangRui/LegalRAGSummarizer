@@ -6,9 +6,17 @@ from functools import cache
 
 
 import numpy as np
+import re
 
 def _tokenize(text : str)->list[str]:
-    return text.lower().split()
+    """
+    a very good lesson, lower it isn't enough cause bm_25 unable to detect
+    'seperation' and 'seperation.' is different. 
+    'date' and 'date)' are different as well
+    Thus, tokenization should only contain number + character
+    """
+    #return text.lower().split()
+    return re.findall(r"[a-z0-9]+", text.lower())
 
 @cache
 def _load():

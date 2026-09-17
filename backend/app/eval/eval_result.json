@@ -1,14 +1,14 @@
 {
-  "Date": "2026-09-16T09:28:46Z",
+  "Date": "2026-09-17T09:31:43Z",
   "k": 2,
   "vector": {
     "means": {
       "mean_precision": 0.47297297297297297,
       "mean_recall": 0.9054054054054054,
       "mean_rr": 0.8918918918918919,
-      "mean_cv": 0.9705882352941176,
-      "mean_cc": 0.9264705882352942,
-      "no_citation_count": 3,
+      "mean_cv": 0.9285714285714286,
+      "mean_cc": 0.8857142857142857,
+      "no_citation_count": 2,
       "generation_failed_count": 0
     },
     "rows": [
@@ -23,7 +23,7 @@
           "7",
           "1.1"
         ],
-        "answer": "Yes. The contract states that it includes “additional terms that may be provided by us when you engage with a feature of the Services,” meaning LinkedIn can add or modify terms after you have initially agreed to the contract [7]."
+        "answer": "Yes. The contract states that it includes “additional terms that may be provided by us when you engage with a feature of the Services,” meaning LinkedIn can add or modify terms after you have initially agreed [7]."
       },
       {
         "id": "q002",
@@ -36,7 +36,7 @@
           "3.1",
           "3.1"
         ],
-        "answer": "You own the original content that you submit or post to LinkedIn’s Services. [3.1]"
+        "answer": "You own the original content you submit or post to LinkedIn — as between you and LinkedIn, the content remains your ownership [3.1]."
       },
       {
         "id": "q003",
@@ -75,7 +75,7 @@
           "8.2",
           "3.1"
         ],
-        "answer": "No. You may not create a false identity, misrepresent your identity, or create a Member profile for anyone other than yourself — such actions are expressly prohibited [8.2]."
+        "answer": "No. The agreement expressly prohibits creating a false identity, misrepresenting your identity, or creating a member profile for anyone other than yourself — i.e., impersonating someone else is not allowed on LinkedIn [8.2]."
       },
       {
         "id": "q006",
@@ -101,7 +101,7 @@
           "10.3",
           "12.2"
         ],
-        "answer": "The customer has thirty (30) days from the initial order to terminate and receive a refund [10.3]."
+        "answer": "A customer has thirty (30) days from the initial order to terminate and receive a refund [10.3]."
       },
       {
         "id": "q008",
@@ -114,7 +114,7 @@
           "12.2",
           "12.3"
         ],
-        "answer": "Yes. Under the Termination for Convenience provision, the customer may terminate the Agreement or a Subscription Term upon notice for any reason, without needing to show cause [12.2]."
+        "answer": "Yes. Under the Termination for Convenience provision, the customer may terminate the Agreement or a Subscription Term upon notice for any reason [12.2]."
       },
       {
         "id": "q009",
@@ -127,20 +127,20 @@
           "15.1",
           "7.2"
         ],
-        "answer": "Yes. Atlassian is required to defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
+        "answer": "Yes. Atlassian must defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
       },
       {
         "id": "q010",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": 0.0,
+        "cc": 0.0,
         "retrieved_ids": [
           "20.4",
           "20.14"
         ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe [20.4]."
+        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe [20.4(a)(i)]."
       },
       {
         "id": "q011",
@@ -192,7 +192,7 @@
           "5",
           "9"
         ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
+        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
       },
       {
         "id": "q015",
@@ -205,7 +205,7 @@
           "20",
           "20"
         ],
-        "answer": "Disputes arising under this agreement are not to be litigated in court but are resolved through **individual arbitration** (class‑ or collective‑action arbitration is prohibited).  \n\n* If an enforceable arbitration agreement exists between you and the Company, the parties will arbitrate under that agreement [20(a)].  \n* If no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under JAMS’s employment arbitration rules and procedures, with the arbitrator applying the substantive and procedural law of the state where you last worked [20(b)].  \n\nThe arbitrator’s decision is final, conclusive and binding, and the prevailing party may obtain injunctive relief in a court of competent jurisdiction to enforce the award. Each party bears its own counsel fees and expenses, although the arbitrator may award attorneys’ fees to the prevailing party as permitted by law. The parties waive their right to have any dispute resolved by a judge or jury, though either party may still seek injunctive or other provisional relief in court [20(b)]."
+        "answer": "Disputes arising under the agreement are not to be litigated in court but are to be resolved by **individual arbitration** (no class or collective actions). If an enforceable arbitration agreement between you and the company exists, the parties will arbitrate under that agreement [20(a)]. If no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under JAMS’s employment arbitration rules and procedures, with the arbitrator applying the law of the state where you last worked and issuing a final, binding award [20(b)]. The parties also waive a right to a judge‑or‑jury trial, although either party may still seek injunctive or other provisional relief in a court of competent jurisdiction [20(b)]."
       },
       {
         "id": "q016",
@@ -218,20 +218,20 @@
           "5.2",
           "7.10"
         ],
-        "answer": "To purchase alcohol you must be of the statutory legal age, and foodpanda (or the vendor/delivery rider) may require you to show valid proof of age (e.g., an ID card) before delivery and can refuse delivery if you cannot prove your age [5.2]."
+        "answer": "You must be of the statutory legal age to buy alcohol, and foodpanda (or the vendor/delivery rider) may ask you for valid proof of age (e.g., an ID card) before delivering it; delivery can be refused if you cannot prove you are of legal age [5.2]."
       },
       {
         "id": "q017",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": null,
-        "cc": null,
+        "cv": 0.5,
+        "cc": 0.5,
         "retrieved_ids": [
           "5.3.2",
           "5.3"
         ],
-        "answer": "To purchase tobacco products on foodpanda you must be of the statutory legal age, and the vendor (or its delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery; they can refuse delivery if you cannot prove you are of legal age【5.3.2】."
+        "answer": "To purchase tobacco products on foodpanda you must be of the statutory legal age, and the vendor (or its delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery. [5.3.2] [5.3.2.1]"
       },
       {
         "id": "q018",
@@ -270,7 +270,7 @@
           "21.2",
           "21.3"
         ],
-        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will refund any Rider Tip you paid, though the refund may take five (5) to ten (10) business days (or up to 30 days for overseas banks) to appear in your account [21.2]."
+        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will process a refund of any Rider Tip you paid [21.2]."
       },
       {
         "id": "q021",
@@ -296,7 +296,7 @@
           "7.2.2",
           "7.2"
         ],
-        "answer": "A consumer may cancel a ride booking (the contract does not specify the exact procedure for doing so). If the consumer cancels the booking **or** fails to appear at the designated location, they may be charged a Cancellation Fee (or any other cancellation fee that Grab may announce on its website or platform) [7.2.2]."
+        "answer": "A consumer may cancel a ride booking by deciding to cancel it, but if the consumer either cancels the booking or fails to appear at the designated pickup location, they can be charged a Cancellation Fee (or any other Cancellation Fee that Grab may announce on its website or platform) [7.2.2]."
       },
       {
         "id": "q023",
@@ -322,7 +322,7 @@
           "25.3",
           "19.2"
         ],
-        "answer": "A buyer can request a refund by submitting a written request to Shopee for assistance with the dispute, and must do so before the Shopee Guarantee Period expires in accordance with Shopee’s Refunds and Return Policy [25.3][19.2]."
+        "answer": "A buyer can request a refund by applying for the return of the purchased item and a refund before the Shopee Guarantee Period expires, in accordance with Shopee’s Refunds and Return Policy [19.2]. The buyer may also send a written request to Shopee asking for assistance in resolving the dispute [25.3]."
       },
       {
         "id": "q025",
@@ -348,7 +348,7 @@
           "37.2",
           "1.4"
         ],
-        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms on the Site, and your continued use after the changes constitutes acceptance of the revised Terms [37.2]."
+        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms of Service on the Site, and your continued use after the changes constitutes acceptance of the revisions [37.2]."
       },
       {
         "id": "q027",
@@ -426,1736 +426,7 @@
           "8.6",
           "1"
         ],
-        "answer": "Yes. The agreement grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials (including earnings releases and calls), subject to the customer’s brand and trademark guidelines [8.6]."
-      },
-      {
-        "id": "q033",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "1.2",
-          "1.1"
-        ],
-        "answer": "The minimum age is at least 18 years old, or the age of majority in your province, territory or country [1.2]."
-      },
-      {
-        "id": "q034",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "2.6",
-          "3.2"
-        ],
-        "answer": "Yes—you can cancel your Netflix subscription at any time [2.6]."
-      },
-      {
-        "id": "q035",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7.2",
-          "7.3"
-        ],
-        "answer": "No. Netflix is not responsible for unsolicited ideas or materials submitted by users for new content; it does not accept unsolicited materials and disclaims responsibility for any similarity to such submissions [7.2]."
-      },
-      {
-        "id": "q036",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "1.4",
-          "4"
-        ],
-        "answer": "“Account Sharing” means that the Netflix service and any content accessed through it are intended solely for your personal, non‑commercial use and may not be shared with anyone outside of your household, except where the feature is available in a given country and you have purchased an Extra Member Account [1.4]."
-      },
-      {
-        "id": "q037",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7.5",
-          "7.6"
-        ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable [7.5]."
-      }
-    ]
-  },
-  "hybrid": {
-    "means": {
-      "mean_precision": 0.43243243243243246,
-      "mean_recall": 0.8378378378378378,
-      "mean_rr": 0.8424291174291174,
-      "mean_cv": 0.976851851851852,
-      "mean_cc": 0.9166666666666666,
-      "no_citation_count": 1,
-      "generation_failed_count": 0
-    },
-    "rows": [
-      {
-        "id": "q001",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0.14285714285714285,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7",
-          "5",
-          "1.1",
-          "4.2",
-          "1.1",
-          "3.4",
-          "1.3",
-          "6",
-          "2.3",
-          "1.2",
-          "3.1",
-          "4.3",
-          "2.1",
-          "9",
-          "8.2",
-          "3.2",
-          "3.1",
-          "3.1",
-          "8"
-        ],
-        "answer": "Yes. LinkedIn may modify this Contract after you have agreed to it. It can change the terms (including the Privacy Policy and Cookie Policy) and will generally give you notice through the Services or other means, though it may sometimes implement changes without prior notice when required by law or for a new service or feature. If you object, you may close your account, and your continued use after notice means you consent to the updated terms [1.3]."
-      },
-      {
-        "id": "q002",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3.1",
-          "3.1",
-          "3.1",
-          "8.2",
-          "2.5",
-          "3.6",
-          "3.3",
-          "9",
-          "8.2",
-          "3.6",
-          "3.3",
-          "3.5",
-          "6",
-          "1.1",
-          "4.2",
-          "8.1",
-          "2.3",
-          "3.4",
-          "3.2",
-          "8.2",
-          "3.3"
-        ],
-        "answer": "You retain ownership of the original content you submit or post to LinkedIn — you own all of your original content, while granting LinkedIn a non‑exclusive license to use it [3.1]."
-      },
-      {
-        "id": "q003",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "2.3",
-          "1.3",
-          "7",
-          "3.1",
-          "4.2",
-          "3.3",
-          "3.2",
-          "5",
-          "3.1",
-          "8.2",
-          "3.3",
-          "3.6",
-          "3.4",
-          "4.1",
-          "1.1",
-          "3.5",
-          "3.1",
-          "1.1",
-          "1.2",
-          "6"
-        ],
-        "answer": "Yes. LinkedIn may change its prices only prospectively and must give you reasonable notice of the change, to the extent that the law permits it [2.3]."
-      },
-      {
-        "id": "q004",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7",
-          "4.3",
-          "4.2",
-          "1.1",
-          "6",
-          "5",
-          "9",
-          "6",
-          "2.2",
-          "1.3",
-          "8",
-          "1.1",
-          "2.3",
-          "1.2",
-          "3.4",
-          "4.1",
-          "2.3",
-          "2.1",
-          "3.3",
-          "8.2"
-        ],
-        "answer": "If a court with authority over the Contract finds any provision unenforceable, the parties agree the court should first modify that provision so it can be enforced while preserving its intent. If the court cannot make such a modification, the parties agree to have the court strike out the unenforceable portion and enforce the remainder of the Contract [7]."
-      },
-      {
-        "id": "q005",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 0.5,
-        "cv": 1.0,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "3.1",
-          "8.2",
-          "8.2",
-          "1.1",
-          "2.5",
-          "8.2",
-          "2.1",
-          "3.3",
-          "2.2",
-          "3.1",
-          "3.1",
-          "2.3",
-          "9",
-          "3.3",
-          "7",
-          "4.1",
-          "3.6",
-          "3.4",
-          "3.2",
-          "3.3"
-        ],
-        "answer": "No. LinkedIn expressly prohibits creating a false identity or impersonating another person. You may not “Create a false identity on LinkedIn, misrepresent your identity, create a Member profile for anyone other than yourself (a real person), or use or attempt to use another’s account” [8.2]. Creating an account with false information is also a violation of the contract [2.1]."
-      },
-      {
-        "id": "q006",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3.4",
-          "7.2",
-          "2.1",
-          "5.2",
-          "5.1",
-          "21",
-          "20.8",
-          "17.4",
-          "2.2",
-          "6.1",
-          "17.1",
-          "20.4",
-          "20.7",
-          "10.1",
-          "20.13",
-          "9",
-          "3.1",
-          "21",
-          "15.4",
-          "17.2",
-          "6.3",
-          "20.9",
-          "21",
-          "11.2"
-        ],
-        "answer": "The Products may not be used by anyone under sixteen years old; all Users must be at least 16 years of age [3.4]."
-      },
-      {
-        "id": "q007",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "10.3",
-          "12.3",
-          "12.2",
-          "11.2",
-          "20.9",
-          "10.1",
-          "15.4",
-          "12",
-          "10.4",
-          "3.1",
-          "12.4",
-          "2.1",
-          "10.1",
-          "8",
-          "17.2",
-          "5.1",
-          "9",
-          "20.3",
-          "5.2",
-          "4.4",
-          "12.5",
-          "6.3",
-          "20.5"
-        ],
-        "answer": "A customer can terminate a new order and receive a refund if it does so within **thirty (30) days** of the initial order [10.3]."
-      },
-      {
-        "id": "q008",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "12.2",
-          "10.3",
-          "12.3",
-          "15.4",
-          "10.1",
-          "10.1",
-          "20.9",
-          "11.2",
-          "17.2",
-          "12.4",
-          "15.3",
-          "5.1",
-          "10.4",
-          "12",
-          "14.1",
-          "4.5",
-          "11.1",
-          "20.10",
-          "2.2"
-        ],
-        "answer": "Yes. The agreement expressly allows the customer to end the agreement or a Subscription Term “for any reason” by giving notice — that is a termination‑for‑convenience right [12.2]."
-      },
-      {
-        "id": "q009",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "15.1",
-          "7.2",
-          "15.6",
-          "15.5",
-          "13",
-          "15.3",
-          "15.2",
-          "15.4",
-          "7.1",
-          "11.4",
-          "7",
-          "21",
-          "4.5",
-          "4.2",
-          "5.1",
-          "17.4",
-          "21",
-          "11.3",
-          "10.3"
-        ],
-        "answer": "Yes. Under the IP indemnification provision, Atlassian is required to “defend Customer from and against any third‑party claim … that the Products … infringe any intellectual property right of a third party” [15.1]."
-      },
-      {
-        "id": "q010",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "20.4",
-          "20.5",
-          "20.14",
-          "20.3",
-          "3.1",
-          "2.1",
-          "20.13",
-          "12.3",
-          "2.2",
-          "14.4",
-          "20.10",
-          "10.2",
-          "15.2",
-          "20.8",
-          "15.1",
-          "10.1",
-          "15.3",
-          "1",
-          "20.9",
-          "15.5",
-          "20.6",
-          "3.3",
-          "4.3",
-          "12.4"
-        ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe (as well as the Middle East or Africa) [20.4]."
-      },
-      {
-        "id": "q011",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0.09090909090909091,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "24",
-          "2",
-          "23",
-          "22",
-          "2",
-          "5",
-          "18",
-          "19",
-          "14",
-          "6",
-          "1",
-          "13",
-          "6",
-          "8",
-          "13",
-          "13",
-          "5",
-          "17",
-          "24",
-          "15"
-        ],
-        "answer": "The agreement states that the Separation Date is August 4, 2023 [1]."
-      },
-      {
-        "id": "q012",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3",
-          "18",
-          "2",
-          "8",
-          "6",
-          "13",
-          "14",
-          "6",
-          "5",
-          "1",
-          "5",
-          "24",
-          "2",
-          "7",
-          "6",
-          "22",
-          "12",
-          "17",
-          "6",
-          "19",
-          "22"
-        ],
-        "answer": "The employee must submit the final expense‑reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
-      },
-      {
-        "id": "q013",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6",
-          "7",
-          "6",
-          "8",
-          "6",
-          "23",
-          "9",
-          "6",
-          "22",
-          "6",
-          "19",
-          "6",
-          "13",
-          "18",
-          "13",
-          "14",
-          "15",
-          "5",
-          "2"
-        ],
-        "answer": "Yes. The agreement releases “any and all claims arising under any federal…law or statute, including, but not limited to Title VII of the Civil Rights Act of 1964” [6]."
-      },
-      {
-        "id": "q014",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "9",
-          "23",
-          "2",
-          "14",
-          "5",
-          "13",
-          "15",
-          "19",
-          "13",
-          "5",
-          "8",
-          "6",
-          "24",
-          "10",
-          "13",
-          "18",
-          "6",
-          "13",
-          "22",
-          "20"
-        ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law (or when compelled by lawful process) [9]."
-      },
-      {
-        "id": "q015",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 0.5,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "20",
-          "23",
-          "22",
-          "19",
-          "24",
-          "13",
-          "21",
-          "14",
-          "18",
-          "15",
-          "20",
-          "2",
-          "6",
-          "13",
-          "2",
-          "9",
-          "13",
-          "11",
-          "5",
-          "22"
-        ],
-        "answer": "Disputes arising under this Agreement must be resolved through **individual arbitration (not class or collective)**. If an enforceable arbitration agreement between you and the Company exists, that agreement governs the arbitration [20(a)]. If no such agreement exists, the parties must submit the dispute to **JAMS (Judicial Arbitration & Mediation Services) under its Employment Arbitration Rules and Procedures**, with the arbitrator applying the substantive and procedural law of the state where you last worked for the Company [20(b)]. The arbitrator may grant injunctions and other relief, and the arbitration award is final, conclusive, and binding [20] (conflict‑of‑law provision). Both parties also waive their right to have any dispute resolved by a judge or jury, although either may seek injunctive relief in a court of competent jurisdiction [20]."
-      },
-      {
-        "id": "q016",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "5.2",
-          "1.2",
-          "5.1",
-          "5.3.2",
-          "8.2",
-          "7.10",
-          "5.4",
-          "20.4",
-          "2.1",
-          "9.10",
-          "6.7",
-          "6.4",
-          "20.2",
-          "7.11",
-          "6.1",
-          "20.1",
-          "7.9",
-          "9.1",
-          "6.6",
-          "3.2",
-          "5.3.1",
-          "7.12.1",
-          "9.12",
-          "7.12.2",
-          "2.2"
-        ],
-        "answer": "To buy alcohol you must be of the statutory legal age, and foodpanda (or the Vendor or its rider) can require you to show valid proof of age (e.g., an ID card) before delivering it. If you cannot prove you are of legal age, delivery may be refused. [5.2]"
-      },
-      {
-        "id": "q017",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0.2,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "5.3",
-          "5.2",
-          "1.2",
-          "8.2",
-          "5.3.2",
-          "5.3.1",
-          "7.10",
-          "5.1",
-          "6.4",
-          "5.4",
-          "20.4",
-          "3.2",
-          "6.1",
-          "6.7",
-          "2.1",
-          "2.2",
-          "20.2",
-          "10.3",
-          "20.1",
-          "7.11",
-          "9.1",
-          "9.12",
-          "6.6",
-          "7.12.1",
-          "9.10",
-          "10.1"
-        ],
-        "answer": "To buy Tobacco on foodpanda you must be of the statutory legal age, and you may be asked to show valid proof of age (e.g., an ID card) before the product is delivered. If you cannot prove you are of legal age, delivery can be refused. [5.3.2]"
-      },
-      {
-        "id": "q018",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "8.4.2",
-          "8.6.1",
-          "8.4.1",
-          "6.8",
-          "8.2",
-          "6.7",
-          "6.9",
-          "6.2",
-          "21.2",
-          "1.3",
-          "8.6.2",
-          "5.3.2",
-          "5.2",
-          "7.8",
-          "8.3",
-          "21.1",
-          "6.5",
-          "6.4",
-          "21.3",
-          "26.3",
-          "9.12",
-          "8.8",
-          "7.12.2"
-        ],
-        "answer": "A customer must receive the order within ten (10) minutes of its arrival; otherwise it is treated as a no‑show and may be cancelled. [8.4.2]"
-      },
-      {
-        "id": "q019",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0.125,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6.11",
-          "10.3",
-          "1.3",
-          "10.3",
-          "6.4",
-          "10.3",
-          "19.1",
-          "19.2",
-          "19.3",
-          "3.1.8",
-          "9.9",
-          "10.3",
-          "10.1",
-          "2.1",
-          "20.2",
-          "9.15",
-          "3.2.1",
-          "3.1.13",
-          "2.2",
-          "7.9",
-          "6.3",
-          "3.2.5",
-          "7.12",
-          "10.2"
-        ],
-        "answer": "No. foodpanda states that the AI‑generated chat translations “may contain inaccuracies or errors” and that it “does not warrant the complete accuracy, reliability, or context of the AI‑translated messages” [19.2]."
-      },
-      {
-        "id": "q020",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "21.2",
-          "21.1",
-          "21.3",
-          "6.8",
-          "6.9",
-          "8.4.2",
-          "7.12.2",
-          "8.8",
-          "8.4.1",
-          "6.7",
-          "7.12.1",
-          "20.6",
-          "8.6.2",
-          "7.8",
-          "6.10",
-          "9.8",
-          "6.9",
-          "6.2",
-          "7.12",
-          "20.3"
-        ],
-        "answer": "Yes. If you cancel your Order before it is delivered, foodpanda will refund any Rider Tip you paid to the same payment method you used for the Order — the refund may take five (5) to ten (10) business days (or up to 30 days for overseas banks) to be reflected in your account [21.2]."
-      },
-      {
-        "id": "q021",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 0.5,
-        "cv": 1.0,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "25.3",
-          "10.3",
-          "9.11",
-          "3.2.5",
-          "10.3",
-          "3.2.3",
-          "9.12",
-          "7.11",
-          "1.1",
-          "10.1",
-          "10.3",
-          "6.3",
-          "10.2",
-          "9.14",
-          "3.2",
-          "7.9",
-          "7.7",
-          "6.4",
-          "9.13",
-          "9.1",
-          "3.1.13"
-        ],
-        "answer": "Yes. foodpanda may amend the Terms at any time in its sole discretion, and the amended Terms become effective immediately upon posting — you agree to them by continued use of the Platforms [10.3]. It also reserves the right to amend or change any terms and conditions with or without prior notice [25.3]."
-      },
-      {
-        "id": "q022",
-        "precision": 0.5,
-        "recall": 0.5,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.6666666666666666,
-        "retrieved_ids": [
-          "7.2.2",
-          "7.1.2",
-          "7.2.1",
-          "3.3.5",
-          "20.1.8",
-          "7.2",
-          "2.2.11",
-          "6.2.1",
-          "7.1.1",
-          "3.3.3",
-          "20.1.3",
-          "1.1.4",
-          "14.2",
-          "1.1.2",
-          "7.2.3",
-          "20.1.2",
-          "7",
-          "1.3.2",
-          "11",
-          "8.6",
-          "20.1.5",
-          "10.2",
-          "13.2.3",
-          "4.2",
-          "6.2.3"
-        ],
-        "answer": "A consumer may cancel a transportation request at any time before the ride actually begins with the matched Partner — that is, before you commence your ride [7.2.1].  \n\nIf the consumer either cancels the booking or simply fails to appear at the designated location, Grab may assess a Cancellation Fee (or any other fee that Grab later publishes on its website or platform) [7.2.2].  \n\nAdditionally, cancellations that are not based on an “acceptable cancellation reason” listed in the app may be counted toward a possible temporary restriction on the consumer’s access to the Service [7.1.2]."
-      },
-      {
-        "id": "q023",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "24",
-          "2",
-          "21.3",
-          "24.2",
-          "13.7",
-          "9.28",
-          "17.1",
-          "7.14",
-          "3",
-          "7.15",
-          "13.5",
-          "12.8",
-          "9.12.4",
-          "3.2.6",
-          "26.1",
-          "1.1",
-          "7.7",
-          "23.1",
-          "8.2",
-          "3",
-          "9.27",
-          "2.3",
-          "12.9",
-          "3.1.9",
-          "1.2.5",
-          "2.2.2",
-          "25",
-          "21.4"
-        ],
-        "answer": "Disputes arising out of or in connection with these Terms of Service are to be referred to arbitration before the Singapore International Arbitration Centre (“SIAC”) under the SIAC Rules, with the seat and venue in Singapore and the proceedings conducted in English [24.2].  \n\nThe Terms themselves are governed by the law of Singapore [24]."
-      },
-      {
-        "id": "q024",
-        "precision": 0.5,
-        "recall": 0.5,
-        "rr": 0.5,
-        "cv": 0.6666666666666666,
-        "cc": 0.3333333333333333,
-        "retrieved_ids": [
-          "19.3",
-          "19.2",
-          "12.3",
-          "19",
-          "12.2",
-          "10.4",
-          "19.4",
-          "16.4",
-          "12.6",
-          "25.4",
-          "25.3",
-          "14.3",
-          "22.4",
-          "9.10",
-          "15.4",
-          "8.3",
-          "33.1",
-          "13.4",
-          "1.2",
-          "12.5"
-        ],
-        "answer": "A buyer can ask for a refund by submitting a return‑and‑refund request *before the Shopee Guarantee Period ends* and in line with Shopee’s Refunds and Return Policy.  During the Guarantee Period buyers are allowed to make such a request if they are not satisfied with the purchase [12.3], and the buyer may apply for the return of the item and refund prior to the expiry of the Shopee Guarantee Period, subject to that policy [19.2].  If Shopee determines the buyer’s application is successful, it will provide the refund [12.2(c)]."
-      },
-      {
-        "id": "q025",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "10.3",
-          "10.2",
-          "10.5",
-          "10.4",
-          "10.7",
-          "14.3",
-          "23.4",
-          "10.9",
-          "14.4",
-          "20.2",
-          "15.3",
-          "23",
-          "12.6",
-          "10.1",
-          "15.2",
-          "12.4",
-          "14.1",
-          "16.2",
-          "5.5",
-          "12.5",
-          "13.7",
-          "23.1",
-          "18.5",
-          "12.3",
-          "27.1"
-        ],
-        "answer": "Sellers receive one (1) free Withdrawal Request each week [10.3]."
-      },
-      {
-        "id": "q026",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": null,
-        "cc": null,
-        "retrieved_ids": [
-          "37.2",
-          "6.2",
-          "3.1",
-          "1.4",
-          "9.7",
-          "37.9",
-          "9.2",
-          "24.1",
-          "28.4",
-          "6.5",
-          "37.7",
-          "23.1",
-          "4.1",
-          "14.6",
-          "37.6",
-          "36.1",
-          "3.1",
-          "35.1",
-          "31.2",
-          "29.1",
-          "1.5",
-          "1.1",
-          "21.7",
-          "21.9",
-          "5.4",
-          "21.10",
-          "21.1"
-        ],
-        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms on the Site, and your continued use after the changes are posted constitutes your acceptance of the revised terms【37.2】."
-      },
-      {
-        "id": "q027",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "13.2",
-          "13.1",
-          "15.1",
-          "14.3",
-          "13.5",
-          "15.3",
-          "14.6",
-          "12.8",
-          "13.6",
-          "23.2",
-          "15.4",
-          "14.2",
-          "19.4",
-          "5.5",
-          "14.4",
-          "23.1",
-          "13.9",
-          "9.8",
-          "23.3",
-          "12.3",
-          "12.2",
-          "12.1",
-          "10.4"
-        ],
-        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
-      },
-      {
-        "id": "q028",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "21.11",
-          "21.5",
-          "21.3",
-          "21.6",
-          "20.6",
-          "21.2",
-          "21.9",
-          "20.7",
-          "21.7",
-          "21.1",
-          "21.4",
-          "23.7",
-          "23.6",
-          "10.7",
-          "21.10",
-          "16.5",
-          "21.8",
-          "20.4",
-          "10.3",
-          "5.4",
-          "14.1"
-        ],
-        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
-      },
-      {
-        "id": "q029",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6.8",
-          "6.4",
-          "4.5",
-          "1",
-          "6.9",
-          "6.2",
-          "5.1",
-          "5.3",
-          "6.1",
-          "6.6",
-          "8.5",
-          "3.1",
-          "13.3",
-          "5.2",
-          "11.2",
-          "6.7",
-          "4.5",
-          "6.6",
-          "7.1",
-          "1",
-          "7.6"
-        ],
-        "answer": "The agreement provides that any unpaid Fees accrue a finance charge of one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
-      },
-      {
-        "id": "q030",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "9.1",
-          "3.1",
-          "8.1",
-          "8.2",
-          "8.4",
-          "15.3",
-          "14.4",
-          "3.2",
-          "2.2",
-          "15.4",
-          "9.3",
-          "5.3",
-          "7.1",
-          "5.1",
-          "14.3",
-          "14.1",
-          "3.1",
-          "4.1",
-          "4.1",
-          "4.4",
-          "6.3",
-          "10.2",
-          "14.2",
-          "3.3",
-          "7.7"
-        ],
-        "answer": "Yes. GitLab represents and warrants that it has the authority to enter into this Agreement [9.1]."
-      },
-      {
-        "id": "q031",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "15.5",
-          "7.6",
-          "11.2",
-          "4.3",
-          "15.2",
-          "10.3",
-          "5.1",
-          "14.3",
-          "11.1",
-          "7.2",
-          "6.8",
-          "1",
-          "7.5",
-          "1",
-          "10.1",
-          "8.1",
-          "7.3",
-          "5.3",
-          "10.1",
-          "6.9",
-          "2.1",
-          "1",
-          "8.2",
-          "10.2",
-          "15.4"
-        ],
-        "answer": "Yes. The agreement provides that the prevailing party in any action or proceeding to enforce its rights may recover costs and attorneys’ fees [15.5]."
-      },
-      {
-        "id": "q032",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "8.6",
-          "5.7",
-          "1",
-          "8.1",
-          "10.2",
-          "7.8",
-          "4.1",
-          "8.2",
-          "4.1",
-          "8.3",
-          "3.1",
-          "3",
-          "4.1",
-          "3.2",
-          "4.1",
-          "14.1",
-          "8.4",
-          "3.1",
-          "4.1",
-          "4",
-          "5.5",
-          "10.1",
-          "4.1",
-          "5.1"
-        ],
-        "answer": "Yes. The agreement gives GitLab the right to use the Customer’s company name and logo in marketing and promotional materials (including earnings releases and calls), provided GitLab follows the Customer’s brand and trademark guidelines. [8.6]"
-      },
-      {
-        "id": "q033",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "1.2",
-          "1.1",
-          "1.8",
-          "1.3",
-          "1.6",
-          "7.3",
-          "2.6",
-          "1.8",
-          "1.9",
-          "1.10",
-          "1.4",
-          "2.1",
-          "1.9",
-          "3.2",
-          "5",
-          "7.4",
-          "7.2",
-          "1.7",
-          "3.1",
-          "1.5",
-          "4"
-        ],
-        "answer": "The service requires you to be at least eighteen (18) years old, or the age of majority in your province, territory or country, to create a Netflix account [1.2]."
-      },
-      {
-        "id": "q034",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "2.6",
-          "3.2",
-          "1.6",
-          "2.1",
-          "2.7",
-          "2.1",
-          "1.1",
-          "4",
-          "1.8",
-          "2.4",
-          "7.3",
-          "1.3",
-          "5",
-          "1.4",
-          "7.2",
-          "1.8",
-          "7.7",
-          "1.9",
-          "1.7"
-        ],
-        "answer": "Yes. You may cancel your Netflix subscription at any time; the cancellation will take effect at the end of the billing period [2.6]."
-      },
-      {
-        "id": "q035",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7.2",
-          "7.3",
-          "2.4",
-          "1.8",
-          "1.10",
-          "1.6",
-          "1.3",
-          "1.1",
-          "1.4",
-          "2.6",
-          "4",
-          "1.8",
-          "7.7",
-          "5",
-          "1.9",
-          "2.1",
-          "2.2",
-          "1.7",
-          "1.11",
-          "7.4",
-          "1.5"
-        ],
-        "answer": "No. Netflix does not accept unsolicited materials or ideas for Netflix content and is not responsible for any similarity of its content to such submissions [7.2]."
-      },
-      {
-        "id": "q036",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0.1111111111111111,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6",
-          "1.1",
-          "3.1",
-          "2.4",
-          "1.8",
-          "1.2",
-          "5",
-          "1.8",
-          "1.4",
-          "7.2",
-          "4",
-          "7.1",
-          "1.3",
-          "2.1",
-          "7.4",
-          "2.1",
-          "1.10",
-          "3.2",
-          "1.9",
-          "1.9",
-          "1.5",
-          "1.9"
-        ],
-        "answer": "“Account Sharing” means that the Netflix service and any content you access are intended only for your personal, non‑commercial use and may not be shared with anyone outside of your household, except where the feature is available in your country and you have purchased an Extra Member Account [1.4]."
-      },
-      {
-        "id": "q037",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7.5",
-          "1.11",
-          "7.6",
-          "1.8",
-          "7.1",
-          "5",
-          "7.4",
-          "1.8",
-          "2.5",
-          "2.1",
-          "2.2",
-          "6",
-          "1.1",
-          "7.7",
-          "1.2",
-          "1.9",
-          "7.2",
-          "3.2",
-          "3.1",
-          "7.3"
-        ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal or unenforceable, the remaining provisions continue to be fully valid, legal and enforceable. [7.5]"
-      }
-    ]
-  },
-  "hybrid_rerank": {
-    "means": {
-      "mean_precision": 0.4864864864864865,
-      "mean_recall": 0.9459459459459459,
-      "mean_rr": 0.9459459459459459,
-      "mean_cv": 1.0,
-      "mean_cc": 0.9428571428571428,
-      "no_citation_count": 2,
-      "generation_failed_count": 0
-    },
-    "rows": [
-      {
-        "id": "q001",
-        "precision": 0.0,
-        "recall": 0.0,
-        "rr": 0,
-        "cv": 1.0,
-        "cc": 0.0,
-        "retrieved_ids": [
-          "7",
-          "1.1"
-        ],
-        "answer": "Yes. The contract states that it includes “additional terms that may be provided by us when you engage with a feature of the Services,” meaning LinkedIn can add or modify terms after you have initially agreed to the contract [7]."
-      },
-      {
-        "id": "q002",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3.1",
-          "3.1"
-        ],
-        "answer": "You own the original content that you submit or post to LinkedIn’s Services. [3.1]"
-      },
-      {
-        "id": "q003",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "2.3",
-          "3.2"
-        ],
-        "answer": "Yes. LinkedIn may modify its prices only “effective prospectively upon reasonable notice” as required by law [2.3]."
-      },
-      {
-        "id": "q004",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "7",
-          "5"
-        ],
-        "answer": "If a court with authority over the Contract finds any part of it unenforceable, the parties agree that the court should first modify that part so it becomes enforceable while still achieving its intended effect. If the court cannot make such a modification, the parties agree to ask the court to remove the unenforceable portion and enforce the remainder of the Contract [7]."
-      },
-      {
-        "id": "q005",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "8.2",
-          "8.2"
-        ],
-        "answer": "No. Creating a false identity, misrepresenting your identity, or creating a Member profile for anyone other than yourself (i.e., a fake or impersonated profile) is expressly prohibited [8.2]."
-      },
-      {
-        "id": "q006",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3.4",
-          "5.2"
-        ],
-        "answer": "The Products may only be used by individuals who are at least sixteen (16) years old [3.4]."
-      },
-      {
-        "id": "q007",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "10.3",
-          "12.3"
-        ],
-        "answer": "A customer can terminate a new order and receive a refund within thirty (30) days of the initial order [10.3]."
-      },
-      {
-        "id": "q008",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "12.2",
-          "10.3"
-        ],
-        "answer": "Yes. The contract allows the customer to terminate the Agreement or a Subscription Term “upon notice for any reason” [12.2]."
-      },
-      {
-        "id": "q009",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "15.1",
-          "15.6"
-        ],
-        "answer": "Yes. Atlassian is required to defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
-      },
-      {
-        "id": "q010",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "20.4",
-          "20.14"
-        ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe [20.4]."
-      },
-      {
-        "id": "q011",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "1",
-          "24"
-        ],
-        "answer": "The Separation Date is August 4, 2023 [1]."
-      },
-      {
-        "id": "q012",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "3",
-          "8"
-        ],
-        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
-      },
-      {
-        "id": "q013",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6",
-          "8"
-        ],
-        "answer": "Yes. The agreement releases “any and all claims arising under any federal…law or statute, including, but not limited to Title VII of the Civil Rights Act of 1964” [6]."
-      },
-      {
-        "id": "q014",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "9",
-          "2"
-        ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
-      },
-      {
-        "id": "q015",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "20",
-          "20"
-        ],
-        "answer": "Disputes arising under the agreement are not to be litigated in court but are resolved through **individual arbitration** (class‑ or collective‑action arbitration is prohibited). If an enforceable arbitration agreement exists between you and the company, that agreement governs the arbitration; if no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under JAMS’s employment arbitration rules and procedures, with the arbitrator applying the law of the state where you last worked [20] (a); [20] (b)."
-      },
-      {
-        "id": "q016",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "5.2",
-          "20.2"
-        ],
-        "answer": "To purchase alcohol on foodpanda you must be of the statutory legal age, and foodpanda, the Vendor and their delivery riders may ask you to show valid proof of age (e.g., an ID card) before delivering the alcohol [5.2]."
-      },
-      {
-        "id": "q017",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": null,
-        "cc": null,
-        "retrieved_ids": [
-          "5.3.2",
-          "20.2"
-        ],
-        "answer": "To buy tobacco on foodpanda you must be of the statutory legal age, and foodpanda, the Vendor and their delivery riders may ask you for valid proof of age (e.g., an ID card) before delivering; they can refuse delivery if you cannot prove you are of legal age【5.3.2】."
-      },
-      {
-        "id": "q018",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "8.4.2",
-          "8.6.1"
-        ],
-        "answer": "A customer has ten (10) minutes to receive the Order before it is considered a no‑show and may be cancelled [8.4.2]."
-      },
-      {
-        "id": "q019",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6.11",
-          "19.2"
-        ],
-        "answer": "No. foodpanda does not guarantee the accuracy of its AI‑generated chat translations; it states that the translations “may contain inaccuracies or errors” and that it “does not warrant the complete accuracy, reliability, or context” of those AI‑translated messages [19.2]."
-      },
-      {
-        "id": "q020",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "21.2",
-          "21.3"
-        ],
-        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will refund any Rider Tip you paid, though the refund may take five (5) to ten (10) business days (or up to 30 days for overseas banks) to appear in your account [21.2]."
-      },
-      {
-        "id": "q021",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "9.11",
-          "10.3"
-        ],
-        "answer": "Yes. foodpanda may amend these Terms at any time in its sole discretion, and the amended Terms become effective immediately upon posting [10.3]."
-      },
-      {
-        "id": "q022",
-        "precision": 0.5,
-        "recall": 0.5,
-        "rr": 1.0,
-        "cv": null,
-        "cc": null,
-        "retrieved_ids": [
-          "7.2.2",
-          "7.1.2"
-        ],
-        "answer": "A consumer may cancel a ride booking through the Grab Application or Platform, but the cancellation must be for one of the “acceptable cancellation reasons” that are displayed in the app or on the platform, and Grab can change those reasons at any time【7.1.2】.  \n\nIf the consumer either cancels a booking (outside an acceptable reason) or simply does not show up at the designated location, Grab may charge a Cancellation Fee—or any other cancellation fee that Grab later posts on its website or any Grab Platform【7.2.2】."
-      },
-      {
-        "id": "q023",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "24",
-          "24.2"
-        ],
-        "answer": "Disputes arising out of or in connection with these Terms of Service are governed by Singapore law and must be referred to arbitration before the Singapore International Arbitration Centre (SIAC) under the SIAC Rules [24][24.2]."
-      },
-      {
-        "id": "q024",
-        "precision": 0.5,
-        "recall": 0.5,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
-        "retrieved_ids": [
-          "25.3",
-          "12.3"
-        ],
-        "answer": "A buyer can request a refund by making a return‑and‑refund request while the transaction is still within the Shopee Guarantee Period, and by sending a written request to Shopee for assistance with the dispute. [12.3] [25.3]"
-      },
-      {
-        "id": "q025",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "10.3",
-          "10.2"
-        ],
-        "answer": "Sellers are entitled to one (1) free Withdrawal Request per week [10.3]."
-      },
-      {
-        "id": "q026",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "37.2",
-          "1.4"
-        ],
-        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms on the Site, and your continued use after the changes constitutes acceptance of the revised Terms [37.2]."
-      },
-      {
-        "id": "q027",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "13.2",
-          "13.1"
-        ],
-        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
-      },
-      {
-        "id": "q028",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "21.11",
-          "21.5"
-        ],
-        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
-      },
-      {
-        "id": "q029",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "6.8",
-          "4.5"
-        ],
-        "answer": "The finance charge for unpaid fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
-      },
-      {
-        "id": "q030",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "9.1",
-          "9.3"
-        ],
-        "answer": "Yes. GitLab represents and warrants that it has the authority to enter into this Agreement [9.1]."
-      },
-      {
-        "id": "q031",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "15.5",
-          "11.1"
-        ],
-        "answer": "Yes. The prevailing party is entitled to recover its costs and attorneys’ fees in any action or proceeding to enforce rights under the Agreement [15.5]."
-      },
-      {
-        "id": "q032",
-        "precision": 0.5,
-        "recall": 1.0,
-        "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
-        "retrieved_ids": [
-          "8.6",
-          "8.3"
-        ],
-        "answer": "Yes. The contract grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials, subject to the customer’s brand and trademark guidelines [8.6]."
+        "answer": "Yes. The agreement grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials, subject to the customer’s brand and trademark guidelines [8.6]."
       },
       {
         "id": "q033",
@@ -2205,6 +476,994 @@
         "cc": 1.0,
         "retrieved_ids": [
           "1.4",
+          "4"
+        ],
+        "answer": "“Account Sharing” means that the Netflix service and any content accessed through it are intended solely for your personal, non‑commercial use and may not be shared with anyone outside of your household, unless you are in a country where the feature is offered and you have purchased an Extra Member Account [1.4]."
+      },
+      {
+        "id": "q037",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7.5",
+          "7.6"
+        ],
+        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable [7.5]."
+      }
+    ]
+  },
+  "hybrid": {
+    "means": {
+      "mean_precision": 0.28378378378378377,
+      "mean_recall": 0.5540540540540541,
+      "mean_rr": 0.4594594594594595,
+      "mean_cv": 1.0,
+      "mean_cc": 0.8636363636363636,
+      "no_citation_count": 15,
+      "generation_failed_count": 0
+    },
+    "rows": [
+      {
+        "id": "q001",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "1.2",
+          "2.3"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q002",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "3.6",
+          "3.5"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q003",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "2.3",
+          "1.2"
+        ],
+        "answer": "Yes. LinkedIn may change its prices only after giving reasonable notice — the modification must be prospective and accompanied by reasonable notice as allowed by law [2.3]."
+      },
+      {
+        "id": "q004",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "5",
+          "6"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q005",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": 1.0,
+        "cc": 0.0,
+        "retrieved_ids": [
+          "3.3",
+          "3.4"
+        ],
+        "answer": "No. Creating a fake profile or impersonating someone else would violate LinkedIn’s Professional Community Policies and the “Dos and Don’ts,” which are prohibited uses of the Services. LinkedIn may restrict, suspend, or terminate your account for such misuse [3.4]."
+      },
+      {
+        "id": "q006",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "3.4",
+          "7"
+        ],
+        "answer": "The products may only be used by individuals who are at least sixteen (16) years old [3.4]."
+      },
+      {
+        "id": "q007",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "12",
+          "10.3"
+        ],
+        "answer": "The customer has thirty (30) days from the initial order to terminate and receive a refund [10.3]."
+      },
+      {
+        "id": "q008",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "12",
+          "12.2"
+        ],
+        "answer": "Yes. The agreement allows the customer to terminate the Agreement or a Subscription Term upon notice for any reason, without needing cause [12.2]."
+      },
+      {
+        "id": "q009",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7",
+          "15.1"
+        ],
+        "answer": "Yes. Atlassian is required to defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual property rights [15.1]."
+      },
+      {
+        "id": "q010",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "4.3",
+          "20.4"
+        ],
+        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe【20.4】."
+      },
+      {
+        "id": "q011",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1",
+          "13"
+        ],
+        "answer": "The Separation Date is August 4, 2023 [1]."
+      },
+      {
+        "id": "q012",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1",
+          "3"
+        ],
+        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
+      },
+      {
+        "id": "q013",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "15",
+          "6"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q014",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": 1.0,
+        "cc": 0.0,
+        "retrieved_ids": [
+          "15",
+          "18"
+        ],
+        "answer": "Yes. The non‑disparagement provision only restricts statements “except to the extent allowed by the Permitted Disclosures and Actions section,” so reporting legal violations to a government agency would be permissible if it falls within those permitted disclosures [15]."
+      },
+      {
+        "id": "q015",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "13",
+          "19"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q016",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "3.2",
+          "5.2"
+        ],
+        "answer": "To purchase alcohol on foodpanda you must be of the statutory legal age, and foodpanda (or the Vendor or delivery rider) may ask you to show valid proof of age (e.g., an ID card) before delivery [5.2]."
+      },
+      {
+        "id": "q017",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "5.3",
+          "3.2"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q018",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 0.5,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "21.3",
+          "8.4.2"
+        ],
+        "answer": "A customer has ten (10) minutes to receive the Order after it arrives at the delivery address before it is considered a no‑show [8.4.2]."
+      },
+      {
+        "id": "q019",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "3.1.8",
+          "19.1"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q020",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "21.2",
+          "3.1.9"
+        ],
+        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will refund any Rider Tip you paid to the same payment method you used for the order. The refund may take five (5) to ten (10) business days (or up to 30 days for overseas banks) to be processed and appear in your account [21.2]."
+      },
+      {
+        "id": "q021",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": 1.0,
+        "cc": 0.0,
+        "retrieved_ids": [
+          "3.2",
+          "25.3"
+        ],
+        "answer": "Yes. Foodpanda may amend or change any of the terms and conditions at any time, with or without prior notice to you [25.3]."
+      },
+      {
+        "id": "q022",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "7.2",
+          "7"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q023",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "13.5",
+          "3"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q024",
+        "precision": 0.5,
+        "recall": 0.5,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "25.3",
+          "23"
+        ],
+        "answer": "A buyer (or any user covered by the Shopee Guarantee) must send a written request to Shopee asking for assistance in resolving the transaction issue. Shopee will then, at its sole discretion, take the necessary steps to help resolve the dispute [25.3]."
+      },
+      {
+        "id": "q025",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "23",
+          "10.5"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q026",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "37.2",
+          "37"
+        ],
+        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms of Service on the Site, and your continued use after the changes constitutes acceptance of the revisions [37.2]."
+      },
+      {
+        "id": "q027",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "13.2",
+          "23"
+        ],
+        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
+      },
+      {
+        "id": "q028",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "20.6",
+          "23.6"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q029",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "6.8",
+          "1"
+        ],
+        "answer": "The finance charge for unpaid fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
+      },
+      {
+        "id": "q030",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "8.4",
+          "15.3"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q031",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "15.5",
+          "6.9"
+        ],
+        "answer": "Yes. The prevailing party is entitled to recover its costs and attorneys’ fees in any action or proceeding to enforce rights under the Agreement [15.5]."
+      },
+      {
+        "id": "q032",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "3",
+          "4"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q033",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1.2",
+          "1.4"
+        ],
+        "answer": "The minimum age to use the Netflix service is at least 18 years old, or the age of majority in your province, territory, or country [1.2]."
+      },
+      {
+        "id": "q034",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "1.4",
+          "3.2"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q035",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7.2",
+          "1.8"
+        ],
+        "answer": "Netflix is not responsible for any unsolicited ideas or materials submitted by users for new content. It does not accept unsolicited materials or ideas for Netflix content and disclaims responsibility for any similarity to such submissions [7.2]."
+      },
+      {
+        "id": "q036",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1.4",
+          "3.1"
+        ],
+        "answer": "“Account Sharing” means that the Netflix service and any content you view are for your personal, non‑commercial use only and may not be shared with anyone outside of your household, except where the feature is available and you have purchased an Extra Member Account [1.4]."
+      },
+      {
+        "id": "q037",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7.5",
+          "7.6"
+        ],
+        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable — the remaining provisions continue in full force and effect [7.5]."
+      }
+    ]
+  },
+  "hybrid_rerank": {
+    "means": {
+      "mean_precision": 0.44594594594594594,
+      "mean_recall": 0.8513513513513513,
+      "mean_rr": 0.8648648648648649,
+      "mean_cv": 0.9838709677419355,
+      "mean_cc": 0.9516129032258065,
+      "no_citation_count": 6,
+      "generation_failed_count": 0
+    },
+    "rows": [
+      {
+        "id": "q001",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "5",
+          "4.2"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q002",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "3.1",
+          "3.6"
+        ],
+        "answer": "You own the original content you submit or post to LinkedIn [3.1]."
+      },
+      {
+        "id": "q003",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "2.3",
+          "5"
+        ],
+        "answer": "Yes. LinkedIn may change its prices only after giving you reasonable notice, to the extent permitted by law [2.3]."
+      },
+      {
+        "id": "q004",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7",
+          "5"
+        ],
+        "answer": "If a court with authority over the Contract finds any part of it unenforceable, the parties agree that the court should first modify that part so it becomes enforceable while still achieving its intended effect. If the court cannot make such a modification, the parties agree to ask the court to remove the unenforceable portion and enforce the remainder of the Contract [7]."
+      },
+      {
+        "id": "q005",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 0.5,
+        "retrieved_ids": [
+          "8.2",
+          "2.1"
+        ],
+        "answer": "No. LinkedIn’s contract expressly forbids creating a false identity or a profile for anyone other than yourself, and requires that you have only one account in your real name. Creating a fake profile or impersonating someone else is therefore not allowed [8.2] and [2.1]."
+      },
+      {
+        "id": "q006",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "3.4",
+          "5.2"
+        ],
+        "answer": "The Products may only be used by individuals who are at least sixteen (16) years old [3.4]."
+      },
+      {
+        "id": "q007",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "10.3",
+          "12.2"
+        ],
+        "answer": "A customer has thirty (30) days from the initial order to terminate and receive a refund [10.3]."
+      },
+      {
+        "id": "q008",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "12.2",
+          "12.3"
+        ],
+        "answer": "Yes. Under the Termination for Convenience provision, the customer may terminate the Agreement or a Subscription Term upon notice for any reason [12.2]."
+      },
+      {
+        "id": "q009",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "15.1",
+          "15.5"
+        ],
+        "answer": "Yes. Atlassian is required to defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
+      },
+      {
+        "id": "q010",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "20.4",
+          "20.14"
+        ],
+        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe【20.4】."
+      },
+      {
+        "id": "q011",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1",
+          "24"
+        ],
+        "answer": "The Separation Date is August 4, 2023 [1]."
+      },
+      {
+        "id": "q012",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "3",
+          "2"
+        ],
+        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
+      },
+      {
+        "id": "q013",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "6",
+          "6"
+        ],
+        "answer": "Yes. The agreement releases any and all claims arising under Title VII of the Civil Rights Act of 1964 [6]."
+      },
+      {
+        "id": "q014",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "5",
+          "15"
+        ],
+        "answer": "The provided clauses don’t state this."
+      },
+      {
+        "id": "q015",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "20",
+          "19"
+        ],
+        "answer": "Disputes arising under the agreement are to be resolved through **individual arbitration (not class or collective)**. If an enforceable arbitration agreement exists between you and the Company, that agreement governs the arbitration; if no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under its employment arbitration rules and procedures (available at www.jamsadr.com) [20]."
+      },
+      {
+        "id": "q016",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "5.2",
+          "7.10"
+        ],
+        "answer": "To purchase alcohol you must be of the statutory legal age, and foodpanda (or the vendor/delivery rider) may require you to show valid proof of age (e.g., an ID card) before delivery; they can refuse delivery if you cannot prove your age [5.2]."
+      },
+      {
+        "id": "q017",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 0.5,
+        "cc": 0.5,
+        "retrieved_ids": [
+          "5.3.2",
+          "3.2"
+        ],
+        "answer": "To purchase tobacco on foodpanda you must be of the statutory legal age, and foodpanda (or its delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery [5.3.2] [5.3.2.1]."
+      },
+      {
+        "id": "q018",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "8.4.2",
+          "8.6.1"
+        ],
+        "answer": "A customer has ten (10) minutes to receive the Order before it is considered a no‑show and may be cancelled [8.4.2]."
+      },
+      {
+        "id": "q019",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "6.11",
+          "19.1"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q020",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "21.2",
+          "21.3"
+        ],
+        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will process a refund of any Rider Tip you paid [21.2]."
+      },
+      {
+        "id": "q021",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 0.5,
+        "retrieved_ids": [
+          "10.3",
+          "25.3"
+        ],
+        "answer": "Yes. foodpanda may amend these Terms at any time in its sole discretion, and any amendment becomes effective immediately upon posting [10.3]. It also reserves the right to amend or change any terms and conditions at any time, with or without prior notice [25.3]."
+      },
+      {
+        "id": "q022",
+        "precision": 0.5,
+        "recall": 0.5,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7.2.2",
+          "7.2"
+        ],
+        "answer": "A consumer may cancel a ride booking (or simply decide not to appear at the pickup point), but if they do so—or fail to show up—they can be charged a Cancellation Fee, or any other Cancellation Fee that Grab later notifies on its website or platform [7.2.2]."
+      },
+      {
+        "id": "q023",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "24",
+          "2"
+        ],
+        "answer": "Disputes arising under these Terms of Service are governed by Singapore law [24]."
+      },
+      {
+        "id": "q024",
+        "precision": 1.0,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "25.3",
+          "19.2"
+        ],
+        "answer": "A buyer can request a refund by applying for the return of the purchased item and refund before the Shopee Guarantee Period expires, following the steps set out in Shopee’s Refunds and Return Policy. The buyer does this by sending a written request to Shopee for assistance in resolving the dispute [19.2][25.3]."
+      },
+      {
+        "id": "q025",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "10.3",
+          "10.2"
+        ],
+        "answer": "Sellers receive one (1) free Withdrawal Request each week [10.3]."
+      },
+      {
+        "id": "q026",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "37.2",
+          "1.4"
+        ],
+        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms on the Site, and your continued use after the changes constitutes acceptance of the revised Terms [37.2]."
+      },
+      {
+        "id": "q027",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "13.2",
+          "13.1"
+        ],
+        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
+      },
+      {
+        "id": "q028",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "21.11",
+          "20.6"
+        ],
+        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
+      },
+      {
+        "id": "q029",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "6.8",
+          "6.4"
+        ],
+        "answer": "The finance charge for unpaid Fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
+      },
+      {
+        "id": "q030",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "3.1",
+          "15.3"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q031",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "15.5",
+          "7.6"
+        ],
+        "answer": "Yes. The agreement provides that the prevailing party in any action or proceeding to enforce its rights “will be entitled to recover costs and attorneys’ fees” [15.5]."
+      },
+      {
+        "id": "q032",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "8.6",
+          "1"
+        ],
+        "answer": "Yes. The agreement grants GitLab the right to use the Customer’s company name and logo in marketing and promotional materials (including earnings releases and calls), subject to the Customer’s brand and trademark guidelines [8.6]."
+      },
+      {
+        "id": "q033",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1.2",
+          "1.1"
+        ],
+        "answer": "The minimum age to use the Netflix service is at least 18 years old, or the age of majority in your province, territory or country [1.2]."
+      },
+      {
+        "id": "q034",
+        "precision": 0.0,
+        "recall": 0.0,
+        "rr": 0,
+        "cv": null,
+        "cc": null,
+        "retrieved_ids": [
+          "3.2",
+          "2.1"
+        ],
+        "answer": "The provided clauses don't state this."
+      },
+      {
+        "id": "q035",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "7.2",
+          "1.8"
+        ],
+        "answer": "Netflix is not responsible for unsolicited ideas or materials submitted by users for new content. It does not accept unsolicited materials or ideas for Netflix content and disclaims responsibility for any similarity to such submissions [7.2]."
+      },
+      {
+        "id": "q036",
+        "precision": 0.5,
+        "recall": 1.0,
+        "rr": 1.0,
+        "cv": 1.0,
+        "cc": 1.0,
+        "retrieved_ids": [
+          "1.4",
           "1.1"
         ],
         "answer": "“Account Sharing” means that the Netflix service and any content you view are for your personal, non‑commercial use only and may not be shared with anyone outside of your household, unless you have purchased an Extra Member Account in countries where that feature is available [1.4]."
@@ -2220,7 +1479,7 @@
           "7.5",
           "7.1"
         ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays effective—the remaining provisions continue in full force and effect [7.5]."
+        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective—its remaining provisions continue to be valid, legal, and enforceable [7.5]."
       }
     ]
   }

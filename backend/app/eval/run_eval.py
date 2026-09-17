@@ -109,6 +109,7 @@ if __name__ == "__main__":
               }
 
     for name, retriever in strategies.items():
+        print(f"Evaludate retrieval {name}")
         rows, means = evaluate(retriever, data, k)
         report[name] = {"means": means, "rows": rows}
 
