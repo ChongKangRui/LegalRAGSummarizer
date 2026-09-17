@@ -1,6 +1,6 @@
 import { apiClient } from "@/lib/api-client"
 import * as mockGen from "@/mocks/generators"
-// import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
+//import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
 import type {
   Citation,
   CompareResult,
@@ -37,11 +37,11 @@ export const documentsApi = {
   },
 
   get(documentId: string): Promise<DocumentDetail> {
-    // if (USE_MOCKS) {
-    //   const doc = getDocumentById(documentId)
-    //   if (!doc) return Promise.reject(new Error(`Unknown document: ${documentId}`))
-    //   return mockDelay(doc)
-    // }
+    //if (USE_MOCKS) {
+    //  const doc = getDocumentById(documentId)
+    //  if (!doc) return Promise.reject(new Error(`Unknown document: ${documentId}`))
+    //  return mockDelay(doc)
+    //}
     return apiClient.get(`/documents/${documentId}`).then((res) => res.data)
   },
 }
@@ -90,9 +90,9 @@ export const queryApi = {
 
       buffer += decoder.decode(value, {stream: true});
       const frames = buffer.split("\n\n")
-     
+      // console.log("buffer",buffer)
       buffer = frames.pop() ?? "";
-     
+      
       for(const frame of frames){
         
         if(!frame.startsWith("data: ")){
@@ -103,10 +103,11 @@ export const queryApi = {
        
 
         if(obj.type === "token"){
+          
           setAnswer(prev=>prev+obj.text)
         }
         else if (obj.type === "done") {
-          console.log("Done",obj)
+          
           setCitations(obj.citations)
           setLatency(obj.latencyMs)
           setStrategy(obj.strategy)

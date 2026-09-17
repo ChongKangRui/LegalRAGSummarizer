@@ -2,9 +2,13 @@ from fastembed import TextEmbedding
 #import numpy as np
 from functools import cache
 
+import threading
+_lock = threading.Lock()
+
 @cache
 def get_embedder() -> TextEmbedding:
-    return TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+    with _lock:
+        return TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 
 def embed_documents(chunks: list[str])->list[list[float]]:
     chunk_vectors = get_embedder().embed(chunks)

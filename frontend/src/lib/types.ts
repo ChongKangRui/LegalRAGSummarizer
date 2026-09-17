@@ -51,8 +51,10 @@ export interface Citation {
   label: string // e.g. "§4.2(b)"
   valid: boolean
 }
+export type EvalStage = "vector" | "hybrid" | "hybrid_rerank"
+export type SummarizationStrategy = "naive" | "map_reduce" | "refine" | "vector" | "hybrid" | "hybrid_rerank"
 
-export type SummarizationStrategy = "naive" | "map_reduce" | "refine"
+
 
 export interface SummaryResponse {
   documentId: string
@@ -78,7 +80,7 @@ export interface RetrievalResult {
   scores: RetrievalScore[]
 }
 
-export type EvalStage = "vector" | "hybrid" | "hybrid_rerank"
+
 
 export interface EvalMetric {
   stage: EvalStage

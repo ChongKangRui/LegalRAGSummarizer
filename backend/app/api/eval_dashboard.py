@@ -32,7 +32,7 @@ class EvalRun(CamelModel):
     metrics: list[Metric]
 
 @router.get("", response_model=EvalRun)
-async def get_eval_dashboard():
+def get_eval_dashboard():
     data = json.loads(EVAL_RESULT_PATH.read_text())
     golden_set = json.loads(GOLDEN_SET_PATH.read_text())
 

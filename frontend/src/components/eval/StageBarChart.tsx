@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 import type { EvalStage } from "@/lib/types"
 
 const STAGE_LABEL: Record<EvalStage, string> = {
-  vector: "Naive",
+  vector: "Vector",
   hybrid: "+ Hybrid",
   hybrid_rerank: "+ Rerank",
 }

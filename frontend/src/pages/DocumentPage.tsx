@@ -17,25 +17,44 @@ import { downloadTextFile } from "@/lib/download"
 import { cn } from "@/lib/utils"
 import type { Citation, SummarizationStrategy } from "@/lib/types"
 
-const STRATEGY_OPTIONS: { value: SummarizationStrategy; label: string }[] = [
+const LARGE_ANSWER_STRATEGIES: SummarizationStrategy[] = [
+  "naive",
+  "map_reduce",
+  "refine",
+]
+
+const ALL_STRATEGY_OPTIONS: { value: SummarizationStrategy; label: string }[] = [
   { value: "naive", label: "Naive (truncate + stuff)" },
   { value: "map_reduce", label: "Map-reduce" },
   { value: "refine", label: "Refine" },
+  { value: "vector", label: "Vector" },
+  { value: "hybrid", label: "Hybrid" },
+  { value: "hybrid_rerank", label: "Rerank" },
 ]
+
+const LARGE_ANSWER_ENABLED =
+  import.meta.env.VITE_ENABLE_LARGE_ANSWER_STRATEGY === "True"
+
+export const STRATEGY_OPTIONS = LARGE_ANSWER_ENABLED
+  ? ALL_STRATEGY_OPTIONS
+  : ALL_STRATEGY_OPTIONS.filter(
+      (o) => !LARGE_ANSWER_STRATEGIES.includes(o.value)
+    )
 
 export default function DocumentPage() {
   const { documentId } = useParams<{ documentId: string }>()
   const { data: doc, isLoading } = useDocument(documentId)
   //const summarize = useSummarize()
 
+
   const [query, setQuery] = useState("")
-  const [strategy, setStrategy] = useState<SummarizationStrategy>("naive")
+  const [strategy, setStrategy] = useState<SummarizationStrategy>("hybrid_rerank")
   const [activeClauseId, setActiveClauseId] = useState<string | null>(null)
 
   const [answer, setAnswer] = useState("")
   const [citations, setCitations] = useState<Citation[]>()
   const [latency, setLatency] = useState(0)
-  const [actualStrategy, setActualStrategy] = useState<SummarizationStrategy>("naive")
+  const [actualStrategy, setActualStrategy] = useState<SummarizationStrategy>("hybrid_rerank")
 
   const [streaming, setStreaming] = useState(false)
   const [streamError, setStreamError] = useState(false)

@@ -7,9 +7,13 @@ from app.retrieval.numpy_store import query as vector_query
 from app.embedding.embedder import embed_question
 from app.retrieval.hybrid import reciprocal_rank_fusion
 
+import threading
+_lock = threading.Lock()
+
 @cache
 def get_reranker():
-    return TextCrossEncoder("Xenova/ms-marco-MiniLM-L-6-v2")
+    with _lock:
+        return TextCrossEncoder("Xenova/ms-marco-MiniLM-L-6-v2")
 
 
 def rerank(query: str, hits: list[dict], top_k: int = 5):

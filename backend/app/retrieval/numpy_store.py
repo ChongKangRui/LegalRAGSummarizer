@@ -18,6 +18,8 @@ from functools import cache
 import numpy as np
 from app.config import VECTORS_PATH, VECTORS_META, EMBED_DIM
 
+import threading
+_lock = threading.Lock()
 
 @cache
 def _load() -> tuple["np.ndarray", list[dict]]:
@@ -36,14 +38,15 @@ def _load() -> tuple["np.ndarray", list[dict]]:
         V[i] and meta[i] are the same chunk. Nothing enforces this but insert()'s
         length check — never reorder or filter one without the other.
     """
-    if not VECTORS_PATH.exists() or not VECTORS_META.exists():
-        return np.zeros((0, EMBED_DIM), dtype=np.float32),[]
-
-    array = np.load(VECTORS_PATH)
-    with open(VECTORS_META, encoding="utf-8") as f:
-        meta = json.load(f)
-
-    return array, meta
+    with _lock:
+        if not VECTORS_PATH.exists() or not VECTORS_META.exists():
+            return np.zeros((0, EMBED_DIM), dtype=np.float32),[]
+    
+        array = np.load(VECTORS_PATH)
+        with open(VECTORS_META, encoding="utf-8") as f:
+            meta = json.load(f)
+    
+        return array, meta
 
 
 def insert(chunks: list[dict], vectors: list[list[float]]) -> None:

@@ -8,6 +8,9 @@ from functools import cache
 import numpy as np
 import re
 
+import threading
+_lock = threading.Lock()
+
 def _tokenize(text : str)->list[str]:
     """
     a very good lesson, lower it isn't enough cause bm_25 unable to detect
@@ -20,13 +23,14 @@ def _tokenize(text : str)->list[str]:
 
 @cache
 def _load():
-    with open(VECTORS_META, encoding="utf-8") as f:
-        meta = json.load(f)
-
-    tokenized_corpus = [_tokenize(m["text"]) for m in meta]
-    bm25 = BM25Okapi(tokenized_corpus)
+    with _lock:
+        with open(VECTORS_META, encoding="utf-8") as f:
+            meta = json.load(f)
     
-    return bm25, meta
+        tokenized_corpus = [_tokenize(m["text"]) for m in meta]
+        bm25 = BM25Okapi(tokenized_corpus)
+        
+        return bm25, meta
     
 
 

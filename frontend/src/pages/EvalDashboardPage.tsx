@@ -15,7 +15,7 @@ import type { EvalStage } from "@/lib/types"
 
 
 const STAGE_LABEL: Record<EvalStage, string> = {
-  vector: "Naive (vector only)",
+  vector: "Vector",
   hybrid: "+ Hybrid (vector + BM25)",
   hybrid_rerank: "+ Rerank (cross-encoder)",
 }

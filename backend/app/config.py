@@ -17,6 +17,6 @@ EVAL_RESULT_PATH = EVAL_DIR / "eval_result.json"
 
 # max embedding dimention
 EMBED_DIM = 384
-
+ENABLE_LARGE_ANSWER_STRATEGY = os.getenv("ENABLE_LARGE_ANSWER_STRATEGY", "False") == "True"
 
 API_KEY=os.environ["GROQ_API_KEY"]

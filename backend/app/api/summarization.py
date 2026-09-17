@@ -1,25 +1,28 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from pydantic import Field
-from pydantic.alias_generators import to_camel
 
 from app.models import CamelModel
 
-from app.retrieval.vector_store import query as vector_query
+from app.retrieval.vector_store import query as vector_query, get_chunks
 from app.retrieval.keyword_store import query as keyword_query
 from app.retrieval.hybrid import reciprocal_rank_fusion
 from app.retrieval.reranker import rerank
 from app.embedding.embedder import embed_question
-from app.generation.llm_client import answer, answer_with_stream
+from app.generation.llm_client import answer, answer_with_stream, summarize_context
 
 from app.generation.citation_validator import get_citation, CitationResponse
+from app.retrieval.truncate_and_stuff import truncate_and_stuff
+from app.retrieval.map_reducer import map_reducer
 
 from fastapi.responses import StreamingResponse
 
-
+import asyncio
 
 import json
 
 import time
+
+from app.config import ENABLE_LARGE_ANSWER_STRATEGY
 
 
 # Like `const router = express.Router()` + every path in here is prefixed with /query
@@ -50,7 +53,7 @@ class SummaryResponse(CamelModel):
 # update: technically this route was abandone as stream 
 #         will be the primary way for frontend to receive answer
 @router.post("/", response_model=SummaryResponse)
-async def run_query(body: QueryRequest):
+def run_query(body: QueryRequest):
     
     start = time.perf_counter()
 
@@ -78,22 +81,68 @@ async def run_query(body: QueryRequest):
 
 @router.post("/stream")
 async def run_query_stream(body: QueryRequest):
-    # `body` is already parsed + validated against QueryRequest.
     
     start = time.perf_counter()
+    hits = []
+    chunks = []
     
+    top_k = 5
     question_vec = embed_question(body.query)
-    hits = vector_query(question_vec, 3, where={"doc_id" : body.document_id})
+    print(body.strategy)
+    
+    
+    match(body.strategy):
+        # naive will make as an bad example here
+        case "naive":
+            if ENABLE_LARGE_ANSWER_STRATEGY is False:
+                raise HTTPException(
+                status_code=503,
+                detail="Large answer strategy is disabled on this server.",
+            )
+            chunks = get_chunks(body.document_id)
+            hits = truncate_and_stuff(chunks)
+        case "map_reduce":
+            if ENABLE_LARGE_ANSWER_STRATEGY is False:
+                           raise HTTPException(
+                           status_code=503,
+                           detail="Large answer strategy is disabled on this server.",
+                       )
+            chunks = get_chunks(body.document_id)
+            map_reduce_hits = map_reducer(chunks)
+            tasks = [summarize_context(body.query,m) for m in map_reduce_hits]
+            hits = await asyncio.gather(*tasks)
 
-    def event_stream():
+        case "refine":
+            if ENABLE_LARGE_ANSWER_STRATEGY is False:
+                           raise HTTPException(
+                           status_code=503,
+                           detail="Large answer strategy is disabled on this server.",
+                       )
+            chunks = get_chunks(body.document_id)
+            hits = truncate_and_stuff(chunks)
+        case "vector":
+            hits = await asyncio.to_thread(vector_query, question_vec, top_k, where={"doc_id": body.document_id})
+        case "hybrid":
+            v = await asyncio.to_thread(vector_query, question_vec, top_k, where={"doc_id": body.document_id})
+            kw = await asyncio.to_thread(keyword_query, body.query, top_k, where={"doc_id": body.document_id})
+            hits = reciprocal_rank_fusion(v, kw)[:top_k]
+        case "hybrid_rerank":
+            v = await asyncio.to_thread(vector_query, question_vec, top_k, where={"doc_id": body.document_id})
+            kw = await asyncio.to_thread(keyword_query, body.query, top_k, where={"doc_id": body.document_id})
+            hybrid_res = reciprocal_rank_fusion(v, kw)[:top_k]
+            hits = await asyncio.to_thread(rerank, body.query, hybrid_res, top_k)
+    
+    #hits = vector_query(question_vec, 3, where={"doc_id" : body.document_id})
+
+    async def event_stream():
 
         text = ""
-        for piece in answer_with_stream(body.query, hits):
+        async for piece in answer_with_stream(body.query, hits, body.strategy):
             text += piece
     
             yield sse({"type":"token", "text" : piece})
 
-        citations = get_citation(text, hits)
+        citations = get_citation(text, chunks if body.strategy == "map_reduce" else hits)
         
         yield sse({"type": "done", "documentId": body.document_id,
             "strategy": body.strategy or "naive",

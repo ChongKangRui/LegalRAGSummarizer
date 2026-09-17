@@ -11,7 +11,7 @@ from app.generation.llm_client import answer
 from app.generation.citation_validator import get_citation, citation_validity, citation_correctness
 from datetime import datetime
 
-def evaluate(retriever, data, k=5):
+async def evaluate(retriever, data, k=5):
     """Run an evaluator over the golden set. `retriever(d) -> list[dict]`"""
     rows = []
     totals = {"precision": 0.0, "recall": 0.0, "rr": 0.0, "cv" : 0, "cc" : 0}
@@ -32,7 +32,7 @@ def evaluate(retriever, data, k=5):
         totals["rr"]       += rr
 
         try:
-            outcome = answer(d["question"],results, "openai/gpt-oss-120b")
+            outcome = await answer(d["question"],results, "openai/gpt-oss-120b")
             citations = get_citation(outcome, results, False)
             print(f"[{d['id']}] generation success")
         except Exception as e:

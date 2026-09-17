@@ -19,7 +19,9 @@ interface CitationTextProps {
 export function CitationText({ text, citations, onCiteClick, className }: CitationTextProps) {
   
   const parts = text.split(/(\[[^\]]+\])/g)
- 
+  
+  
+
   return (
     <p className={cn("leading-relaxed", className)}>
       {parts.map((part, i) => {

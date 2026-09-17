@@ -39,7 +39,7 @@ class RetrievelResult(CamelModel):
     
 
 @router.post("", response_model=RetrievelResult)
-async def inspector_result(request: RetrievalRequest):
+def inspector_result(request: RetrievalRequest):
     
     candidate_k = 15
     top_k = 10

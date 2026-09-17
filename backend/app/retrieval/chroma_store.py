@@ -17,6 +17,7 @@ COLLECTION = "my_collection"
 
 @cache
 def _client() -> chromadb.ClientAPI:
+  
     return chromadb.PersistentClient(path=str(DATA_DIR / "chroma"))
 
 

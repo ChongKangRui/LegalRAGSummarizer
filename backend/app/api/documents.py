@@ -40,7 +40,7 @@ class DocumentSection(DocumentSummary):
     sections: list[Section]
 
 @router.get("", response_model=list[DocumentSummary])
-async def get_document_list():
+def get_document_list():
 
 
     counts = doc_chunk_counts()
@@ -61,7 +61,7 @@ async def get_document_list():
     return summarys
 
 @router.get("/{doc_id}", response_model=DocumentSection)
-async def get_document_id(doc_id: str):
+def get_document_id(doc_id: str):
 
     counts = doc_chunk_counts()
     if doc_id not in counts:
