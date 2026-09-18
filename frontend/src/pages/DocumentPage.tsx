@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Download, Loader2, Sparkles, TriangleAlert } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,36 +10,14 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { Textarea } from "@/components/ui/textarea"
 import { DocStatusBadge, DocTypeBadge } from "@/components/document/DocBadges"
 import { CitationText } from "@/components/citation/CitationText"
-import { useDocument } from "@/hooks/queries"
+import { useDocument, useStrategies } from "@/hooks/queries"
 // import { useDocument, useSummarize } from "@/hooks/queries"
 import {queryApi} from "@/lib/api"
 import { downloadTextFile } from "@/lib/download"
 import { cn } from "@/lib/utils"
 import type { Citation, SummarizationStrategy } from "@/lib/types"
 
-const LARGE_ANSWER_STRATEGIES: SummarizationStrategy[] = [
-  "naive",
-  "map_reduce",
-  "refine",
-]
 
-const ALL_STRATEGY_OPTIONS: { value: SummarizationStrategy; label: string }[] = [
-  { value: "naive", label: "Naive (truncate + stuff)" },
-  { value: "map_reduce", label: "Map-reduce" },
-  { value: "refine", label: "Refine" },
-  { value: "vector", label: "Vector" },
-  { value: "hybrid", label: "Hybrid" },
-  { value: "hybrid_rerank", label: "Rerank" },
-]
-
-const LARGE_ANSWER_ENABLED =
-  import.meta.env.VITE_ENABLE_LARGE_ANSWER_STRATEGY === "True"
-
-export const STRATEGY_OPTIONS = LARGE_ANSWER_ENABLED
-  ? ALL_STRATEGY_OPTIONS
-  : ALL_STRATEGY_OPTIONS.filter(
-      (o) => !LARGE_ANSWER_STRATEGIES.includes(o.value)
-    )
 
 export default function DocumentPage() {
   const { documentId } = useParams<{ documentId: string }>()
@@ -54,26 +32,28 @@ export default function DocumentPage() {
   const [answer, setAnswer] = useState("")
   const [citations, setCitations] = useState<Citation[]>()
   const [latency, setLatency] = useState(0)
-  const [actualStrategy, setActualStrategy] = useState<SummarizationStrategy>("hybrid_rerank")
+  const [actualStrategy, setActualStrategy] = useState("")
+
+  const { data: strategyOptions, isSuccess: strategyFetchSuccess} = useStrategies()
 
   const [streaming, setStreaming] = useState(false)
   const [streamError, setStreamError] = useState(false)
   const [askedQuery, setAskedQuery] = useState("")
 
-  // Non-streaming path — kept for reference, not wired to the button.
-  // function handleAsk() {
-  //   if (!documentId || !query.trim()) return
-  //   summarize.mutate(
-  //     { documentId, query: query.trim(), strategy },
-  //     {
-  //       onSuccess: (data) => {
-  //         setCitations(data.citations)
-  //         setLatency(data.latencyMs)
-  //         setActualStrategy(data.strategy)
-  //       },
-  //     },
-  //   )
-  // }
+  
+
+useEffect(() => {
+  if (!strategyFetchSuccess || !strategyOptions) return
+
+  // the last one should be alway rerank
+  const lastIndex = strategyOptions.strategies.length-1
+  setActualStrategy(strategyOptions.strategies[lastIndex].value)
+
+  // do something with strategyOptions.strategies
+}, [strategyFetchSuccess, strategyOptions])
+
+
+  
 
   async function handleAskStreaming() {
     if (!documentId || !query.trim() || streaming) return
@@ -94,7 +74,7 @@ export default function DocumentPage() {
         setAnswer,
         setCitations,
         setLatency,
-        setActualStrategy,
+        //setActualStrategy,
       )
     } catch {
       setStreamError(true)
@@ -210,7 +190,7 @@ export default function DocumentPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  {STRATEGY_OPTIONS.map((opt) => (
+                  {strategyOptions?.strategies?.map((opt) => (
                     <SelectItem key={opt.value} value={opt.value}>
                       {opt.label}
                     </SelectItem>

@@ -1,14 +1,14 @@
 import { apiClient } from "@/lib/api-client"
-import * as mockGen from "@/mocks/generators"
-//import { getDocumentById, mockDocumentSummaries } from "@/mocks/documents"
+
 import type {
   Citation,
   CompareResult,
   DocumentDetail,
   DocumentSummary,
   EvalRun,
-  PipelineConfig,
+
   RetrievalResult,
+  StrategyResponse,
   SummarizationStrategy,
   SummaryResponse,
 } from "@/lib/types"
@@ -23,12 +23,7 @@ import type{Dispatch, SetStateAction} from "react"
  * to its `apiClient` branch (or set VITE_USE_MOCKS=false) and the page that
  * calls it doesn't change.
  */
-const USE_MOCKS = import.meta.env.VITE_USE_MOCKS !== "false"
 
-/** Simulated network latency so loading states are visible with mocks on. */
-function mockDelay<T>(value: T, ms = 300 + Math.random() * 400): Promise<T> {
-  return new Promise((resolve) => setTimeout(() => resolve(value), ms))
-}
 
 export const documentsApi = {
   list(): Promise<DocumentSummary[]> {
@@ -67,7 +62,7 @@ export const queryApi = {
   setAnswer: Dispatch<SetStateAction<string>>,
   setCitations: Dispatch<SetStateAction<Citation[] | undefined>>,
   setLatency: Dispatch<SetStateAction<number>>,
-  setStrategy: Dispatch<SetStateAction<SummarizationStrategy>>,
+  //setStrategy: Dispatch<SetStateAction<SummarizationStrategy>>,
   ){
 
     const baseURL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000"
@@ -110,7 +105,7 @@ export const queryApi = {
           
           setCitations(obj.citations)
           setLatency(obj.latencyMs)
-          setStrategy(obj.strategy)
+          // setStrategy(obj.strategy)
         }
       }
       
@@ -124,6 +119,9 @@ export const queryApi = {
     // if (USE_MOCKS) return mockDelay(mockGen.retrieve(documentId, query))
     return apiClient.post("/inspector", { documentId, query }).then((res) => res.data)
   },
+  getStrategies(): Promise<StrategyResponse> {
+  return apiClient.get<StrategyResponse>("/summarize/strategies").then((res) => res.data)
+}
 }
 
 export const evalApi = {
@@ -134,17 +132,13 @@ export const evalApi = {
 }
 
 export const compareApi = {
-  listPresets(): Promise<PipelineConfig[]> {
-    if (USE_MOCKS) return mockDelay(mockGen.pipelinePresets)
-    return apiClient.get("/compare/configs").then((res) => res.data)
-  },
 
-  run(documentId: string, query: string, configs: PipelineConfig[]): Promise<CompareResult[]> {
-    if (USE_MOCKS) {
-      return mockDelay(mockGen.compareConfigs(documentId, query, configs), 800 + Math.random() * 1200)
-    }
+  run(documentId: string, query: string, strategies: string[]): Promise<CompareResult[]> {
+    // if (USE_MOCKS) {
+    //   return CompareResult()
+    // }
     return apiClient
-      .post("/compare", { documentId, query, configIds: configs.map((c) => c.id) })
+      .post("/compare", { documentId, query, strategies })
       .then((res) => res.data)
   },
 }

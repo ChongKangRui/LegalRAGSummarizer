@@ -1,10 +1,9 @@
 import type {
   Chunk,
   Citation,
-  CompareResult,
   DocumentType,
   EvalRun,
-  PipelineConfig,
+
   RetrievalResult,
   RetrievalScore,
   SummarizationStrategy,
@@ -117,6 +116,9 @@ const STRATEGY_LATENCY_MS: Record<SummarizationStrategy, [number, number]> = {
   naive: [400, 1200],
   map_reduce: [2200, 4800],
   refine: [3000, 6500],
+  vector: [0,0],
+  hybrid: [0,0],
+  hybrid_rerank: [0,0],
 }
 
 function randomInRange(rng: () => number, [min, max]: [number, number]): number {
@@ -209,47 +211,4 @@ export function generateEvalRun(): EvalRun {
       },
     ],
   }
-}
-
-export const pipelinePresets: PipelineConfig[] = [
-  {
-    id: "cfg-naive",
-    label: "Naive baseline",
-    chunking: "fixed",
-    retrieval: "vector",
-    summarization: "naive",
-  },
-  {
-    id: "cfg-hybrid",
-    label: "Structural + hybrid",
-    chunking: "structural",
-    retrieval: "hybrid",
-    summarization: "naive",
-  },
-  {
-    id: "cfg-full",
-    label: "Structural + hybrid + rerank",
-    chunking: "structural",
-    retrieval: "hybrid_rerank",
-    summarization: "refine",
-  },
-]
-
-export function compareConfigs(
-  documentId: string,
-  query: string,
-  configs: PipelineConfig[],
-): CompareResult[] {
-  return configs.map((config) => {
-    const response = summarize(documentId, query, config.summarization)
-    // The naive config is deliberately worse: fewer citations, shorter answer,
-    // to make the side-by-side actually show something.
-    const degraded = config.chunking === "fixed" && config.retrieval === "vector"
-    return {
-      config,
-      answer: degraded ? response.answer.split(" ").slice(0, 24).join(" ") + "…" : response.answer,
-      citations: degraded ? response.citations.slice(0, 1) : response.citations,
-      latencyMs: degraded ? Math.round(response.latencyMs * 0.5) : response.latencyMs,
-    }
-  })
 }

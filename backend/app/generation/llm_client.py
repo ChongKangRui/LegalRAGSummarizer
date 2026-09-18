@@ -96,36 +96,37 @@ async def summarize_context_refine(question: str, current_summary: str, context_
     )
 
 
-async def answer_with_stream(question: str, context_chunks:list, strategy: str):
+   
+async def answer_with_stream(question: str, context_chunks: list, strategy: str, max_retries: int = 5, base_delay: float = 1.0):
     client = get_async_groq_client()
-    
-    context_block = ""
-
-    
     if strategy == 'map_reduce' or strategy == 'refine':
-        context_block = "\n\n".join(
-            chunk for chunk in context_chunks
-            )
+        context_block = "\n\n".join(chunk for chunk in context_chunks)
     else:
         context_block = "\n\n".join(
-            f"[{chunk["metadata"]["section_id"]}] {chunk["text"]}" for chunk in context_chunks
-            )
-         
-        
+            f'[{chunk["metadata"]["section_id"]}] {chunk["text"]}' for chunk in context_chunks
+        )
     user_message = f"Context clauses:\n{context_block}\n\nQuestion: {question}"
-    response = await client.chat.completions.create(
-     model="openai/gpt-oss-20b",
-     messages=[
-        {"role": "system", "content": SYSTEM_CHUNK_ANSWER},
-        {"role": "user", "content": user_message},
-    ],
-    temperature=0,
-    stream=True
-    )
-
+    async def start_stream():
+        for attempt in range(max_retries):
+            try:
+                return await client.chat.completions.create(
+                    model="openai/gpt-oss-20b",
+                    messages=[
+                        {"role": "system", "content": SYSTEM_CHUNK_ANSWER},
+                        {"role": "user", "content": user_message},
+                    ],
+                    temperature=0,
+                    stream=True,
+                )
+            except RateLimitError as e:
+                if attempt == max_retries - 1:
+                    raise
+                print("Reach max_retries and need to sleep first")
+                retry_after = e.response.headers.get("retry-after")
+                delay = float(retry_after) if retry_after else base_delay * (2 ** attempt)
+                await asyncio.sleep(delay + random.uniform(0, 0.5))
+    response = await start_stream()
     async for chunk in response:
         piece = chunk.choices[0].delta.content
-      
         if piece:
             yield piece
-   

@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { GitCompareArrows, Loader2, TriangleAlert } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -9,31 +9,66 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/ui/skeleton"
 import { CitationText } from "@/components/citation/CitationText"
 import { DocTypeBadge } from "@/components/document/DocBadges"
-import { useCompare, useDocument, usePipelinePresets } from "@/hooks/queries"
-import type { PipelineConfig } from "@/lib/types"
+import { useCompare, useDocument, useStrategies } from "@/hooks/queries"
+
 
 export default function ComparePage() {
   const { documentId } = useParams<{ documentId: string }>()
   const { data: doc } = useDocument(documentId)
-  const { data: presets, isLoading: presetsLoading } = usePipelinePresets()
+
+  // Strategy data
+  const { data: strategyOptions, isSuccess: strategyFetchSuccess } = useStrategies()
+
+  const [strategyA, setStrategyA] = useState<string>("")
+  const [strategyB, setStrategyB] = useState<string>("")
+
+  // Default both sides to the last strategy (rerank) once loaded.
+  useEffect(() => {
+    if (!strategyFetchSuccess || !strategyOptions?.strategies?.length) return
+    const lastIndex = strategyOptions.strategies.length - 1
+    const last = strategyOptions.strategies[lastIndex].value
+    setStrategyA((prev) => prev || last)
+    setStrategyB((prev) => prev || last)
+  }, [strategyFetchSuccess, strategyOptions])
+
   const compare = useCompare()
 
   const [query, setQuery] = useState("")
-  const [leftId, setLeftId] = useState<string>("")
-  const [rightId, setRightId] = useState<string>("")
 
-  // Default to "naive baseline" vs. "full pipeline" once presets load, without
-  // syncing state from props in an effect — derive it, only falling back to
-  // local state once the user actually picks something else.
-  const effectiveLeftId = leftId || presets?.[0]?.id || ""
-  const effectiveRightId = rightId || presets?.[presets.length - 1]?.id || ""
+  // Build PipelineConfig objects from the selected strategy values.
+  const effectiveStrategyA = strategyA || ""
+  const effectiveStrategyB = strategyB || ""
 
   function handleRun() {
-    if (!documentId || !query.trim() || !presets) return
-    const left = presets.find((p) => p.id === effectiveLeftId)
-    const right = presets.find((p) => p.id === effectiveRightId)
+    if (!documentId || !query.trim() || !strategyOptions) return
+    if (!effectiveStrategyA || !effectiveStrategyB) return
+
+    const left = strategyOptions.strategies.find((s) => s.value === effectiveStrategyA)
+    const right = strategyOptions.strategies.find((s) => s.value === effectiveStrategyB)
     if (!left || !right) return
-    compare.mutate({ documentId, query: query.trim(), configs: [left, right] })
+
+    // Map strategy options to PipelineConfig — adjust the fields below to
+    // match however your backend expects the config to be shaped.
+    // const leftConfig: PipelineConfig = {
+    //   id: left.value,
+    //   label: left.label,
+    //   chunking: "",
+    //   retrieval: "",
+    //   summarization: left.value,
+    // }
+    // const rightConfig: PipelineConfig = {
+    //   id: right.value,
+    //   label: right.label,
+    //   chunking: "",
+    //   retrieval: "",
+    //   summarization: right.value,
+    // }
+
+    compare.mutate({
+      documentId,
+      query: query.trim(),
+      strategies: [left.value, right.value],
+    })
   }
 
   return (
@@ -67,20 +102,24 @@ export default function ComparePage() {
           <div className="flex flex-wrap items-center gap-2">
             <ConfigSelect
               label="Config A"
-              presets={presets}
-              value={effectiveLeftId}
-              onChange={setLeftId}
-              loading={presetsLoading}
+              options={strategyOptions?.strategies}
+              value={effectiveStrategyA}
+              onChange={setStrategyA}
+              loading={!strategyFetchSuccess}
             />
             <span className="text-xs text-muted-foreground">vs.</span>
             <ConfigSelect
               label="Config B"
-              presets={presets}
-              value={effectiveRightId}
-              onChange={setRightId}
-              loading={presetsLoading}
+              options={strategyOptions?.strategies}
+              value={effectiveStrategyB}
+              onChange={setStrategyB}
+              loading={!strategyFetchSuccess}
             />
-            <Button onClick={handleRun} disabled={!query.trim() || compare.isPending} className="ml-auto">
+            <Button
+              onClick={handleRun}
+              disabled={!query.trim() || compare.isPending}
+              className="ml-auto"
+            >
               {compare.isPending ? <Loader2 className="size-4 animate-spin" /> : null}
               Run comparison
             </Button>
@@ -105,26 +144,26 @@ export default function ComparePage() {
       {compare.data && (
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
           {compare.data.map((result) => (
-            <Card key={result.config.id}>
+            <Card key={result.strategy.value}>
               <CardHeader>
-                <CardTitle className="text-base">{result.config.label}</CardTitle>
+                <CardTitle className="text-base">{result.strategy.label}</CardTitle>
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  <Badge variant="outline" className="font-mono text-xs font-normal">
+                  {/* <Badge variant="outline" className="font-mono text-xs font-normal">
                     chunking: {result.config.chunking}
                   </Badge>
                   <Badge variant="outline" className="font-mono text-xs font-normal">
                     retrieval: {result.config.retrieval}
-                  </Badge>
-                  <Badge variant="outline" className="font-mono text-xs font-normal">
+                  </Badge> */}
+                  {/* <Badge variant="outline" className="font-mono text-xs font-normal">
                     summarize: {result.config.summarization}
-                  </Badge>
+                  </Badge> */}
                 </div>
               </CardHeader>
               <CardContent className="space-y-3">
                 <CitationText text={result.answer} citations={result.citations} className="text-sm" />
                 <p className="text-xs text-muted-foreground">
                   {result.citations.length} citation{result.citations.length === 1 ? "" : "s"} ·{" "}
-                  {result.latencyMs}ms
+                  {result.latencyMs.toFixed(2)}ms
                 </p>
               </CardContent>
             </Card>
@@ -137,26 +176,26 @@ export default function ComparePage() {
 
 function ConfigSelect({
   label,
-  presets,
+  options,
   value,
   onChange,
   loading,
 }: {
   label: string
-  presets: PipelineConfig[] | undefined
+  options: { value: string; label: string }[] | undefined
   value: string
   onChange: (id: string) => void
   loading: boolean
 }) {
   return (
-    <Select value={value} onValueChange={onChange} disabled={loading || !presets}>
+    <Select value={value} onValueChange={onChange} disabled={loading || !options}>
       <SelectTrigger className="w-56">
         <SelectValue placeholder={label} />
       </SelectTrigger>
       <SelectContent>
-        {presets?.map((p) => (
-          <SelectItem key={p.id} value={p.id}>
-            {p.label}
+        {options?.map((opt) => (
+          <SelectItem key={opt.value} value={opt.value}>
+            {opt.label}
           </SelectItem>
         ))}
       </SelectContent>

@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { compareApi, documentsApi, evalApi, queryApi } from "@/lib/api"
-import type { PipelineConfig, SummarizationStrategy } from "@/lib/types"
+import type {  SummarizationStrategy } from "@/lib/types"
 
 export function useDocuments() {
   return useQuery({
@@ -31,6 +31,14 @@ export function useSummarize() {
   })
 }
 
+export function useStrategies() {
+  return useQuery({
+    queryKey: ["strategies"],
+    queryFn: queryApi.getStrategies,
+    staleTime: Infinity,
+  })
+}
+
 export function useRetrieve() {
   return useMutation({
     mutationFn: ({ documentId, query }: { documentId: string; query: string }) =>
@@ -45,23 +53,18 @@ export function useEvalRun() {
   })
 }
 
-export function usePipelinePresets() {
-  return useQuery({
-    queryKey: ["compare", "presets"],
-    queryFn: compareApi.listPresets,
-  })
-}
+
 
 export function useCompare() {
   return useMutation({
     mutationFn: ({
       documentId,
       query,
-      configs,
+      strategies,
     }: {
       documentId: string
       query: string
-      configs: PipelineConfig[]
-    }) => compareApi.run(documentId, query, configs),
+      strategies: string[]
+    }) => compareApi.run(documentId, query, strategies),
   })
 }

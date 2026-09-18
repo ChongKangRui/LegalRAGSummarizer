@@ -7,6 +7,7 @@ from app.api.summarization import router as query_router
 from app.api.documents import router as document_router
 from app.api.eval_dashboard import router as eval_router
 from app.api.inspector import router as inspector_router
+from app.api.compare import router as compare_router
 app = FastAPI()
 
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_methods=["*"], allow_headers=["*"])
@@ -32,6 +33,7 @@ app.include_router(query_router)
 app.include_router(document_router)
 app.include_router(eval_router)
 app.include_router(inspector_router)
+app.include_router(compare_router)
 @app.get("/")
 async def root():
     return {"message": "Hello World"}

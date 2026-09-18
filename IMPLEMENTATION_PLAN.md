@@ -274,18 +274,19 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] Pick one genuinely long document, long enough to overflow a **self-imposed** context budget (e.g. ~4k tokens) — see [TECH_STACK.md](./TECH_STACK.md#why-these-over-the-obvious-alternatives): Groq's real chat models turned out to all have ~131k-token windows, so we cap the naive strategy's input ourselves rather than relying on the provider's actual limit
 - [x] Run all three strategies on that document
 - [x] Compare quality, latency, and cost across the three, side by side
-- [ ] Build **Compare** page — same query, two configs, results side by side
+- [x] Build **Compare** page — same query, two configs, results side by side
 - [x] **Verify:** save all three strategies' outputs side by side and review where the naive one loses information
 
 ### Phase 6 — Stretch / polish
+- [] Add rate limiting
 - [ ] Frontend polish pass — component cleanup
 - [ ] Add loading/error states throughout the frontend
 - [ ] Responsive layout pass
 - [ ] *(Optional)* migrate to pgvector, compare against Chroma
 - [ ] Write a `docker-compose.yml` for reproducibility
-- [ ] Move `sentence-transformers` (+ `torch`) and `chromadb` into the `experiments` dependency group (`uv add --group experiments ...`); confirm the production image installs none of them — see [Deployment: embedding backend & memory budget](#deployment-embedding-backend--memory-budget)
+- [x] Move `sentence-transformers` (+ `torch`) and `chromadb` into the `experiments` dependency group (`uv add --group experiments ...`); confirm the production image installs none of them — see [Deployment: embedding backend & memory budget](#deployment-embedding-backend--memory-budget)
 - [ ] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
-- [ ] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
+- [x] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
 - [ ] Deploy with a **single uvicorn worker** (`--workers 1`); warm up the embedding model on startup, not the first request
 - [ ] Deploy backend + frontend to free hosts (Railway/Vercel)
 - [ ] **Verify:** measure peak RSS on the target host under a real query; target ~300–350 MB. If it exceeds the host's RAM, switch `embedder.py` to the `hf-api` provider

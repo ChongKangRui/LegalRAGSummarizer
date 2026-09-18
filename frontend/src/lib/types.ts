@@ -65,6 +65,15 @@ export interface SummaryResponse {
   latencyMs: number
 }
 
+export interface Strategy {
+  value: string
+  label: string
+}
+
+export interface StrategyResponse {
+  strategies: Strategy[]
+}
+
 export interface RetrievalScore {
   chunkId: string
   vectorScore: number | null
@@ -98,19 +107,10 @@ export interface EvalRun {
   metrics: EvalMetric[]
 }
 
-export type ChunkingMode = "fixed" | "structural"
-export type RetrievalMode = "vector" | "hybrid" | "hybrid_rerank"
 
-export interface PipelineConfig {
-  id: string
-  label: string
-  chunking: ChunkingMode
-  retrieval: RetrievalMode
-  summarization: SummarizationStrategy
-}
 
 export interface CompareResult {
-  config: PipelineConfig
+  strategy: Strategy
   answer: string
   citations: Citation[]
   latencyMs: number
