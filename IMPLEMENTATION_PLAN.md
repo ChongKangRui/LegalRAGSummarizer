@@ -268,14 +268,14 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 ### Phase 5 — Long-context handling
 - [x] Implement naive truncate-and-stuff summarization strategy
 - [x] Implement map-reduce strategy — summarize each section, then combine
-- [ ] Implement refine strategy — running summary updated section by section
+- [x] Implement refine strategy — running summary updated section by section
 - [x] Combine vector, hybrid(bm25 + vector) and rerank as part of the options for ask section. Total of 6 options allow for choosen.
 - [x] Due to limitation of free AI api request, naive, map-reduce and refine will be removed from deployed version. It should controlled based on the .env  **ENABLE_LARGE_ANSWER_STRATEGY**.
 - [x] Pick one genuinely long document, long enough to overflow a **self-imposed** context budget (e.g. ~4k tokens) — see [TECH_STACK.md](./TECH_STACK.md#why-these-over-the-obvious-alternatives): Groq's real chat models turned out to all have ~131k-token windows, so we cap the naive strategy's input ourselves rather than relying on the provider's actual limit
 - [x] Run all three strategies on that document
-- [ ] Compare quality, latency, and cost across the three, side by side
+- [x] Compare quality, latency, and cost across the three, side by side
 - [ ] Build **Compare** page — same query, two configs, results side by side
-- [ ] **Verify:** save all three strategies' outputs side by side and review where the naive one loses information
+- [x] **Verify:** save all three strategies' outputs side by side and review where the naive one loses information
 
 ### Phase 6 — Stretch / polish
 - [ ] Frontend polish pass — component cleanup

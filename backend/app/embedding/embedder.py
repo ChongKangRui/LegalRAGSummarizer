@@ -1,4 +1,7 @@
 from fastembed import TextEmbedding
+
+# from sentence_transformers import sentence_transformer
+
 #import numpy as np
 from functools import cache
 

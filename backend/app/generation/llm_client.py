@@ -32,7 +32,18 @@ SYSTEM_SUMMARIZATION = (
     "Wrong — never do this: '...within thirty (30) days 【10.3】.'"
 )
 
-async def answer(question: str, context_chunks:list[str], system_prompt: str = SYSTEM_CHUNK_ANSWER, model : str = "openai/gpt-oss-20b")->str:
+
+SYSTEM_REFINE = (
+    "you'll be given a CURRENT SUMMARY (which may be empty on the first group) and a NEW EXCERPT of clauses, "
+    "and must produce an UPDATED summary that incorporates the new excerpt while preserving everything already captured — don't drop or contradict prior content unless the new excerpt corrects it."
+    "Each clause is labelled with its section number, e.g. [4.2(b)]. Cite the label of "
+    "the clause each statement comes from. Only cite labels present in the context. "
+    "Use exactly the [] bracket symbol for citations, never full-width brackets. "
+    "Correct: '...within thirty (30) days [10.3].' "
+    "Wrong — never do this: '...within thirty (30) days 【10.3】.'"
+)
+
+async def answer(question: str, context_chunks:list[str], override_user_message : str = None,system_prompt: str = SYSTEM_CHUNK_ANSWER, model : str = "openai/gpt-oss-20b")->str:
     def with_retry(max_retries: int = 5, base_delay: float = 1.0):
         def decorator(fn):
             async def wrapper(*args, **kwargs):
@@ -63,16 +74,26 @@ async def answer(question: str, context_chunks:list[str], system_prompt: str = S
     context_block = "\n\n".join(
         f'[{chunk["metadata"]["section_id"]}] {chunk["text"]}' for chunk in context_chunks
     )
-    user_message = f"Context clauses:\n{context_block}\n\nQuestion: {question}"
+    user_message = f"Context clauses:\n{context_block}\n\n {override_user_message}" if override_user_message else f"Context clauses:\n{context_block}\n\nQuestion: {question}"
     
     response = await call_llm(user_message)
     return response.choices[0].message.content
 
 
-async def summarize_context(query : str,context_chunks: list[dict]) -> str:
+async def summarize_context_map_reducer(query : str,context_chunks: list[dict]) -> str:
     return await answer(f"Give me a summary of the following contract clauses based on {query}", context_chunks=context_chunks, system_prompt=SYSTEM_SUMMARIZATION)
 
-
+async def summarize_context_refine(question: str, current_summary: str, context_chunks: list[dict]) -> str:
+    return await answer(
+        question,
+        context_chunks=context_chunks,
+        override_user_message=(
+            f"Original question: {question}\n"
+            f"Current summary so far: {current_summary or '(none yet)'}\n\n"
+            "Produce an updated summary that also works toward answering the original question."
+        ),
+        system_prompt=SYSTEM_REFINE,
+    )
 
 
 async def answer_with_stream(question: str, context_chunks:list, strategy: str):
@@ -81,7 +102,7 @@ async def answer_with_stream(question: str, context_chunks:list, strategy: str):
     context_block = ""
 
     
-    if strategy == 'map_reduce':
+    if strategy == 'map_reduce' or strategy == 'refine':
         context_block = "\n\n".join(
             chunk for chunk in context_chunks
             )
