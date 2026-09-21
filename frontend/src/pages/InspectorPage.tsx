@@ -36,7 +36,6 @@ export default function InspectorPage() {
     chunk: data.chunks.find((c) => c.id === score.chunkId),
   }))
 
-  console.log("data=", data ?? "no data yet")
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">

@@ -41,6 +41,15 @@ export const documentsApi = {
   },
 }
 
+export class StreamHttpError extends Error {
+  status: number
+  constructor(status: number, message?: string) {
+    super(message ?? `Stream request failed with status ${status}`)
+    this.name = "StreamHttpError"
+    this.status = status
+  }
+}
+
 export const queryApi = {
   summarize(
     documentId: string,
@@ -70,6 +79,11 @@ export const queryApi = {
     // axios dont support streaming event
     const res = await fetch(`${baseURL}/summarize/stream`, {method:"POST", headers: {"Content-Type" : "application/json"}, body: JSON.stringify({ documentId, query, strategy }),})
     
+    if (!res.ok) {
+      throw new StreamHttpError(res.status)
+    }
+
+
     const reader = res.body!.getReader();
     const decoder = new TextDecoder();
     

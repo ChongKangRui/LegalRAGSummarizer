@@ -12,9 +12,10 @@ import { DocStatusBadge, DocTypeBadge } from "@/components/document/DocBadges"
 import { CitationText } from "@/components/citation/CitationText"
 import { useDocument, useStrategies } from "@/hooks/queries"
 // import { useDocument, useSummarize } from "@/hooks/queries"
-import {queryApi} from "@/lib/api"
+import {queryApi, StreamHttpError} from "@/lib/api"
 import { downloadTextFile } from "@/lib/download"
 import { cn } from "@/lib/utils"
+
 import type { Citation, SummarizationStrategy } from "@/lib/types"
 
 
@@ -37,7 +38,7 @@ export default function DocumentPage() {
   const { data: strategyOptions, isSuccess: strategyFetchSuccess} = useStrategies()
 
   const [streaming, setStreaming] = useState(false)
-  const [streamError, setStreamError] = useState(false)
+  const [streamError, setStreamError] = useState("")
   const [askedQuery, setAskedQuery] = useState("")
 
   
@@ -63,7 +64,7 @@ useEffect(() => {
     setAnswer("")
     setCitations(undefined)
     setLatency(0)
-    setStreamError(false)
+    setStreamError("")
     setStreaming(true)
 
     try {
@@ -76,8 +77,14 @@ useEffect(() => {
         setLatency,
         //setActualStrategy,
       )
-    } catch {
-      setStreamError(true)
+    } catch(e) {
+  
+    
+       if (e instanceof StreamHttpError) {
+     
+        setStreamError(e.status.toString())
+        }
+      
     } finally {
       setStreaming(false)
     }
@@ -219,10 +226,10 @@ useEffect(() => {
           </Card>
         )}
 
-        {streamError && (
+        {streamError !== "" && (
           <div className="flex items-center gap-2 rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
             <TriangleAlert className="size-4 shrink-0" />
-            Couldn't get an answer. Is the backend running?
+           {streamError === "429" ? "You are hitting rate limiting, please wait a moment and try again" : "Couldn't get an answer. Is the backend running?"} 
           </div>
         )}
 

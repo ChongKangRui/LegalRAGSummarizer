@@ -279,13 +279,12 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 
 ### Phase 6 — Stretch / polish
 - [] Add rate limiting
-- [ ] Frontend polish pass — component cleanup
-- [ ] Add loading/error states throughout the frontend
-- [ ] Responsive layout pass
-- [ ] *(Optional)* migrate to pgvector, compare against Chroma
+- [x] Frontend polish pass — component cleanup
+- [x] Add loading/error states throughout the frontend
+- [x] Responsive layout pass
 - [ ] Write a `docker-compose.yml` for reproducibility
 - [x] Move `sentence-transformers` (+ `torch`) and `chromadb` into the `experiments` dependency group (`uv add --group experiments ...`); confirm the production image installs none of them — see [Deployment: embedding backend & memory budget](#deployment-embedding-backend--memory-budget)
-- [ ] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
+- [x] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
 - [x] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
 - [ ] Deploy with a **single uvicorn worker** (`--workers 1`); warm up the embedding model on startup, not the first request
 - [ ] Deploy backend + frontend to free hosts (Railway/Vercel)
