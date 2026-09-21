@@ -34,7 +34,7 @@ async def evaluate(retriever, data, k=5):
         totals["rr"]       += rr
 
         try:
-            outcome = await answer(d["question"],results, "openai/gpt-oss-120b")
+            outcome = await answer(d["question"], results, model="openai/gpt-oss-120b")
             citations = get_citation(outcome, results, False)
             print(f"[{d['id']}] generation success")
         except Exception as e:

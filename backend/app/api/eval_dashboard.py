@@ -36,14 +36,21 @@ def get_eval_dashboard():
     data = json.loads(EVAL_RESULT_PATH.read_text())
     golden_set = json.loads(GOLDEN_SET_PATH.read_text())
 
-    type = ["vector", "hybrid", "hybrid_rerank"]
-    metrics = [Metric(stage=t, 
-                      precision_at_k=round(data[t]["means"]["mean_precision"], 2),
-        recall_at_k=round(data[t]["means"]["mean_recall"], 2),
-        mrr=round(data[t]["means"]["mean_rr"], 2),
-        citation_accuracy=round(data[t]["means"]["mean_cc"], 2)
-                      )  for t in type]
-    
+    type_ = ["vector", "hybrid", "hybrid_rerank"]
 
+    metrics = [
+        Metric(
+            stage=t,
+            precision_at_k=round(data[t]["means"]["mean_precision"], 2),
+            recall_at_k=round(data[t]["means"]["mean_recall"], 2),
+            mrr=round(data[t]["means"]["mean_rr"], 2),
+            citation_accuracy=(
+                round(data[t]["means"]["mean_cc"], 2)
+                if data[t]["means"]["mean_cc"] is not None
+                else 0
+            ),
+        )
+        for t in type_
+    ]
 
     return EvalRun(run_at=data["Date"], k=data["k"], goldenSetSize=len(golden_set), metrics=metrics)
