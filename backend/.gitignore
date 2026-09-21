@@ -6,11 +6,10 @@ __pycache__/
 .env.*
 !.env.example
 
-data/raw/
-data/processed/
+
 data/chroma/
-data/vectors.npy
-data/vectors.meta.json
-data/app.db
+# data/vectors.npy
+# data/vectors.meta.json
+
 
 *:Zone.Identifier

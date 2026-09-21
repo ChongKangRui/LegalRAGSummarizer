@@ -278,7 +278,7 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] **Verify:** save all three strategies' outputs side by side and review where the naive one loses information
 
 ### Phase 6 — Stretch / polish
-- [] Add rate limiting
+- [x] Add rate limiting
 - [x] Frontend polish pass — component cleanup
 - [x] Add loading/error states throughout the frontend
 - [x] Responsive layout pass
