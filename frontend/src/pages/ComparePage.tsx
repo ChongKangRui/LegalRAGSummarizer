@@ -47,22 +47,6 @@ export default function ComparePage() {
     const right = strategyOptions.strategies.find((s) => s.value === effectiveStrategyB)
     if (!left || !right) return
 
-    // Map strategy options to PipelineConfig — adjust the fields below to
-    // match however your backend expects the config to be shaped.
-    // const leftConfig: PipelineConfig = {
-    //   id: left.value,
-    //   label: left.label,
-    //   chunking: "",
-    //   retrieval: "",
-    //   summarization: left.value,
-    // }
-    // const rightConfig: PipelineConfig = {
-    //   id: right.value,
-    //   label: right.label,
-    //   chunking: "",
-    //   retrieval: "",
-    //   summarization: right.value,
-    // }
 
     compare.mutate({
       documentId,
@@ -143,8 +127,8 @@ export default function ComparePage() {
 
       {compare.data && (
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          {compare.data.map((result) => (
-            <Card key={result.strategy.value}>
+          {compare.data.map((result,i) => (
+            <Card key={`${result.strategy.value} - ${i}`}>
               <CardHeader>
                 <CardTitle className="text-base">{result.strategy.label}</CardTitle>
                 <div className="flex flex-wrap gap-1.5 pt-1">
