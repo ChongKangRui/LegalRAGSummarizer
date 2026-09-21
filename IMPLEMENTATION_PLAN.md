@@ -282,14 +282,14 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] Frontend polish pass — component cleanup
 - [x] Add loading/error states throughout the frontend
 - [x] Responsive layout pass
-- [ ] Write a `docker-compose.yml` for reproducibility
+- [x] Write a `docker-compose.yml` for reproducibility
 - [x] Move `sentence-transformers` (+ `torch`) and `chromadb` into the `experiments` dependency group (`uv add --group experiments ...`); confirm the production image installs none of them — see [Deployment: embedding backend & memory budget](#deployment-embedding-backend--memory-budget)
 - [x] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
 - [x] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
 - [ ] Deploy with a **single uvicorn worker** (`--workers 1`); warm up the embedding model on startup, not the first request
 - [ ] Deploy backend + frontend to free hosts (Railway/Vercel)
 - [ ] **Verify:** measure peak RSS on the target host under a real query; target ~300–350 MB. If it exceeds the host's RAM, switch `embedder.py` to the `hf-api` provider
-- [ ] **Verify:** confirm the chosen free host gives a persistent volume (not ephemeral storage) for `data/` (the `.npy` vectors + `app.db`, and `data/chroma` if used), or they reset on every redeploy
+~~- [ ] **Verify:** confirm the chosen free host gives a persistent volume (not ephemeral storage) for `data/` (the `.npy` vectors + `app.db`, and `data/chroma` if used), or they reset on every redeploy~~ It is fine to reset on redeploy as a portfolio project. RAG ingestion process will be done during the development phase instead of production.
 
 ## Pitfalls to watch for
 - Don't tune chunk size by eye — use the eval harness (Phase 4) once it exists.
