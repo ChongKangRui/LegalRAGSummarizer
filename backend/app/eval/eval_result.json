@@ -1,14 +1,14 @@
 {
-  "Date": "2026-09-17T09:44:05Z",
+  "Date": "2026-09-21T16:52:06Z",
   "k": 2,
   "vector": {
     "means": {
       "mean_precision": 0.47297297297297297,
       "mean_recall": 0.9054054054054054,
       "mean_rr": 0.8918918918918919,
-      "mean_cv": 0.9285714285714286,
-      "mean_cc": 0.8857142857142857,
-      "no_citation_count": 2,
+      "mean_cv": null,
+      "mean_cc": null,
+      "no_citation_count": 37,
       "generation_failed_count": 0
     },
     "rows": [
@@ -17,234 +17,234 @@
         "precision": 0.0,
         "recall": 0.0,
         "rr": 0,
-        "cv": 1.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7",
           "1.1"
         ],
-        "answer": "Yes. The contract states that it includes “additional terms that may be provided by us when you engage with a feature of the Services,” meaning LinkedIn can add or modify terms after you have initially agreed [7]."
+        "answer": "Please let me know what you’d like to ask about the contract."
       },
       {
         "id": "q002",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.1",
           "3.1"
         ],
-        "answer": "You own the original content you submit or post to LinkedIn’s services. [3.1]"
+        "answer": ""
       },
       {
         "id": "q003",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.3",
           "4.2"
         ],
-        "answer": "Yes. LinkedIn may change its prices only after giving you reasonable notice, to the extent the law permits it [2.3]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q004",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7",
           "4.3"
         ],
-        "answer": "If a court with authority over the Contract finds any part of it unenforceable, the parties agree that the court should first modify that part so it becomes enforceable while still achieving its intended effect. If the court cannot make such a modification, the parties agree to ask the court to remove the unenforceable portion and enforce the remainder of the Contract [7]."
+        "answer": "I’m ready to answer any questions you have about the contract. Please let me know what you’d like to know."
       },
       {
         "id": "q005",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.2",
           "3.1"
         ],
-        "answer": "No. You may not create a false identity, misrepresent your identity, or create a Member profile for anyone other than yourself — such actions are expressly prohibited [8.2]."
+        "answer": "I’m ready to help. Please let me know what question you have about the contract."
       },
       {
         "id": "q006",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.4",
           "5.2"
         ],
-        "answer": "The Products may only be used by individuals who are at least sixteen (16) years old [3.4]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q007",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "12.2"
         ],
-        "answer": "A customer has thirty (30) days from the initial order to terminate and receive a refund [10.3]."
+        "answer": "Please ask a question."
       },
       {
         "id": "q008",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "12.2",
           "12.3"
         ],
-        "answer": "Yes. Under the Termination for Convenience provision, the customer may terminate the Agreement or a Subscription Term upon notice for any reason [12.2]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q009",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.1",
           "7.2"
         ],
-        "answer": "Yes. Atlassian must defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q010",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "20.4",
           "20.14"
         ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe [20.4(a)(i)]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q011",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1",
           "24"
         ],
-        "answer": "The Separation Date is August 4, 2023 [1]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q012",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3",
           "18"
         ],
-        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
+        "answer": "I’m ready to answer any questions you have about the contract."
       },
       {
         "id": "q013",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6",
           "6"
         ],
-        "answer": "Yes. The agreement releases any and all claims arising under Title VII of the Civil Rights Act of 1964 [6]."
+        "answer": "I’m ready to help with any questions you have about the contract clauses you provided. Please let me know what you’d like to know."
       },
       {
         "id": "q014",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5",
           "9"
         ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
+        "answer": "I’m ready to help with any questions you have about the contract clauses you provided. Please let me know what you’d like to know."
       },
       {
         "id": "q015",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "20",
           "20"
         ],
-        "answer": "Disputes arising under the agreement are not to be litigated in court but are resolved through **individual arbitration** (no class or collective actions).  \n\n* If an enforceable arbitration agreement exists between you and the company, the parties will arbitrate under that agreement [20(a)].  \n* If no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under JAMS’s employment arbitration rules, with the arbitrator applying the law of the state where you last worked and issuing a final, binding award [20(b)].  \n\nEach party bears its own counsel fees and expenses, although the arbitrator may award attorneys’ fees to the prevailing party, and the parties waive their right to a judge‑or‑jury trial, though they may still seek injunctive or other provisional relief in a court of competent jurisdiction [20(b)]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q016",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.2",
           "7.10"
         ],
-        "answer": "To purchase alcohol you must be of the statutory legal age, and foodpanda (or the vendor/delivery rider) may require you to show valid proof of age (e.g., an ID card) before delivery and can refuse delivery if you cannot prove your age [5.2]."
+        "answer": "Please let me know what specific question you have about the contract."
       },
       {
         "id": "q017",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.5,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.3.2",
           "5.3"
         ],
-        "answer": "To purchase tobacco products on foodpanda you must be of the statutory legal age, and the vendor (or its delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery. [5.3.2] [5.3.2.1]"
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q018",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.4.2",
           "8.6.1"
         ],
-        "answer": "A customer has ten (10) minutes to receive the Order before it is considered a no‑show [8.4.2]."
+        "answer": "I’m ready to help. What would you like to know about the clauses you provided?"
       },
       {
         "id": "q019",
@@ -257,137 +257,137 @@
           "19.1",
           "6.11"
         ],
-        "answer": "The provided clauses don't state this."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q020",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.2",
           "21.3"
         ],
-        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will process a refund of any Rider Tip you paid [21.2]."
+        "answer": "I have received the context clauses."
       },
       {
         "id": "q021",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 0.5,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "25.3",
           "10.3"
         ],
-        "answer": "Yes. foodpanda may amend these Terms at any time in its sole discretion, and it reserves the right to amend or change any terms and conditions with or without prior notice to you [10.3][25.3]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q022",
         "precision": 0.5,
         "recall": 0.5,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2.2",
           "7.2"
         ],
-        "answer": "A consumer may cancel a ride booking (or simply decide not to appear at the pickup point), but if they do so—or fail to show up—they can be charged a Cancellation Fee, or any other Cancellation Fee that Grab later notifies on its website or platform [7.2.2]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q023",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "24",
           "2"
         ],
-        "answer": "Disputes arising under these Terms of Service are governed by Singapore law [24]."
+        "answer": "Please let me know what you’d like to ask about the contract."
       },
       {
         "id": "q024",
         "precision": 1.0,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "25.3",
           "19.2"
         ],
-        "answer": "A buyer can request a refund by applying for the return of the purchased item and a refund before the Shopee Guarantee Period expires, following the procedures set out in Shopee’s Refunds and Return Policy [19.2]. The buyer may also send a written request to Shopee asking for assistance in resolving the dispute, and Shopee may, at its discretion, take steps to help the buyer (and seller) resolve the issue [25.3]."
+        "answer": "I’ve received the context clauses. Please let me know what you’d like to ask."
       },
       {
         "id": "q025",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "10.2"
         ],
-        "answer": "Sellers receive one (1) free Withdrawal Request each week [10.3]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q026",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "37.2",
           "1.4"
         ],
-        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms of Service on the Site, and your continued use after the changes constitutes acceptance of the revisions [37.2]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q027",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "13.2",
           "13.1"
         ],
-        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
+        "answer": "I have received the context clauses. Please let me know what question you have."
       },
       {
         "id": "q028",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.11",
           "20.6"
         ],
-        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q029",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6.8",
           "6.4"
         ],
-        "answer": "The finance charge for unpaid Fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q030",
@@ -400,98 +400,98 @@
           "15.3",
           "3.1"
         ],
-        "answer": "The provided clauses don't state this."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q031",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.5",
           "7.6"
         ],
-        "answer": "Yes. The agreement provides that the prevailing party in any action or proceeding to enforce its rights “will be entitled to recover costs and attorneys’ fees” [15.5]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q032",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.6",
           "1"
         ],
-        "answer": "Yes. The agreement grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials, subject to the customer’s brand and trademark guidelines [8.6]."
+        "answer": "I’m ready to help. Please let me know what specific question you have about the contract."
       },
       {
         "id": "q033",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.2",
           "1.1"
         ],
-        "answer": "The minimum age to use the Netflix service is at least 18 years old, or the age of majority in your province, territory or country [1.2]."
+        "answer": "How can I help you with the Netflix terms?"
       },
       {
         "id": "q034",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.6",
           "3.2"
         ],
-        "answer": "Yes—you can cancel your Netflix subscription at any time [2.6]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q035",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2",
           "7.3"
         ],
-        "answer": "No. Netflix is not responsible for unsolicited ideas or materials submitted by users for new content; it does not accept unsolicited materials and disclaims responsibility for any similarity to such submissions [7.2]."
+        "answer": "Please let me know what question you have regarding the contract clauses."
       },
       {
         "id": "q036",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.4",
           "4"
         ],
-        "answer": "“Account Sharing” means that the Netflix service and any content accessed through it are intended solely for your personal, non‑commercial use and may not be shared with anyone outside of your household, except where the feature is available in a given country and you have purchased an Extra Member Account [1.4]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q037",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.5",
           "7.6"
         ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable — the remaining provisions continue in full force and effect [7.5]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       }
     ]
   },
@@ -500,9 +500,9 @@
       "mean_precision": 0.4594594594594595,
       "mean_recall": 0.9054054054054054,
       "mean_rr": 0.9054054054054054,
-      "mean_cv": 0.9558823529411765,
-      "mean_cc": 0.9117647058823529,
-      "no_citation_count": 3,
+      "mean_cv": null,
+      "mean_cc": null,
+      "no_citation_count": 37,
       "generation_failed_count": 0
     },
     "rows": [
@@ -517,59 +517,59 @@
           "7",
           "5"
         ],
-        "answer": "The provided clauses don't state this."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q002",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.1",
           "3.1"
         ],
-        "answer": "You own the original content you submit or post to LinkedIn’s services. [3.1]"
+        "answer": ""
       },
       {
         "id": "q003",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.3",
           "1.3"
         ],
-        "answer": "Yes. LinkedIn may change its prices only prospectively and must give you reasonable notice, to the extent that the law permits it [2.3]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q004",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7",
           "4.3"
         ],
-        "answer": "If a court with authority over the Contract finds any part of it unenforceable, the parties agree that the court should first modify that part so it can be enforced while still achieving its intended effect. If the court cannot modify the provision, the parties agree to ask the court to strike out the unenforceable portion and enforce the remainder of the Contract [7]."
+        "answer": "I’m ready to answer any questions you have about the contract. Please let me know what you’d like to know."
       },
       {
         "id": "q005",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.1",
           "8.2"
         ],
-        "answer": "No. LinkedIn’s terms prohibit creating a false identity, misrepresenting your identity, or creating a profile for anyone other than yourself — you may not impersonate someone else or make a fake profile [8.2]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q006",
@@ -582,46 +582,46 @@
           "5.2",
           "7.2"
         ],
-        "answer": "The provided clauses don't state this."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q007",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "12.3"
         ],
-        "answer": "A customer can terminate a new order and receive a refund within thirty (30) days of the initial order [10.3]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q008",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "12.2",
           "12.3"
         ],
-        "answer": "Yes. Under the Termination for Convenience provision, the customer may terminate the Agreement or a Subscription Term upon notice for any reason [12.2]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q009",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.1",
           "7.2"
         ],
-        "answer": "Yes. Atlassian must defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third party’s intellectual‑property rights [15.1]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q010",
@@ -634,358 +634,358 @@
           "20.4",
           "20.5"
         ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe【20.4】."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q011",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1",
           "24"
         ],
-        "answer": "The Separation Date is August 4, 2023 [1]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q012",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3",
           "18"
         ],
-        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q013",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6",
           "6"
         ],
-        "answer": "Yes. The agreement releases any and all claims arising under any federal law or statute, including Title VII of the Civil Rights Act of 1964 [6]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q014",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "9",
           "23"
         ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q015",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "20",
           "20"
         ],
-        "answer": "Disputes arising under the agreement are not to be litigated in court but are resolved through **individual arbitration** (no class or collective actions). If an enforceable arbitration agreement exists between you and the company, that agreement governs the arbitration [20(a)]. If no such agreement exists, the parties must submit the dispute to **JAMS** for individual arbitration under JAMS’s employment arbitration rules and procedures, with the arbitrator applying the law of the state where you last worked and issuing a final, binding award [20(b)]. The parties also waive a right to a judge‑or‑jury trial, although either party may still seek injunctive or other provisional relief in a court of competent jurisdiction [20(b)]."
+        "answer": "I’m ready to help with any questions you have about the contract clauses you provided. Please let me know what you’d like to know."
       },
       {
         "id": "q016",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.2",
           "7.10"
         ],
-        "answer": "To purchase alcohol you must be of the statutory legal age, and foodpanda (or the vendor/delivery rider) may require you to show valid proof of age (e.g., an ID card) before delivery and can refuse delivery if you cannot prove your age [5.2]."
+        "answer": "I have the context clauses. Please let me know your question."
       },
       {
         "id": "q017",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.5,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.3.2",
           "5.3"
         ],
-        "answer": "To purchase tobacco products on foodpanda you must be of the statutory legal age, and the vendor (or its delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery. [5.3.2] [5.3.2.1]"
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q018",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.4.2",
           "8.6.1"
         ],
-        "answer": "A customer has ten (10) minutes to receive the Order before it is considered a no‑show and may be cancelled [8.4.2]."
+        "answer": "I’m ready to help. What would you like to know about the clauses you provided?"
       },
       {
         "id": "q019",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "19.2",
           "6.11"
         ],
-        "answer": "No. foodpanda states that the AI‑generated translations may contain inaccuracies or errors and that it does not warrant their complete accuracy, reliability, or context [19.2]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q020",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.2",
           "21.1"
         ],
-        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will refund any Rider Tip you paid back to the payment method you used for the order [21.2]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q021",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "9.11"
         ],
-        "answer": "Yes. foodpanda may amend these Terms at any time in its sole discretion, with the changes becoming effective immediately upon posting [10.3]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q022",
         "precision": 0.5,
         "recall": 0.5,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2.2",
           "3.3.5"
         ],
-        "answer": "The contract does not specify the exact steps a consumer must take to cancel a ride booking. The provided clauses only address the consequences of a cancellation or a no‑show.  \n\nIf you cancel your ride booking—or simply fail to appear at the designated location—you may be charged a Cancellation Fee (or any other fee that Grab may announce on its website or platform) [7.2.2].  \n\nAdditionally, if the information you gave about the number of passengers is false or inaccurate, the Partner can cancel your booking and also charge a Cancellation Fee in accordance with the Cancellation Policy on Grab’s website [3.3.5].  "
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q023",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "24",
           "2"
         ],
-        "answer": "Disputes arising under these Terms of Service are governed by Singapore law [24]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q024",
         "precision": 0.0,
         "recall": 0.0,
         "rr": 0,
-        "cv": 1.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "19.3",
           "12.3"
         ],
-        "answer": "A buyer can request a refund by making a return‑and‑refund request while the payment is held in the Shopee Guarantee Account during the Shopee Guarantee Period — i.e., any time within that period if the buyer is not satisfied with the purchase [12.3]."
+        "answer": "I’m ready to help. Please let me know what question you have about the contract."
       },
       {
         "id": "q025",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "10.2"
         ],
-        "answer": "Sellers receive one (1) free Withdrawal Request each week [10.3]."
+        "answer": "Please ask a question about the contract."
       },
       {
         "id": "q026",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "37.2",
           "6.2"
         ],
-        "answer": "Yes. Shopee may modify the Terms of Service at any time by posting the revised Terms on the Site, and your continued use after the changes constitutes acceptance of those revisions [37.2]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q027",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "13.2",
           "13.1"
         ],
-        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
+        "answer": "I have received the context clauses. Please let me know what question you have."
       },
       {
         "id": "q028",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.11",
           "21.5"
         ],
-        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q029",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6.8",
           "4.5"
         ],
-        "answer": "The finance charge for unpaid Fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q030",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "9.1",
           "3.1"
         ],
-        "answer": "Yes. GitLab represents and warrants that it has the authority to enter into this Agreement [9.1]."
+        "answer": "How can I help you with the contract?"
       },
       {
         "id": "q031",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.5",
           "7.6"
         ],
-        "answer": "Yes. The agreement provides that the prevailing party is entitled to recover costs and attorneys’ fees in any action or proceeding to enforce its rights [15.5]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q032",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.6",
           "1"
         ],
-        "answer": "Yes. The agreement grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials, subject to the customer’s brand and trademark guidelines [8.6]."
+        "answer": "I’m ready to help. Please let me know what specific question you have about the contract."
       },
       {
         "id": "q033",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.2",
           "1.1"
         ],
-        "answer": "The minimum age to use the Netflix service is at least 18 years old, or the age of majority in your province, territory or country [1.2]."
+        "answer": "How can I help you with the Netflix terms?"
       },
       {
         "id": "q034",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.6",
           "3.2"
         ],
-        "answer": "Yes—you can cancel your Netflix subscription at any time [2.6]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q035",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2",
           "7.3"
         ],
-        "answer": "No. Netflix is not responsible for unsolicited ideas or materials submitted by users for new content; it does not accept unsolicited materials or ideas and disclaims responsibility for any similarity to such submissions [7.2]."
+        "answer": "Please let me know what question you have regarding the contract clauses."
       },
       {
         "id": "q036",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.4",
           "1.1"
         ],
-        "answer": "“Account Sharing” means that the Netflix service and any content you view are for your personal, non‑commercial use only and may not be shared with anyone outside of your household, unless you have purchased an Extra Member Account in countries where that feature is available [1.4]."
+        "answer": "Please let me know what question you have about the contract clauses."
       },
       {
         "id": "q037",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.5",
           "7.6"
         ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable — the remaining provisions continue in full force and effect [7.5]."
+        "answer": "I have received the context clauses."
       }
     ]
   },
@@ -994,9 +994,9 @@
       "mean_precision": 0.4864864864864865,
       "mean_recall": 0.9459459459459459,
       "mean_rr": 0.9459459459459459,
-      "mean_cv": 0.9444444444444444,
-      "mean_cc": 0.8888888888888888,
-      "no_citation_count": 1,
+      "mean_cv": null,
+      "mean_cc": null,
+      "no_citation_count": 37,
       "generation_failed_count": 0
     },
     "rows": [
@@ -1011,475 +1011,475 @@
           "7",
           "1.1"
         ],
-        "answer": "The provided clauses don't state this."
+        "answer": "Please let me know what you’d like to ask about the contract."
       },
       {
         "id": "q002",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.1",
           "3.1"
         ],
-        "answer": "You own the original content you submit or post to LinkedIn — as between you and LinkedIn, the content remains your property [3.1]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q003",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.3",
           "1.3"
         ],
-        "answer": "Yes. LinkedIn may change its prices only prospectively and must give you reasonable notice, to the extent that the law permits it [2.3]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q004",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7",
           "5"
         ],
-        "answer": "If a court with authority over the Contract finds any part of it unenforceable, the parties agree that the court should first modify that portion so it can be enforced while preserving its intent. If the court cannot make such a modification, the parties agree to have the court strike out the unenforceable part and enforce the remainder of the Contract [7]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q005",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.2",
           "8.2"
         ],
-        "answer": "No. Creating a false identity, misrepresenting your identity, or creating a Member profile for anyone other than yourself (i.e., a fake or impersonated profile) is expressly prohibited [8.2]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q006",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3.4",
           "5.2"
         ],
-        "answer": "The Products may only be used by individuals who are at least sixteen (16) years old [3.4]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q007",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "12.3"
         ],
-        "answer": "A customer can terminate a new order and receive a refund within thirty (30) days of the initial order [10.3]."
+        "answer": "I’m ready to help. What question do you have about the contract?"
       },
       {
         "id": "q008",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "12.2",
           "10.3"
         ],
-        "answer": "Yes. The agreement allows the customer to terminate the Agreement or a Subscription Term “upon notice for any reason” [12.2]. Within the first thirty (30) days of an initial order, the customer may also terminate the Subscription Term “for any or no reason” [10.3]."
+        "answer": "I’m ready to help. Please let me know what specific question you have about the contract."
       },
       {
         "id": "q009",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.1",
           "15.6"
         ],
-        "answer": "Yes. Atlassian is required to defend the Customer from any third‑party claim that the Products, when used as authorized, infringe a third‑party’s intellectual‑property rights [15.1]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q010",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "20.4",
           "20.14"
         ],
-        "answer": "The agreement is governed by the laws of the Republic of Ireland when the Customer is domiciled in Europe [20.4(a)(i)]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q011",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1",
           "24"
         ],
-        "answer": "The Separation Date is August 4, 2023 [1]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q012",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "3",
           "8"
         ],
-        "answer": "The employee must submit the final expense reimbursement documents within ten (10) calendar days of receiving the Agreement [3]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q013",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6",
           "8"
         ],
-        "answer": "Yes. The agreement releases claims arising under Title VII of the Civil Rights Act of 1964 as part of “any and all claims arising under any federal law or statute, including, but not limited to Title VII …” [6]."
+        "answer": "I’m ready to help. What specific question do you have about the contract clauses?"
       },
       {
         "id": "q014",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "9",
           "2"
         ],
-        "answer": "Yes. The agreement expressly states that nothing in it limits or prohibits you from providing relevant information to governmental, regulatory, or legislative bodies about a possible violation of law [9]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q015",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 0.0,
-        "cc": 0.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "20",
           "20"
         ],
-        "answer": "Disputes arising under the agreement are not to be litigated in court but are resolved through **individual arbitration** (no class or collective actions).  \n\n* If an enforceable arbitration agreement exists between you and the company, the parties will arbitrate under that agreement [20(a)].  \n* If no such agreement exists, the parties must arbitrate before Judicial Arbitration & Mediation Services (“JAMS”) under JAMS’s employment arbitration rules, with the arbitrator applying the law of the state where you last worked and issuing a final, binding award [20(b)].  \n\nEach party bears its own counsel fees and expenses, although the arbitrator may award attorneys’ fees to the prevailing party, and the parties waive their right to a judge‑or‑jury trial, though they may still seek injunctive or other provisional relief in court [20(b)]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q016",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.2",
           "5.1"
         ],
-        "answer": "To purchase alcohol on foodpanda you must be of the statutory legal age, and foodpanda (or its vendors/delivery riders) may require you to show valid proof of age (e.g., an ID card) before delivery [5.2]."
+        "answer": "I have received the context clauses. Please let me know your question."
       },
       {
         "id": "q017",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "5.3.2",
           "5.2"
         ],
-        "answer": "To purchase tobacco on foodpanda you must be of the statutory legal age, and foodpanda, the Vendor and their delivery riders may ask you for valid proof of age (e.g., an ID card) before delivering the product and can refuse delivery if you cannot prove you are of legal age [5.3.2]."
+        "answer": "I’m ready to answer your question."
       },
       {
         "id": "q018",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.4.2",
           "8.6.1"
         ],
-        "answer": "A customer has ten (10) minutes to receive the Order before it is considered a no‑show [8.4.2]."
+        "answer": "I’m ready to help. What would you like to know about the clauses you provided?"
       },
       {
         "id": "q019",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6.11",
           "19.2"
         ],
-        "answer": "No. foodpanda does not guarantee the accuracy of its AI‑generated chat translations; it states that the translations may contain inaccuracies or errors and that it does not warrant their complete accuracy, reliability, or context [19.2]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q020",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.2",
           "21.3"
         ],
-        "answer": "Yes. If you cancel your order before it is delivered, foodpanda will process a refund of any Rider Tip you paid [21.2]."
+        "answer": "I have received the context clauses."
       },
       {
         "id": "q021",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 0.5,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "9.11",
           "10.3"
         ],
-        "answer": "Yes. foodpanda may amend these Terms at any time in its sole discretion [10.3]."
+        "answer": "I’m ready to answer your question. Please let me know what you’d like to know."
       },
       {
         "id": "q022",
         "precision": 0.5,
         "recall": 0.5,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2.2",
           "7.1.2"
         ],
-        "answer": "A consumer may cancel a ride booking through the Application or Platform, but the cancellation must be for one of the “acceptable cancellation reasons” that are displayed in the app or on the platform, and Grab can change those reasons from time to time [7.1.2].  \n\nIf the consumer either cancels (outside an acceptable reason) or simply does not show up at the designated location, Grab may charge a Cancellation Fee—or any other cancellation fee that Grab later posts on its website or any Grab Platform [7.2.2]."
+        "answer": "Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q023",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "24",
           "24.2"
         ],
-        "answer": "Disputes arising out of or in connection with these Terms of Service are governed by Singapore law and must be referred to arbitration before the Singapore International Arbitration Centre under the SIAC Rules [24] [24.2]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q024",
         "precision": 0.5,
         "recall": 0.5,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 0.5,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "25.3",
           "12.3"
         ],
-        "answer": "A buyer can request a refund by making a return‑and‑refund request while the transaction is still within the Shopee Guarantee Period, and may also send a written request to Shopee asking for assistance in resolving the issue [12.3][25.3]."
+        "answer": "Please let me know what question you have regarding the contract clauses."
       },
       {
         "id": "q025",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "10.3",
           "10.2"
         ],
-        "answer": "Sellers receive one (1) free Withdrawal Request each week [10.3]."
+        "answer": "I’m ready to help. What specific question do you have about the contract clauses?"
       },
       {
         "id": "q026",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "37.2",
           "1.4"
         ],
-        "answer": "Yes. Shopee may modify these Terms of Service at any time by posting the revised Terms of Service on the Site, and your continued use after the changes constitutes acceptance of the revisions [37.2]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       },
       {
         "id": "q027",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "13.2",
           "13.1"
         ],
-        "answer": "No. Transactions that are not completed on the Site using the Shopee Guarantee do not qualify for the Shopee Coins reward system [13.2]."
+        "answer": "I have received the context clauses. Please let me know what question you have."
       },
       {
         "id": "q028",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "21.11",
           "21.5"
         ],
-        "answer": "Yes. Sellers located in Singapore can retrieve the tax invoices for the automatic top‑up of Paid Advertising from the Seller Centre [21.11]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q029",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "6.8",
           "4.5"
         ],
-        "answer": "The finance charge for unpaid Fees is one percent (1.0%) per month, or the maximum permitted by law, whichever is lower [6.8]."
+        "answer": "I’m ready to help. What specific question do you have about the contract?"
       },
       {
         "id": "q030",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "9.1",
           "3.1"
         ],
-        "answer": "Yes. GitLab represents and warrants that it has the authority to enter into this Agreement [9.1]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q031",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "15.5",
           "10.2"
         ],
-        "answer": "Yes. The agreement provides that “the prevailing party will be entitled to recover costs and attorneys’ fees” in any action to enforce rights under the Agreement [15.5]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q032",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "8.6",
           "8.2"
         ],
-        "answer": "Yes. The agreement grants GitLab the right to use the customer’s company name and logo in marketing and promotional materials, subject to the customer’s brand and trademark guidelines [8.6]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q033",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.2",
           "1.1"
         ],
-        "answer": "The minimum age to use the Netflix service is at least 18 years old, or the age of majority in your province, territory or country [1.2]."
+        "answer": "How can I help you with the Netflix terms?"
       },
       {
         "id": "q034",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "2.6",
           "3.2"
         ],
-        "answer": "Yes—you can cancel your Netflix subscription at any time [2.6]."
+        "answer": "I’m ready to help. Please let me know what you’d like to know about the contract."
       },
       {
         "id": "q035",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.2",
           "7.3"
         ],
-        "answer": "No. Netflix is not responsible for unsolicited ideas or materials submitted by users for new content; it does not accept unsolicited materials and disclaims responsibility for any similarity to such submissions [7.2]."
+        "answer": "Please let me know what question you have about the contract."
       },
       {
         "id": "q036",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "1.4",
           "1.1"
         ],
-        "answer": "“Account Sharing” means that the Netflix service and any content you view are for your personal, non‑commercial use only and may not be shared with anyone outside of your household, unless you have purchased an Extra Member Account in countries where that feature is available [1.4]."
+        "answer": "Please let me know what question you have about the contract clauses."
       },
       {
         "id": "q037",
         "precision": 0.5,
         "recall": 1.0,
         "rr": 1.0,
-        "cv": 1.0,
-        "cc": 1.0,
+        "cv": null,
+        "cc": null,
         "retrieved_ids": [
           "7.5",
           "7.6"
         ],
-        "answer": "If any provision of the Terms of Use is held to be invalid, illegal, or unenforceable, the rest of the agreement stays fully effective and enforceable — the remaining provisions continue in full force and effect [7.5]."
+        "answer": "I’m ready to help. What would you like to know about the contract?"
       }
     ]
   }

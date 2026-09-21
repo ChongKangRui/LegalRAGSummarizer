@@ -11,6 +11,8 @@ from app.generation.llm_client import answer
 from app.generation.citation_validator import get_citation, citation_validity, citation_correctness
 from datetime import datetime
 
+import asyncio
+
 async def evaluate(retriever, data, k=5):
     """Run an evaluator over the golden set. `retriever(d) -> list[dict]`"""
     rows = []
@@ -92,7 +94,7 @@ def rerank_retriever(d, k=5, candidate_k=15):
     return rerank(d["question"], hybrid_res, k) 
 
 
-if __name__ == "__main__":
+async def main():
     data = json.loads(GOLDEN_SET_PATH.read_text())
 
     k = 2
@@ -100,18 +102,19 @@ if __name__ == "__main__":
     strategies = {
         "vector":  vector_retriever,
         "hybrid": hybrid_retriever,
-        "hybrid_rerank": rerank_retriever,   
+        "hybrid_rerank": rerank_retriever,
     }
     now = datetime.now()
     iso = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-    report = {"Date": iso,
-                "k" : k
-              }
+    report = {"Date": iso, "k": k}
 
     for name, retriever in strategies.items():
-        print(f"Evaludate retrieval {name}")
-        rows, means = evaluate(retriever, data, k)
+        print(f"Evaluate retrieval {name}")
+        rows, means = await evaluate(retriever, data, k)
         report[name] = {"means": means, "rows": rows}
 
     with open(EVAL_RESULT_PATH, "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=2)
+
+if __name__ == "__main__":
+    asyncio.run(main())
