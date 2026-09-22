@@ -287,8 +287,8 @@ Check items off as you complete them (`- [ ]` → `- [x]`). Each phase ends with
 - [x] Confirm the deployed embedding backend is `fastembed` (quantized ONNX), and bake the model into the image (or accept a one-time ~7 s first-request download)
 - [x] Confirm `vector_store.py` runs its `numpy` backend in deploy (precomputed `.npy`), not Chroma; `ingest.py` / PDF parsing run offline only
 - [ ] Deploy with a **single uvicorn worker** (`--workers 1`); warm up the embedding model on startup, not the first request
-- [ ] Deploy backend + frontend to free hosts (Railway/Vercel)
-- [ ] **Verify:** measure peak RSS on the target host under a real query; target ~300–350 MB. If it exceeds the host's RAM, switch `embedder.py` to the `hf-api` provider
+- [x] Deploy backend + frontend to free hosts (Railway/Vercel)
+- [x] **Verify:** measure peak RSS on the target host under a real query; target ~300–350 MB. If it exceeds the host's RAM, switch `embedder.py` to the `hf-api` provider. ps: Unable to make it under 300-350MB as the text embedded and rerank model are unnegotiable. The best that I can do was to put the server as serverless. Meaning when no activity, it will sleep instead of awake 24/7 which eating more resource under free budget.
 ~~- [ ] **Verify:** confirm the chosen free host gives a persistent volume (not ephemeral storage) for `data/` (the `.npy` vectors + `app.db`, and `data/chroma` if used), or they reset on every redeploy~~ It is fine to reset on redeploy as a portfolio project. RAG ingestion process will be done during the development phase instead of production.
 
 ## Pitfalls to watch for
