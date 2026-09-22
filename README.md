@@ -136,7 +136,7 @@ Now pick **one** of the two setups below.
 One command builds and starts both the backend and frontend together, bind-mounted from source so edits hot-reload without a rebuild.
 
 ```bash
-docker compose -f docker-compose.dev.yml up --build
+docker compose -f docker-compose.dev.yaml up --build
 ```
 
 - Backend → <http://localhost:8000>
