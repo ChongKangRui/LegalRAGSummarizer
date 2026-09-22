@@ -3,7 +3,7 @@ import re
 from pydantic import BaseModel, Field
 
 
-pattern = re.compile(r"\[([^\]]+)\]")
+pattern = re.compile(r"[\[【]([^\]】]+)[\]】]")
 
 
 class CitationResponse(BaseModel):
