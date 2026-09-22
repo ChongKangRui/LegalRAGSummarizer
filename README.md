@@ -218,7 +218,8 @@ The backend runs with a single uvicorn worker (`--workers 1`) — the embedding 
 
 **Prompt Engineering**
  
-- Getting a small model (20B) to reliably follow a narrow formatting rule — cite a clause label *exactly* as given, never invent a sub-part like `(a)` that isn't its own labeled chunk, and never substitute a full-width bracket for an ASCII one — took several iterations: isolating the rule into its own labeled block instead of burying it in prose, showing the specific wrong pattern next to the correct one, and rephrasing it as a literal copy instruction rather than a conditional exception. 
+- Getting a small model (20B) to reliably follow a narrow formatting rule — cite a clause label *exactly* as given, never invent a sub-part like `(a)` that isn't its own labeled chunk, and never substitute a full-width bracket for an ASCII one — took several iterations: isolating the rule into its own labeled block instead of burying it in prose, showing the specific wrong pattern next to the correct one, and rephrasing it as a literal copy instruction rather than a conditional exception. Even after that, the model still slipped occasionally — the reliable fix ended up being normalizing the model's output in code, not extracting more instruction-following from the prompt
+- The broader lesson: prompting can reduce a small model's error *rate* on a narrow formatting rule, but for anything the pipeline can validate or correct deterministically (a bracket character, a citation label against retrieved context), a code-level check is worth adding regardless of how well the prompt performs — it's the difference between "usually correct" and "always correct"
 
 ---
 

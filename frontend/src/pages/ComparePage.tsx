@@ -63,8 +63,7 @@ export default function ComparePage() {
           Compare
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          Same question, two pipeline configs, side by side — e.g. naive baseline vs. structural
-          chunking + hybrid retrieval + rerank.
+          Same question, two configs, side by side — e.g. vector vs rerank.
         </p>
       </div>
 
